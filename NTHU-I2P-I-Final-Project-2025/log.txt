@@ -4559,3 +4559,38 @@
 [11:21:39] [INFO] Teleporting to gym.tmx
 [11:21:42] [INFO] Teleporting to map.tmx
 [11:21:42] [INFO] Teleporting to gym.tmx
+[11:23:40] [INFO] Initializing SceneManager
+[11:23:40] [INFO] Initializing Engine
+[11:23:40] [INFO] Loading image: backgrounds/background1.png
+[11:23:40] [INFO] Loading image: UI/button_play.png
+[11:23:40] [INFO] Loading image: UI/button_play_hover.png
+[11:23:40] [INFO] Loading image: UI/button_setting.png
+[11:23:40] [INFO] Loading image: UI/button_setting_hover.png
+[11:23:40] [INFO] Loading maps
+[11:23:40] [INFO] Loading enemy trainers
+[11:23:40] [INFO] Loading image: character/ow1.png
+[11:23:40] [INFO] Loading image: exclamation.png
+[11:23:40] [INFO] Loading Player
+[11:23:40] [INFO] Loading bag
+[11:23:40] [INFO] Loading image: ingame_ui/options1.png
+[11:23:40] [INFO] Loading image: UI/button_back.png
+[11:23:40] [INFO] Loading image: UI/button_back_hover.png
+[11:23:40] [INFO] Changing scene to 'menu'
+[11:23:40] [INFO] Running the Game Loop ...
+[11:23:40] [INFO] Entering menu scene
+[11:23:40] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[11:23:42] [INFO] [+] Button clicked
+[11:23:42] [INFO] Changing scene to 'game'
+[11:23:42] [INFO] Entering game scene
+[11:23:42] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[11:23:46] [INFO] Teleporting to gym.tmx
+[11:23:50] [INFO] Teleporting to map.tmx
+[11:23:51] [INFO] Teleporting to gym.tmx
+[11:23:53] [INFO] Teleporting to map.tmx
+[11:23:53] [INFO] Teleporting to gym.tmx
+[11:23:54] [INFO] Teleporting to map.tmx
+[11:23:55] [INFO] Teleporting to gym.tmx
+[11:23:55] [INFO] Teleporting to map.tmx
+[11:23:56] [INFO] Teleporting to gym.tmx
+[11:24:02] [INFO] Teleporting to map.tmx
+[11:24:03] [INFO] Teleporting to gym.tmx

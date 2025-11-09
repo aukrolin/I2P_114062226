@@ -50,8 +50,14 @@ class Animation(Sprite):
         self.cur_row = name
         
     def update(self, dt: float):
-         self.accumulator = (self.accumulator + dt) % self.loop
-        
+        self.accumulator = (self.accumulator + dt) % self.loop
+
+    def re_play(self,dt):
+        self.update(dt)
+    def stop(self):
+        self.accumulator = 0
+    
+
     def draw(self, screen: pg.Surface, camera: Optional[PositionCamera] = None):
         frames = self.animations[self.cur_row]
         idx = int((self.accumulator / self.loop) * self.n_keyframes)

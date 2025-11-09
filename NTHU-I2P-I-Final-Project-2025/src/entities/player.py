@@ -42,14 +42,24 @@ class Player(Entity):
         
         self.position = ...
         '''
+
         if input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP):
             dis.y -= 1
+            self.animation.switch("up")
         if input_manager.key_down(pg.K_s) or input_manager.key_down(pg.K_DOWN):
             dis.y += 1
+            self.animation.switch("down")
         if input_manager.key_down(pg.K_a) or input_manager.key_down(pg.K_LEFT):
             dis.x -= 1
+            self.animation.switch("left")
         if input_manager.key_down(pg.K_d) or input_manager.key_down(pg.K_RIGHT):
             dis.x += 1
+            self.animation.switch("right")
+        if dis.x == 0 and dis.y == 0:
+            self.animation.stop()
+        else :
+            self.animation.re_play(dt)
+        
         length = hypot(dis.x, dis.y)
         if length != 0:
             dis.x /= length
@@ -65,19 +75,24 @@ class Player(Entity):
                 return True
             return False
 
-        nx = self.position.x + dis.x * self.speed * dt
-        if not self.check_collision(pg.Rect(nx,self.position.y,GameSettings.TILE_SIZE,GameSettings.TILE_SIZE)):
-            self.position.x = nx
-        else:
-            if not check_teleport_and_switch():
-                self.position.x = self._snap_to_grid(self.position.x)
-        
-        ny = self.position.y + dis.y * self.speed * dt
-        if not self.check_collision(pg.Rect(self.position.x,ny,GameSettings.TILE_SIZE,GameSettings.TILE_SIZE)):
-            self.position.y = ny
-        else :
-            if not check_teleport_and_switch():
-                self.position.y = self._snap_to_grid(self.position.y)
+        def update_position(dis: Position, dt: float):
+            nx = self.position.x + dis.x * self.speed * dt
+            ny = self.position.y + dis.y * self.speed * dt
+            GSTZ = GameSettings.TILE_SIZE
+            
+            if self.check_collision(pg.Rect(nx, self.position.y, GSTZ, GSTZ)):
+                if not check_teleport_and_switch(): # if so, handled in the calling function
+                    self.position.x = self._snap_to_grid(self.position.x)
+            else:
+                self.position.x = nx
+
+            if self.check_collision(pg.Rect(self.position.x, ny, GSTZ, GSTZ)):
+                if not check_teleport_and_switch(): # if so, handled in the calling function
+                    self.position.y = self._snap_to_grid(self.position.y)
+            else:
+                self.position.y = ny
+                    
+        update_position(dis, dt)
 
 
         super().update(dt)

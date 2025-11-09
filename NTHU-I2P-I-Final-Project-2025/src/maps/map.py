@@ -53,9 +53,9 @@ class Map:
         for tp in self.teleporters:
             # if tp.get_hitbox().collidepoint(pos.x, pos.y):
                 # return tp
-            print(f'TP{tp.pos.x},{tp.pos.y} vs Pos {pos.x},{pos.y}')
+            halfGSTZ = GameSettings.TILE_SIZE // 2
             hitbox = pg.Rect(tp.pos.x, tp.pos.y, GameSettings.TILE_SIZE, GameSettings.TILE_SIZE)
-            if hitbox.collidepoint(pos.x, pos.y):
+            if hitbox.collidepoint(pos.x + halfGSTZ, pos.y + halfGSTZ):
                 return tp
         return None
 
@@ -95,7 +95,6 @@ class Map:
                             GameSettings.TILE_SIZE,
                             GameSettings.TILE_SIZE
                         ))
-                        pass
         return rects
 
     @classmethod

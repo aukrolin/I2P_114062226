@@ -63,6 +63,7 @@ class GameManager:
             
     def try_switch_map(self) -> None:
         if self.should_change_scene:
+            self.maps[self.current_map_key].spawn = self.player.position 
             self.current_map_key = self.next_map
             self.next_map = ""
             self.should_change_scene = False
@@ -126,7 +127,6 @@ class GameManager:
         maps: dict[str, Map] = {}
         player_spawns: dict[str, Position] = {}
         trainers: dict[str, list[EnemyTrainer]] = {}
-
         for entry in maps_data:
             path = entry["path"]
             maps[path] = Map.from_dict(entry)

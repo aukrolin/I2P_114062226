@@ -1996,3 +1996,1884 @@
 [23:12:43] [INFO] Changing scene to 'menu'
 [23:12:44] [INFO] Entering menu scene
 [23:12:44] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:47:29] [INFO] Initializing SceneManager
+[23:47:29] [INFO] Initializing Engine
+[23:47:29] [INFO] Loading image: backgrounds/background1.png
+[23:47:29] [INFO] Loading image: UI/button_play.png
+[23:47:29] [INFO] Loading image: UI/button_play_hover.png
+[23:47:29] [INFO] Loading image: UI/button_setting.png
+[23:47:29] [INFO] Loading image: UI/button_setting_hover.png
+[23:47:29] [INFO] Loading maps
+[23:47:29] [INFO] Loading enemy trainers
+[23:47:29] [INFO] Loading image: character/ow1.png
+[23:47:29] [INFO] Loading image: exclamation.png
+[23:47:29] [INFO] Loading Player
+[23:47:29] [INFO] Loading bag
+[23:47:29] [INFO] Loading image: ingame_ui/options1.png
+[23:47:29] [INFO] Loading image: UI/button_back.png
+[23:47:29] [INFO] Loading image: UI/button_back_hover.png
+[23:47:29] [INFO] Changing scene to 'menu'
+[23:47:29] [INFO] Running the Game Loop ...
+[23:47:29] [INFO] Entering menu scene
+[23:47:29] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:47:30] [INFO] [+] Button clicked
+[23:47:30] [INFO] Changing scene to 'game'
+[23:47:30] [INFO] Entering game scene
+[23:47:30] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[23:48:46] [INFO] Initializing SceneManager
+[23:48:47] [INFO] Initializing Engine
+[23:48:47] [INFO] Loading image: backgrounds/background1.png
+[23:48:47] [INFO] Loading image: UI/button_play.png
+[23:48:47] [INFO] Loading image: UI/button_play_hover.png
+[23:48:47] [INFO] Loading image: UI/button_setting.png
+[23:48:47] [INFO] Loading image: UI/button_setting_hover.png
+[23:48:47] [INFO] Loading maps
+[23:48:47] [INFO] Loading enemy trainers
+[23:48:47] [INFO] Loading image: character/ow1.png
+[23:48:47] [INFO] Loading image: exclamation.png
+[23:48:47] [INFO] Loading Player
+[23:48:47] [INFO] Loading bag
+[23:48:47] [INFO] Loading image: ingame_ui/options1.png
+[23:48:47] [INFO] Loading image: UI/button_back.png
+[23:48:47] [INFO] Loading image: UI/button_back_hover.png
+[23:48:47] [INFO] Changing scene to 'menu'
+[23:48:47] [INFO] Running the Game Loop ...
+[23:48:47] [INFO] Entering menu scene
+[23:48:47] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:48:49] [INFO] [+] Button clicked
+[23:48:49] [INFO] Changing scene to 'game'
+[23:48:49] [INFO] Entering game scene
+[23:48:49] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[23:51:09] [INFO] Initializing SceneManager
+[23:51:09] [INFO] Initializing Engine
+[23:51:09] [INFO] Loading image: backgrounds/background1.png
+[23:51:09] [INFO] Loading image: UI/button_play.png
+[23:51:09] [INFO] Loading image: UI/button_play_hover.png
+[23:51:09] [INFO] Loading image: UI/button_setting.png
+[23:51:09] [INFO] Loading image: UI/button_setting_hover.png
+[23:51:09] [INFO] Loading maps
+[23:51:09] [INFO] Loading enemy trainers
+[23:51:09] [INFO] Loading image: character/ow1.png
+[23:51:09] [INFO] Loading image: exclamation.png
+[23:51:09] [INFO] Loading Player
+[23:51:09] [INFO] Loading bag
+[23:51:09] [INFO] Loading image: ingame_ui/options1.png
+[23:51:09] [INFO] Loading image: UI/button_back.png
+[23:51:09] [INFO] Loading image: UI/button_back_hover.png
+[23:51:09] [INFO] Changing scene to 'menu'
+[23:51:09] [INFO] Running the Game Loop ...
+[23:51:09] [INFO] Entering menu scene
+[23:51:09] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:51:10] [INFO] [+] Button clicked
+[23:51:10] [INFO] Changing scene to 'game'
+[23:51:10] [INFO] Entering game scene
+[23:51:10] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[23:54:49] [INFO] Initializing SceneManager
+[23:54:49] [INFO] Initializing Engine
+[23:54:49] [INFO] Loading image: backgrounds/background1.png
+[23:54:49] [INFO] Loading image: UI/button_play.png
+[23:54:49] [INFO] Loading image: UI/button_play_hover.png
+[23:54:49] [INFO] Loading image: UI/button_setting.png
+[23:54:49] [INFO] Loading image: UI/button_setting_hover.png
+[23:54:49] [INFO] Loading maps
+[23:54:49] [INFO] Loading enemy trainers
+[23:54:49] [INFO] Loading image: character/ow1.png
+[23:54:49] [INFO] Loading image: exclamation.png
+[23:54:49] [INFO] Loading Player
+[23:54:49] [INFO] Loading bag
+[23:54:49] [INFO] Loading image: ingame_ui/options1.png
+[23:54:49] [INFO] Loading image: UI/button_back.png
+[23:54:49] [INFO] Loading image: UI/button_back_hover.png
+[23:54:49] [INFO] Changing scene to 'menu'
+[23:54:49] [INFO] Running the Game Loop ...
+[23:54:49] [INFO] Entering menu scene
+[23:54:49] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:54:50] [INFO] [+] Button clicked
+[23:54:50] [INFO] Changing scene to 'game'
+[23:54:50] [INFO] Entering game scene
+[23:54:50] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[23:58:08] [INFO] Initializing SceneManager
+[23:58:08] [INFO] Initializing Engine
+[23:58:08] [INFO] Loading image: backgrounds/background1.png
+[23:58:08] [INFO] Loading image: UI/button_play.png
+[23:58:08] [INFO] Loading image: UI/button_play_hover.png
+[23:58:08] [INFO] Loading image: UI/button_setting.png
+[23:58:08] [INFO] Loading image: UI/button_setting_hover.png
+[23:58:08] [INFO] Loading maps
+[23:58:09] [INFO] Loading enemy trainers
+[23:58:09] [INFO] Loading image: character/ow1.png
+[23:58:09] [INFO] Loading image: exclamation.png
+[23:58:09] [INFO] Loading Player
+[23:58:09] [INFO] Loading bag
+[23:58:09] [INFO] Loading image: ingame_ui/options1.png
+[23:58:09] [INFO] Loading image: UI/button_back.png
+[23:58:09] [INFO] Loading image: UI/button_back_hover.png
+[23:58:09] [INFO] Changing scene to 'menu'
+[23:58:09] [INFO] Running the Game Loop ...
+[23:58:09] [INFO] Entering menu scene
+[23:58:09] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[23:58:09] [INFO] [+] Button clicked
+[23:58:09] [INFO] Changing scene to 'game'
+[23:58:09] [INFO] Entering game scene
+[23:58:09] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:01:34] [INFO] Initializing SceneManager
+[00:01:34] [INFO] Initializing Engine
+[00:01:35] [INFO] Loading image: backgrounds/background1.png
+[00:01:35] [INFO] Loading image: UI/button_play.png
+[00:01:35] [INFO] Loading image: UI/button_play_hover.png
+[00:01:35] [INFO] Loading image: UI/button_setting.png
+[00:01:35] [INFO] Loading image: UI/button_setting_hover.png
+[00:01:35] [INFO] Loading maps
+[00:01:35] [INFO] Loading enemy trainers
+[00:01:35] [INFO] Loading image: character/ow1.png
+[00:01:35] [INFO] Loading image: exclamation.png
+[00:01:35] [INFO] Loading Player
+[00:01:35] [INFO] Loading bag
+[00:01:35] [INFO] Loading image: ingame_ui/options1.png
+[00:01:35] [INFO] Loading image: UI/button_back.png
+[00:01:35] [INFO] Loading image: UI/button_back_hover.png
+[00:01:35] [INFO] Changing scene to 'menu'
+[00:01:35] [INFO] Running the Game Loop ...
+[00:01:35] [INFO] Entering menu scene
+[00:01:35] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:01:36] [INFO] [+] Button clicked
+[00:01:36] [INFO] Changing scene to 'game'
+[00:01:36] [INFO] Entering game scene
+[00:01:36] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:02:49] [INFO] Initializing SceneManager
+[00:02:49] [INFO] Initializing Engine
+[00:02:49] [INFO] Loading image: backgrounds/background1.png
+[00:02:49] [INFO] Loading image: UI/button_play.png
+[00:02:49] [INFO] Loading image: UI/button_play_hover.png
+[00:02:49] [INFO] Loading image: UI/button_setting.png
+[00:02:49] [INFO] Loading image: UI/button_setting_hover.png
+[00:02:49] [INFO] Loading maps
+[00:02:49] [INFO] Loading enemy trainers
+[00:02:49] [INFO] Loading image: character/ow1.png
+[00:02:49] [INFO] Loading image: exclamation.png
+[00:02:49] [INFO] Loading Player
+[00:02:49] [INFO] Loading bag
+[00:02:49] [INFO] Loading image: ingame_ui/options1.png
+[00:02:49] [INFO] Loading image: UI/button_back.png
+[00:02:49] [INFO] Loading image: UI/button_back_hover.png
+[00:02:49] [INFO] Changing scene to 'menu'
+[00:02:49] [INFO] Running the Game Loop ...
+[00:02:49] [INFO] Entering menu scene
+[00:02:49] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:02:51] [INFO] [+] Button clicked
+[00:02:51] [INFO] Changing scene to 'game'
+[00:02:51] [INFO] Entering game scene
+[00:02:51] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:04:54] [INFO] Initializing SceneManager
+[00:04:54] [INFO] Initializing Engine
+[00:04:54] [INFO] Loading image: backgrounds/background1.png
+[00:04:54] [INFO] Loading image: UI/button_play.png
+[00:04:54] [INFO] Loading image: UI/button_play_hover.png
+[00:04:54] [INFO] Loading image: UI/button_setting.png
+[00:04:54] [INFO] Loading image: UI/button_setting_hover.png
+[00:04:54] [INFO] Loading maps
+[00:04:54] [INFO] Loading enemy trainers
+[00:04:54] [INFO] Loading image: character/ow1.png
+[00:04:54] [INFO] Loading image: exclamation.png
+[00:04:54] [INFO] Loading Player
+[00:04:54] [INFO] Loading bag
+[00:04:54] [INFO] Loading image: ingame_ui/options1.png
+[00:04:54] [INFO] Loading image: UI/button_back.png
+[00:04:54] [INFO] Loading image: UI/button_back_hover.png
+[00:04:54] [INFO] Changing scene to 'menu'
+[00:04:54] [INFO] Running the Game Loop ...
+[00:04:54] [INFO] Entering menu scene
+[00:04:54] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:04:55] [INFO] [+] Button clicked
+[00:04:55] [INFO] Changing scene to 'game'
+[00:04:55] [INFO] Entering game scene
+[00:04:55] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:05:18] [INFO] Initializing SceneManager
+[00:05:18] [INFO] Initializing Engine
+[00:05:18] [INFO] Loading image: backgrounds/background1.png
+[00:05:18] [INFO] Loading image: UI/button_play.png
+[00:05:18] [INFO] Loading image: UI/button_play_hover.png
+[00:05:18] [INFO] Loading image: UI/button_setting.png
+[00:05:18] [INFO] Loading image: UI/button_setting_hover.png
+[00:05:18] [INFO] Loading maps
+[00:05:18] [INFO] Loading enemy trainers
+[00:05:18] [INFO] Loading image: character/ow1.png
+[00:05:18] [INFO] Loading image: exclamation.png
+[00:05:18] [INFO] Loading Player
+[00:05:18] [INFO] Loading bag
+[00:05:18] [INFO] Loading image: ingame_ui/options1.png
+[00:05:18] [INFO] Loading image: UI/button_back.png
+[00:05:18] [INFO] Loading image: UI/button_back_hover.png
+[00:05:18] [INFO] Changing scene to 'menu'
+[00:05:18] [INFO] Running the Game Loop ...
+[00:05:18] [INFO] Entering menu scene
+[00:05:18] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:05:19] [INFO] [+] Button clicked
+[00:05:19] [INFO] Changing scene to 'game'
+[00:05:19] [INFO] Entering game scene
+[00:05:19] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:05:23] [INFO] Teleporting to gym.tmx
+[00:05:36] [INFO] Teleporting to map.tmx
+[00:05:40] [INFO] Teleporting to gym.tmx
+[00:05:41] [INFO] Teleporting to map.tmx
+[00:05:50] [INFO] Teleporting to gym.tmx
+[00:06:19] [INFO] Initializing SceneManager
+[00:06:19] [INFO] Initializing Engine
+[00:06:20] [INFO] Loading image: backgrounds/background1.png
+[00:06:20] [INFO] Loading image: UI/button_play.png
+[00:06:20] [INFO] Loading image: UI/button_play_hover.png
+[00:06:20] [INFO] Loading image: UI/button_setting.png
+[00:06:20] [INFO] Loading image: UI/button_setting_hover.png
+[00:06:20] [INFO] Loading maps
+[00:06:20] [INFO] Loading enemy trainers
+[00:06:20] [INFO] Loading image: character/ow1.png
+[00:06:20] [INFO] Loading image: exclamation.png
+[00:06:20] [INFO] Loading Player
+[00:06:20] [INFO] Loading bag
+[00:06:20] [INFO] Loading image: ingame_ui/options1.png
+[00:06:20] [INFO] Loading image: UI/button_back.png
+[00:06:20] [INFO] Loading image: UI/button_back_hover.png
+[00:06:20] [INFO] Changing scene to 'menu'
+[00:06:20] [INFO] Running the Game Loop ...
+[00:06:20] [INFO] Entering menu scene
+[00:06:20] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:06:21] [INFO] [+] Button clicked
+[00:06:21] [INFO] Changing scene to 'game'
+[00:06:21] [INFO] Entering game scene
+[00:06:21] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:06:24] [INFO] Teleporting to gym.tmx
+[00:06:25] [INFO] Teleporting to map.tmx
+[00:06:29] [INFO] Teleporting to gym.tmx
+[00:06:29] [INFO] Teleporting to map.tmx
+[00:06:30] [INFO] Teleporting to gym.tmx
+[00:06:30] [INFO] Teleporting to map.tmx
+[00:06:31] [INFO] Teleporting to gym.tmx
+[00:06:32] [INFO] Teleporting to map.tmx
+[00:06:32] [INFO] Teleporting to gym.tmx
+[00:06:33] [INFO] Teleporting to map.tmx
+[00:06:33] [INFO] Teleporting to gym.tmx
+[00:06:34] [INFO] Teleporting to map.tmx
+[00:06:36] [INFO] Teleporting to gym.tmx
+[00:06:37] [INFO] Teleporting to map.tmx
+[00:06:37] [INFO] Teleporting to gym.tmx
+[00:06:38] [INFO] Teleporting to map.tmx
+[00:06:38] [INFO] Teleporting to gym.tmx
+[00:06:38] [INFO] Teleporting to map.tmx
+[00:06:39] [INFO] Teleporting to gym.tmx
+[00:07:03] [INFO] Teleporting to map.tmx
+[00:07:08] [INFO] Teleporting to gym.tmx
+[00:07:09] [INFO] Teleporting to map.tmx
+[00:07:10] [INFO] Teleporting to gym.tmx
+[00:07:11] [INFO] Teleporting to map.tmx
+[00:07:58] [INFO] Initializing SceneManager
+[00:07:58] [INFO] Initializing Engine
+[00:07:58] [INFO] Loading image: backgrounds/background1.png
+[00:07:58] [INFO] Loading image: UI/button_play.png
+[00:07:58] [INFO] Loading image: UI/button_play_hover.png
+[00:07:58] [INFO] Loading image: UI/button_setting.png
+[00:07:58] [INFO] Loading image: UI/button_setting_hover.png
+[00:07:58] [INFO] Loading maps
+[00:07:58] [INFO] Loading enemy trainers
+[00:07:58] [INFO] Loading image: character/ow1.png
+[00:07:58] [INFO] Loading image: exclamation.png
+[00:07:58] [INFO] Loading Player
+[00:07:58] [INFO] Loading bag
+[00:07:58] [INFO] Loading image: ingame_ui/options1.png
+[00:07:58] [INFO] Loading image: UI/button_back.png
+[00:07:58] [INFO] Loading image: UI/button_back_hover.png
+[00:07:58] [INFO] Changing scene to 'menu'
+[00:07:58] [INFO] Running the Game Loop ...
+[00:07:58] [INFO] Entering menu scene
+[00:07:58] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:08:00] [INFO] [+] Button clicked
+[00:08:00] [INFO] Changing scene to 'game'
+[00:08:00] [INFO] Entering game scene
+[00:08:00] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:09:36] [INFO] Initializing SceneManager
+[00:09:36] [INFO] Initializing Engine
+[00:09:36] [INFO] Loading image: backgrounds/background1.png
+[00:09:36] [INFO] Loading image: UI/button_play.png
+[00:09:36] [INFO] Loading image: UI/button_play_hover.png
+[00:09:36] [INFO] Loading image: UI/button_setting.png
+[00:09:36] [INFO] Loading image: UI/button_setting_hover.png
+[00:09:36] [INFO] Loading maps
+[00:09:36] [INFO] Loading enemy trainers
+[00:09:36] [INFO] Loading image: character/ow1.png
+[00:09:36] [INFO] Loading image: exclamation.png
+[00:09:36] [INFO] Loading Player
+[00:09:36] [INFO] Loading bag
+[00:09:36] [INFO] Loading image: ingame_ui/options1.png
+[00:09:36] [INFO] Loading image: UI/button_back.png
+[00:09:36] [INFO] Loading image: UI/button_back_hover.png
+[00:09:36] [INFO] Changing scene to 'menu'
+[00:09:36] [INFO] Running the Game Loop ...
+[00:09:36] [INFO] Entering menu scene
+[00:09:36] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:09:37] [INFO] [+] Button clicked
+[00:09:37] [INFO] Changing scene to 'game'
+[00:09:37] [INFO] Entering game scene
+[00:09:37] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:09:40] [INFO] Teleporting to gym.tmx
+[00:09:42] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:47] [INFO] Teleporting to gym.tmx
+[00:09:47] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:48] [INFO] Teleporting to gym.tmx
+[00:09:48] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:49] [INFO] Teleporting to gym.tmx
+[00:09:49] [INFO] Teleporting to map.tmx
+[00:09:50] [INFO] Teleporting to gym.tmx
+[00:09:50] [INFO] Teleporting to map.tmx
+[00:09:50] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:51] [INFO] Teleporting to map.tmx
+[00:09:51] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:52] [INFO] Teleporting to gym.tmx
+[00:09:52] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:53] [INFO] Teleporting to gym.tmx
+[00:09:53] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:54] [INFO] Teleporting to gym.tmx
+[00:09:54] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:55] [INFO] Teleporting to gym.tmx
+[00:09:55] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:56] [INFO] Teleporting to gym.tmx
+[00:09:56] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:57] [INFO] Teleporting to gym.tmx
+[00:09:57] [INFO] Teleporting to map.tmx
+[00:09:58] [INFO] Teleporting to gym.tmx
+[00:09:58] [INFO] Teleporting to map.tmx
+[00:09:58] [INFO] Teleporting to gym.tmx
+[00:09:58] [INFO] Teleporting to map.tmx
+[00:09:58] [INFO] Teleporting to gym.tmx
+[00:09:59] [INFO] Teleporting to map.tmx
+[00:09:59] [INFO] Teleporting to gym.tmx
+[00:09:59] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:00] [INFO] Teleporting to map.tmx
+[00:10:00] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:01] [INFO] Teleporting to gym.tmx
+[00:10:01] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:02] [INFO] Teleporting to gym.tmx
+[00:10:02] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:03] [INFO] Teleporting to map.tmx
+[00:10:03] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:04] [INFO] Teleporting to map.tmx
+[00:10:04] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:05] [INFO] Teleporting to map.tmx
+[00:10:05] [INFO] Teleporting to gym.tmx
+[00:10:06] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:07] [INFO] Teleporting to map.tmx
+[00:10:07] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:08] [INFO] Teleporting to gym.tmx
+[00:10:08] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:09] [INFO] Teleporting to map.tmx
+[00:10:09] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:10] [INFO] Teleporting to gym.tmx
+[00:10:10] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:11] [INFO] Teleporting to map.tmx
+[00:10:11] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:12] [INFO] Teleporting to gym.tmx
+[00:10:12] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:13] [INFO] Teleporting to gym.tmx
+[00:10:13] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:17] [INFO] Teleporting to gym.tmx
+[00:10:17] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:18] [INFO] Teleporting to gym.tmx
+[00:10:18] [INFO] Teleporting to map.tmx
+[00:10:19] [INFO] Teleporting to gym.tmx
+[00:10:19] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:20] [INFO] Teleporting to gym.tmx
+[00:10:20] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:21] [INFO] Teleporting to gym.tmx
+[00:10:21] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:22] [INFO] Teleporting to gym.tmx
+[00:10:22] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:23] [INFO] Teleporting to gym.tmx
+[00:10:23] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:24] [INFO] Teleporting to gym.tmx
+[00:10:24] [INFO] Teleporting to map.tmx
+[00:10:25] [INFO] Teleporting to gym.tmx
+[00:10:25] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:26] [INFO] Teleporting to gym.tmx
+[00:10:26] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:36] [INFO] Teleporting to map.tmx
+[00:10:36] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:37] [INFO] Teleporting to gym.tmx
+[00:10:37] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:10:38] [INFO] Teleporting to gym.tmx
+[00:10:38] [INFO] Teleporting to map.tmx
+[00:11:05] [INFO] Initializing SceneManager
+[00:11:05] [INFO] Initializing Engine
+[00:11:05] [INFO] Loading image: backgrounds/background1.png
+[00:11:05] [INFO] Loading image: UI/button_play.png
+[00:11:05] [INFO] Loading image: UI/button_play_hover.png
+[00:11:05] [INFO] Loading image: UI/button_setting.png
+[00:11:05] [INFO] Loading image: UI/button_setting_hover.png
+[00:11:05] [INFO] Loading maps
+[00:11:05] [INFO] Loading enemy trainers
+[00:11:05] [INFO] Loading image: character/ow1.png
+[00:11:05] [INFO] Loading image: exclamation.png
+[00:11:05] [INFO] Loading Player
+[00:11:05] [INFO] Loading bag
+[00:11:05] [INFO] Loading image: ingame_ui/options1.png
+[00:11:05] [INFO] Loading image: UI/button_back.png
+[00:11:05] [INFO] Loading image: UI/button_back_hover.png
+[00:11:05] [INFO] Changing scene to 'menu'
+[00:11:05] [INFO] Running the Game Loop ...
+[00:11:05] [INFO] Entering menu scene
+[00:11:05] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:11:07] [INFO] [+] Button clicked
+[00:11:07] [INFO] Changing scene to 'game'
+[00:11:07] [INFO] Entering game scene
+[00:11:07] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:12:06] [INFO] Initializing SceneManager
+[00:12:06] [INFO] Initializing Engine
+[00:12:06] [INFO] Loading image: backgrounds/background1.png
+[00:12:06] [INFO] Loading image: UI/button_play.png
+[00:12:06] [INFO] Loading image: UI/button_play_hover.png
+[00:12:06] [INFO] Loading image: UI/button_setting.png
+[00:12:06] [INFO] Loading image: UI/button_setting_hover.png
+[00:12:06] [INFO] Loading maps
+[00:12:06] [INFO] Loading enemy trainers
+[00:12:06] [INFO] Loading image: character/ow1.png
+[00:12:06] [INFO] Loading image: exclamation.png
+[00:12:06] [INFO] Loading Player
+[00:12:06] [INFO] Loading bag
+[00:12:06] [INFO] Loading image: ingame_ui/options1.png
+[00:12:06] [INFO] Loading image: UI/button_back.png
+[00:12:06] [INFO] Loading image: UI/button_back_hover.png
+[00:12:06] [INFO] Changing scene to 'menu'
+[00:12:06] [INFO] Running the Game Loop ...
+[00:12:06] [INFO] Entering menu scene
+[00:12:06] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:12:08] [INFO] [+] Button clicked
+[00:12:08] [INFO] Changing scene to 'game'
+[00:12:08] [INFO] Entering game scene
+[00:12:08] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:12:11] [INFO] Teleporting to gym.tmx
+[00:12:15] [INFO] Teleporting to map.tmx
+[00:12:19] [INFO] Teleporting to gym.tmx
+[00:12:35] [INFO] Teleporting to map.tmx
+[00:12:35] [INFO] Teleporting to gym.tmx
+[00:12:56] [INFO] Initializing SceneManager
+[00:12:56] [INFO] Initializing Engine
+[00:12:57] [INFO] Loading image: backgrounds/background1.png
+[00:12:57] [INFO] Loading image: UI/button_play.png
+[00:12:57] [INFO] Loading image: UI/button_play_hover.png
+[00:12:57] [INFO] Loading image: UI/button_setting.png
+[00:12:57] [INFO] Loading image: UI/button_setting_hover.png
+[00:12:57] [INFO] Loading maps
+[00:12:57] [INFO] Loading enemy trainers
+[00:12:57] [INFO] Loading image: character/ow1.png
+[00:12:57] [INFO] Loading image: exclamation.png
+[00:12:57] [INFO] Loading Player
+[00:12:57] [INFO] Loading bag
+[00:12:57] [INFO] Loading image: ingame_ui/options1.png
+[00:12:57] [INFO] Loading image: UI/button_back.png
+[00:12:57] [INFO] Loading image: UI/button_back_hover.png
+[00:12:57] [INFO] Changing scene to 'menu'
+[00:12:57] [INFO] Running the Game Loop ...
+[00:12:57] [INFO] Entering menu scene
+[00:12:57] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:12:59] [INFO] [+] Button clicked
+[00:12:59] [INFO] Changing scene to 'game'
+[00:12:59] [INFO] Entering game scene
+[00:12:59] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:13:02] [INFO] Teleporting to gym.tmx
+[00:14:52] [INFO] Initializing SceneManager
+[00:14:52] [INFO] Initializing Engine
+[00:14:52] [INFO] Loading image: backgrounds/background1.png
+[00:14:52] [INFO] Loading image: UI/button_play.png
+[00:14:52] [INFO] Loading image: UI/button_play_hover.png
+[00:14:52] [INFO] Loading image: UI/button_setting.png
+[00:14:52] [INFO] Loading image: UI/button_setting_hover.png
+[00:14:52] [INFO] Loading maps
+[00:14:54] [INFO] Initializing SceneManager
+[00:14:54] [INFO] Initializing Engine
+[00:14:54] [INFO] Loading image: backgrounds/background1.png
+[00:14:54] [INFO] Loading image: UI/button_play.png
+[00:14:54] [INFO] Loading image: UI/button_play_hover.png
+[00:14:54] [INFO] Loading image: UI/button_setting.png
+[00:14:54] [INFO] Loading image: UI/button_setting_hover.png
+[00:14:54] [INFO] Loading maps
+[00:15:01] [INFO] Initializing SceneManager
+[00:15:01] [INFO] Initializing Engine
+[00:15:01] [INFO] Loading image: backgrounds/background1.png
+[00:15:01] [INFO] Loading image: UI/button_play.png
+[00:15:01] [INFO] Loading image: UI/button_play_hover.png
+[00:15:01] [INFO] Loading image: UI/button_setting.png
+[00:15:01] [INFO] Loading image: UI/button_setting_hover.png
+[00:15:01] [INFO] Loading maps
+[00:15:01] [INFO] Loading enemy trainers
+[00:15:01] [INFO] Loading image: character/ow1.png
+[00:15:01] [INFO] Loading image: exclamation.png
+[00:15:01] [INFO] Loading Player
+[00:15:01] [INFO] Loading bag
+[00:15:01] [INFO] Loading image: ingame_ui/options1.png
+[00:15:01] [INFO] Loading image: UI/button_back.png
+[00:15:01] [INFO] Loading image: UI/button_back_hover.png
+[00:15:01] [INFO] Changing scene to 'menu'
+[00:15:01] [INFO] Running the Game Loop ...
+[00:15:01] [INFO] Entering menu scene
+[00:15:01] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:15:02] [INFO] [+] Button clicked
+[00:15:02] [INFO] Changing scene to 'game'
+[00:15:02] [INFO] Entering game scene
+[00:15:02] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:15:05] [INFO] Teleporting to gym.tmx
+[00:15:19] [INFO] Initializing SceneManager
+[00:15:19] [INFO] Initializing Engine
+[00:15:19] [INFO] Loading image: backgrounds/background1.png
+[00:15:19] [INFO] Loading image: UI/button_play.png
+[00:15:19] [INFO] Loading image: UI/button_play_hover.png
+[00:15:19] [INFO] Loading image: UI/button_setting.png
+[00:15:19] [INFO] Loading image: UI/button_setting_hover.png
+[00:15:19] [INFO] Loading maps
+[00:15:19] [INFO] Loading enemy trainers
+[00:15:19] [INFO] Loading image: character/ow1.png
+[00:15:19] [INFO] Loading image: exclamation.png
+[00:15:19] [INFO] Loading Player
+[00:15:19] [INFO] Loading bag
+[00:15:19] [INFO] Loading image: ingame_ui/options1.png
+[00:15:19] [INFO] Loading image: UI/button_back.png
+[00:15:19] [INFO] Loading image: UI/button_back_hover.png
+[00:15:19] [INFO] Changing scene to 'menu'
+[00:15:19] [INFO] Running the Game Loop ...
+[00:15:19] [INFO] Entering menu scene
+[00:15:19] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:15:20] [INFO] [+] Button clicked
+[00:15:20] [INFO] Changing scene to 'game'
+[00:15:20] [INFO] Entering game scene
+[00:15:20] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:15:25] [INFO] Teleporting to gym.tmx
+[00:15:26] [INFO] Teleporting to map.tmx
+[00:15:30] [INFO] Teleporting to gym.tmx
+[00:15:31] [INFO] Teleporting to map.tmx
+[00:16:52] [INFO] Initializing SceneManager
+[00:16:52] [INFO] Initializing Engine
+[00:16:52] [INFO] Loading image: backgrounds/background1.png
+[00:16:52] [INFO] Loading image: UI/button_play.png
+[00:16:52] [INFO] Loading image: UI/button_play_hover.png
+[00:16:52] [INFO] Loading image: UI/button_setting.png
+[00:16:52] [INFO] Loading image: UI/button_setting_hover.png
+[00:16:52] [INFO] Loading maps
+[00:16:52] [INFO] Loading enemy trainers
+[00:16:52] [INFO] Loading image: character/ow1.png
+[00:16:52] [INFO] Loading image: exclamation.png
+[00:16:52] [INFO] Loading Player
+[00:16:52] [INFO] Loading bag
+[00:16:52] [INFO] Loading image: ingame_ui/options1.png
+[00:16:52] [INFO] Loading image: UI/button_back.png
+[00:16:52] [INFO] Loading image: UI/button_back_hover.png
+[00:16:52] [INFO] Changing scene to 'menu'
+[00:16:52] [INFO] Running the Game Loop ...
+[00:16:52] [INFO] Entering menu scene
+[00:16:52] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:16:54] [INFO] [+] Button clicked
+[00:16:54] [INFO] Changing scene to 'game'
+[00:16:54] [INFO] Entering game scene
+[00:16:54] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:16:58] [INFO] Teleporting to gym.tmx
+[00:16:59] [INFO] Teleporting to map.tmx
+[00:17:03] [INFO] Teleporting to gym.tmx
+[00:17:04] [INFO] Teleporting to map.tmx
+[00:17:04] [INFO] Teleporting to gym.tmx
+[00:17:05] [INFO] Teleporting to map.tmx
+[00:17:31] [INFO] Initializing SceneManager
+[00:17:31] [INFO] Initializing Engine
+[00:17:32] [INFO] Loading image: backgrounds/background1.png
+[00:17:32] [INFO] Loading image: UI/button_play.png
+[00:17:32] [INFO] Loading image: UI/button_play_hover.png
+[00:17:32] [INFO] Loading image: UI/button_setting.png
+[00:17:32] [INFO] Loading image: UI/button_setting_hover.png
+[00:17:32] [INFO] Loading maps
+[00:17:44] [INFO] Initializing SceneManager
+[00:17:44] [INFO] Initializing Engine
+[00:17:45] [INFO] Loading image: backgrounds/background1.png
+[00:17:45] [INFO] Loading image: UI/button_play.png
+[00:17:45] [INFO] Loading image: UI/button_play_hover.png
+[00:17:45] [INFO] Loading image: UI/button_setting.png
+[00:17:45] [INFO] Loading image: UI/button_setting_hover.png
+[00:17:45] [INFO] Loading maps
+[00:17:45] [INFO] Loading enemy trainers
+[00:17:45] [INFO] Loading image: character/ow1.png
+[00:17:45] [INFO] Loading image: exclamation.png
+[00:17:45] [INFO] Loading Player
+[00:17:45] [INFO] Loading bag
+[00:17:45] [INFO] Loading image: ingame_ui/options1.png
+[00:17:45] [INFO] Loading image: UI/button_back.png
+[00:17:45] [INFO] Loading image: UI/button_back_hover.png
+[00:17:45] [INFO] Changing scene to 'menu'
+[00:17:45] [INFO] Running the Game Loop ...
+[00:17:45] [INFO] Entering menu scene
+[00:17:45] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:17:46] [INFO] [+] Button clicked
+[00:17:46] [INFO] Changing scene to 'game'
+[00:17:46] [INFO] Entering game scene
+[00:17:46] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:17:50] [INFO] Teleporting to gym.tmx
+[00:17:55] [INFO] Teleporting to map.tmx
+[00:17:58] [INFO] Teleporting to gym.tmx
+[00:18:04] [INFO] Teleporting to map.tmx
+[00:18:04] [INFO] Teleporting to gym.tmx
+[00:18:06] [INFO] Teleporting to map.tmx
+[00:18:07] [INFO] Teleporting to gym.tmx
+[00:18:08] [INFO] Teleporting to map.tmx
+[00:18:09] [INFO] Teleporting to gym.tmx
+[00:18:10] [INFO] Teleporting to map.tmx
+[00:18:11] [INFO] Teleporting to gym.tmx
+[00:18:11] [INFO] Teleporting to map.tmx
+[00:18:11] [INFO] Teleporting to gym.tmx
+[00:18:11] [INFO] Teleporting to map.tmx
+[00:18:12] [INFO] Teleporting to gym.tmx
+[00:18:12] [INFO] Teleporting to map.tmx
+[00:18:13] [INFO] Teleporting to gym.tmx
+[00:18:14] [INFO] Teleporting to map.tmx
+[00:18:19] [INFO] Teleporting to gym.tmx
+[00:18:19] [INFO] Teleporting to map.tmx
+[00:18:20] [INFO] Teleporting to gym.tmx
+[00:18:21] [INFO] Teleporting to map.tmx
+[00:20:17] [INFO] Initializing SceneManager
+[00:20:17] [INFO] Initializing Engine
+[00:20:17] [INFO] Loading image: backgrounds/background1.png
+[00:20:17] [INFO] Loading image: UI/button_play.png
+[00:20:17] [INFO] Loading image: UI/button_play_hover.png
+[00:20:17] [INFO] Loading image: UI/button_setting.png
+[00:20:17] [INFO] Loading image: UI/button_setting_hover.png
+[00:20:17] [INFO] Loading maps
+[00:20:17] [INFO] Loading enemy trainers
+[00:20:17] [INFO] Loading image: character/ow1.png
+[00:20:17] [INFO] Loading image: exclamation.png
+[00:20:17] [INFO] Loading Player
+[00:20:17] [INFO] Loading bag
+[00:20:17] [INFO] Loading image: ingame_ui/options1.png
+[00:20:17] [INFO] Loading image: UI/button_back.png
+[00:20:17] [INFO] Loading image: UI/button_back_hover.png
+[00:20:17] [INFO] Changing scene to 'menu'
+[00:20:17] [INFO] Running the Game Loop ...
+[00:20:17] [INFO] Entering menu scene
+[00:20:17] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[00:20:18] [INFO] [+] Button clicked
+[00:20:18] [INFO] Changing scene to 'game'
+[00:20:18] [INFO] Entering game scene
+[00:20:18] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[00:20:22] [INFO] Teleporting to gym.tmx
+[00:20:24] [INFO] Teleporting to map.tmx
+[00:20:24] [INFO] Teleporting to gym.tmx
+[00:20:25] [INFO] Teleporting to map.tmx
+[00:20:26] [INFO] Teleporting to gym.tmx
+[00:20:26] [INFO] Teleporting to map.tmx
+[00:20:26] [INFO] Teleporting to gym.tmx
+[00:20:27] [INFO] Teleporting to map.tmx
+[00:20:28] [INFO] Teleporting to gym.tmx
+[00:20:29] [INFO] Teleporting to map.tmx
+[00:20:30] [INFO] Teleporting to gym.tmx
+[00:20:30] [INFO] Teleporting to map.tmx
+[00:20:32] [INFO] Teleporting to gym.tmx
+[00:20:34] [INFO] Teleporting to map.tmx
+[00:20:35] [INFO] Teleporting to gym.tmx
+[00:20:36] [INFO] Teleporting to map.tmx
+[00:20:36] [INFO] Teleporting to map.tmx
+[00:20:38] [INFO] Teleporting to gym.tmx
+[00:20:39] [INFO] Teleporting to map.tmx

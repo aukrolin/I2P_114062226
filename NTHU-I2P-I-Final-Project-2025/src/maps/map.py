@@ -50,7 +50,13 @@ class Map:
         return any(rect.colliderect(r) for r in self._collision_map)
         
     def check_teleport(self, pos: Position) -> Teleport | None:
-        '''TODO: Teleportation'''
+        for tp in self.teleporters:
+            # if tp.get_hitbox().collidepoint(pos.x, pos.y):
+                # return tp
+            print(f'TP{tp.pos.x},{tp.pos.y} vs Pos {pos.x},{pos.y}')
+            hitbox = pg.Rect(tp.pos.x, tp.pos.y, GameSettings.TILE_SIZE, GameSettings.TILE_SIZE)
+            if hitbox.collidepoint(pos.x, pos.y):
+                return tp
         return None
 
     def _render_all_layers(self, target: pg.Surface) -> None:

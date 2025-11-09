@@ -56,32 +56,30 @@ class Player(Entity):
             dis.y /= length
             pass
         
+        def check_teleport_and_switch():
+            tp = self.game_manager.current_map.check_teleport(self.position)
+            if tp:
+                Logger.info(f"Teleporting to {tp.destination}")
+                dest = tp.destination
+                self.game_manager.switch_map(dest)
+                return True
+            return False
 
         nx = self.position.x + dis.x * self.speed * dt
         if not self.check_collision(pg.Rect(nx,self.position.y,GameSettings.TILE_SIZE,GameSettings.TILE_SIZE)):
-            self.position.x = nx 
-        else :
-            self.position.x = self._snap_to_grid(self.position.x)
-        ny = self.position.y + dis.y * self.speed * dt
+            self.position.x = nx
+        else:
+            if not check_teleport_and_switch():
+                self.position.x = self._snap_to_grid(self.position.x)
         
+        ny = self.position.y + dis.y * self.speed * dt
         if not self.check_collision(pg.Rect(self.position.x,ny,GameSettings.TILE_SIZE,GameSettings.TILE_SIZE)):
             self.position.y = ny
         else :
-            self.position.y = self._snap_to_grid(self.position.y)
-        # self.position.x += dis.x * self.speed * dt
-        # self.position.y += dis.y * self.speed * dt
+            if not check_teleport_and_switch():
+                self.position.y = self._snap_to_grid(self.position.y)
 
-        # if self.game_manager.current_map.check_collision(self.hitbox):
-            # Logger.info("[+] Collision detected ")
-            # self.position.x = self._snap_to_grid(self.position.x)
-            # self.position.y = self._snap_to_grid(self.position.y)
-            # pass
-        # Check teleportation
-        tp = self.game_manager.current_map.check_teleport(self.position)
-        if tp:
-            dest = tp.destination
-            self.game_manager.switch_map(dest)
-                
+
         super().update(dt)
 
     def check_collision(self, rect: pg.Rect) -> bool:

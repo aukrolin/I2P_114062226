@@ -63,12 +63,13 @@ class GameManager:
             
     def try_switch_map(self) -> None:
         if self.should_change_scene:
-            self.maps[self.current_map_key].spawn = self.player.position 
             self.current_map_key = self.next_map
             self.next_map = ""
             self.should_change_scene = False
             if self.player:
-                self.player.position = self.maps[self.current_map_key].spawn
+                # print(f"Switching map {self.current_map_key}, setting player position to spawn, {self.current_map.spawn}")
+                self.player.position = self.current_map.spawn.copy()
+                # self.player.lock_movement(0.5)  # 锁定移动0.5秒
             
     def check_collision(self, rect: pg.Rect) -> bool:
         if self.maps[self.current_map_key].check_collision(rect):

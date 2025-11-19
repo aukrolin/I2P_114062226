@@ -11,11 +11,19 @@ class Player(Entity):
     speed: float = 4.0 * GameSettings.TILE_SIZE
     game_manager: GameManager
 
+
+
     def __init__(self, x: float, y: float, game_manager: GameManager) -> None:
         super().__init__(x, y, game_manager)
 
     @override
     def update(self, dt: float) -> None:
+        # 更新移动锁定计时器
+        if self.movement_lock_timer > 0:
+            self.movement_lock_timer -= dt
+            super().update(dt)
+            return  # 锁定期间不允许移动
+        
         dis = Position(0, 0)
         '''
         [TODO HACKATHON 2]
@@ -93,12 +101,21 @@ class Player(Entity):
                 self.position.y = ny
                     
         update_position(dis, dt)
+        print(f"Player position: ({self.position}), Map: {self.game_manager.current_map.spawn}")
 
 
         super().update(dt)
 
     def check_collision(self, rect: pg.Rect) -> bool:
         return self.game_manager.check_collision(rect) | self.game_manager.current_map.check_collision(rect)
+    
+    def lock_movement(self, duration: float = 0.5) -> None:
+        """锁定玩家移动一段时间
+        
+        Args:
+            duration: 锁定持续时间（秒），默认0.5秒
+        """
+        self.movement_lock_timer = duration
 
     @override
     def draw(self, screen: pg.Surface, camera: PositionCamera) -> None:

@@ -54,23 +54,21 @@ class GameManager:
     def current_teleporter(self) -> list[Teleport]:
         return self.maps[self.current_map_key].teleporters
     
-    def switch_map(self, target: str) -> None:
+    def switch_map(self, target: str, spawnx: int, spawny: int) -> None:
         if target not in self.maps:
             Logger.warning(f"Map '{target}' not loaded; cannot switch.")
             return
         
-        self.next_map = target
+        self.next_map = (target,spawnx,spawny)
         self.should_change_scene = True
             
     def try_switch_map(self) -> None:
         if self.should_change_scene:
-            self.current_map_key = self.next_map
-            self.next_map = ""
+            self.current_map_key = self.next_map[0]
             self.should_change_scene = False
-            if self.player:
-                # print(f"Switching map {self.current_map_key}, setting player position to spawn, {self.current_map.spawn}")
-                self.player.position = self.current_map.spawn.copy()
-                # self.player.lock_movement(0.5)  # 锁定移动0.5秒
+            self.player.position.x = self.next_map[1] * GameSettings.TILE_SIZE
+            self.player.position.y = self.next_map[2] * GameSettings.TILE_SIZE
+            self.next_map = ""
             
     def check_collision(self, rect: pg.Rect) -> bool:
         if self.maps[self.current_map_key].check_collision(rect):
@@ -91,7 +89,7 @@ class GameManager:
             Logger.error(f"Failed to save game: {e}")
              
     @classmethod
-    def load(cls, path: str) -> "GameManager | None":
+    def load(cls, path: str) -> "GameManager | None":   
         if not os.path.exists(path):
             Logger.error(f"No file found: {path}, ignoring load function")
             return None
@@ -105,15 +103,6 @@ class GameManager:
         for key, m in self.maps.items():
             block = m.to_dict()
             block["enemy_trainers"] = [t.to_dict() for t in self.enemy_trainers.get(key, [])]
-            spawn = self.player_spawns.get(key)
-            # print(spawn, key)
-            if key == self.current_map_key and self.player is not None:
-                spawn = self.player.position
-            block["player"] = {
-                "x": spawn.x / GameSettings.TILE_SIZE,
-                "y": spawn.y / GameSettings.TILE_SIZE
-            }
-            print(f"Saving player spawn for map {key}: {spawn}")
             map_blocks.append(block)
         return {
             "map": map_blocks,
@@ -130,28 +119,19 @@ class GameManager:
         from src.data.bag import Bag
         
         Logger.info("Loading maps")
-        maps_data = data["map"]
+        maps_data: list[dict[str, object]] = data["map"]
         maps: dict[str, Map] = {}
         player_spawns: dict[str, Position] = {}
         trainers: dict[str, list[EnemyTrainer]] = {}
         for entry in maps_data:
             path = entry["path"]
             maps[path] = Map.from_dict(entry)
-            sp = entry.get("player")
-            
-            if sp:
-                player_spawns[path] = Position(
-                    sp["x"] * GameSettings.TILE_SIZE,
-                    sp["y"] * GameSettings.TILE_SIZE
-                )
-                print("Loaded player spawn:", player_spawns[path], "for map", path)
         current_map = data["current_map"]
         gm = cls(
             maps, current_map,
-            None, # Player
+            None,
             trainers,
             bag=None,
-            
         )
         gm.player_spawns = player_spawns
         gm.current_map_key = current_map

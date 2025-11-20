@@ -2,7 +2,7 @@
 
 Score: 3 points
 
-![Alt Text](./Checkpoint2_gifs/Trainer.gif)
+![Alt Text](./Checkpoint2_gif/Trainer.gif)
 
 - [ ] (0.25 point) If we stand in front of the NPC, a warning sign will appear.
 - [ ] (0.25 point) If we press some button when the warning sign appears, switch scene into a battle scene.

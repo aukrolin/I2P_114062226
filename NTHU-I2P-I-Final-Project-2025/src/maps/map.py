@@ -14,10 +14,11 @@ class Map:
     _surface: pg.Surface
     _collision_map: list[pg.Rect]
 
-    def __init__(self, path: str, tp: list[Teleport], spawn: Position):
+    # def __init__(self, path: str, tp: list[Teleport], spawn: Position):
+    def __init__(self, path: str, tp: list[Teleport]):
         self.path_name = path
         self.tmxdata = load_tmx(path)
-        self.spawn = spawn
+        # self.spawn = spawn
         self.teleporters = tp
 
         pixel_w = self.tmxdata.width * GameSettings.TILE_SIZE
@@ -100,15 +101,17 @@ class Map:
     @classmethod
     def from_dict(cls, data: dict) -> "Map":
         tp = [Teleport.from_dict(t) for t in data["teleport"]]
-        pos = Position(data["player"]["x"] * GameSettings.TILE_SIZE, data["player"]["y"] * GameSettings.TILE_SIZE)
-        return cls(data["path"], tp, pos)
+        # pos = Position(data["player"]["x"] * GameSettings.TILE_SIZE, data["player"]["y"] * GameSettings.TILE_SIZE)
+        # return cls(data["path"], tp, pos)
+        return cls(data["path"], tp)
 
     def to_dict(self):
+        print(self.teleporters)
         return {
             "path": self.path_name,
             "teleport": [t.to_dict() for t in self.teleporters],
-            "player": {
-                "x": self.spawn.x // GameSettings.TILE_SIZE,
-                "y": self.spawn.y // GameSettings.TILE_SIZE,
-            }
+            # "player": {
+            #     "x": self.spawn.x // GameSettings.TILE_SIZE,
+            #     "y": self.spawn.y // GameSettings.TILE_SIZE,
+            # }
         }

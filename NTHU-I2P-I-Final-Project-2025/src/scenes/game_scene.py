@@ -4,7 +4,7 @@ import time
 
 from src.scenes.scene import Scene
 from src.core import GameManager, OnlineManager
-from src.core.services import scene_manager
+from src.core.services import scene_manager, get_game_manager, set_game_manager
 from src.interface.components import Button
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
@@ -14,7 +14,6 @@ from src.overlay import BagOverlay, SettingsOverlay, Overlay
 from typing import override
 
 class GameScene(Scene):
-    game_manager: GameManager
     online_manager: OnlineManager | None
     sprite_online: Sprite
 
@@ -22,16 +21,13 @@ class GameScene(Scene):
     def __init__(self):
         super().__init__()
         self.show_overlay = False  # 控制是否显示 overlay
-        manager = GameManager.load("saves/start.json")
-        if manager is None:
-            Logger.error("Failed to load game manager")
-            exit(1)
 
-        self.game_manager = manager
+        
         self.overlays : dict[str, Overlay] = {
-            'bag': BagOverlay(self.game_manager.bag),
-            'settings': SettingsOverlay(self.game_manager, lambda: self.load("saves/game1.json"))
+            'bag': BagOverlay(),
+            'settings': SettingsOverlay(lambda: set_game_manager("saves/game1.json"))
         }       
+        self.game_manager: GameManager = get_game_manager()
         # Online Manager
         if GameSettings.IS_ONLINE:
             self.online_manager = OnlineManager()
@@ -59,8 +55,7 @@ class GameScene(Scene):
             lambda: self.settings_overlay()
         )
     
-    def load(self,loadfile):
-        return GameManager.load(loadfile)
+        
 
 
     def bag_overlay(self):
@@ -99,6 +94,7 @@ class GameScene(Scene):
     @override
     def update(self, dt: float):
         # Check if there is assigned next scene
+        self.game_manager = get_game_manager()
         self.game_manager.try_switch_map()
         
         # Update player and other data

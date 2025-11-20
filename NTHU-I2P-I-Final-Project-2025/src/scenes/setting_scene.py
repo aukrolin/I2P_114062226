@@ -5,7 +5,7 @@ from src.sprites import BackgroundSprite
 from src.scenes.scene import Scene
 from src.interface.components import Button
 from src.overlay.settings_overlay import SettingsOverlay
-from src.core.services import scene_manager, sound_manager, input_manager
+from src.core.services import scene_manager, sound_manager, input_manager, set_game_manager
 from typing import override
 
 class SettingsScene(Scene):
@@ -18,16 +18,13 @@ class SettingsScene(Scene):
         super().__init__()
         self.background = BackgroundSprite("backgrounds/background1.png")
 
-        px, py = GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT * 3 // 4
 
-        self.overlay = SettingsOverlay()
-        self.overlay.close_button = Button(
-            "UI/button_back.png", "UI/button_back_hover.png",
-            px-50, py, 100, 100,
-            lambda: scene_manager.change_scene("menu")
-        )
+        self.overlay = SettingsOverlay(lambda: set_game_manager("saves/game1.json"))
+
+        self.overlay.close_button = self.overlay.menu_button
 
         
+
     @override
     def enter(self) -> None:
         sound_manager.play_bgm("RBY 101 Opening (Part 1).ogg")

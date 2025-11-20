@@ -2,6 +2,7 @@ import pygame as pg
 from abc import ABC, abstractmethod
 from src.interface.components import Button
 from src.utils import GameSettings
+from src.core import GameManager
 
 class Overlay(ABC):
     """Overlay 基類"""
@@ -12,7 +13,7 @@ class Overlay(ABC):
         self.popup_height = GameSettings.SCREEN_HEIGHT * 0.6
         self.popup_x = (GameSettings.SCREEN_WIDTH - self.popup_width) // 2
         self.popup_y = (GameSettings.SCREEN_HEIGHT - self.popup_height) // 2
-        
+        self.game_manager: GameManager | None = None
     def set_close_callback(self, callback):
         """設置關閉按鈕的 callback"""
 
@@ -22,12 +23,17 @@ class Overlay(ABC):
         popup_x = (GameSettings.SCREEN_WIDTH - popup_width) // 2
         popup_y = (GameSettings.SCREEN_HEIGHT - popup_height) // 2
         self.close_button = Button(
-            "UI/button_back.png", 
-            "UI/button_back_hover.png",
+            "UI/button_x.png", 
+            "UI/button_x_hover.png",
             popup_x + TS, popup_y+popup_height-TS, TS, TS,
             callback
         )
-    
+    def update_gm(self, game_manager):
+        """更新 Overlay 中的 GameManager 引用"""
+        self.game_manager = game_manager
+        pass
+
+
     @abstractmethod
     def draw_content(self, screen: pg.Surface):
         """子類實現具體內容的繪製"""
@@ -57,8 +63,3 @@ class Overlay(ABC):
         if self.close_button:
             self.close_button.draw(screen)
     
-    def handle_events(self, events):
-        """處理事件"""
-        if self.close_button:
-            for event in events:
-                self.close_button.handle_event(event)

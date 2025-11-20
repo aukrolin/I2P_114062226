@@ -84,7 +84,8 @@ class Player(Entity):
             if tp:
                 Logger.info(f"Teleporting to {tp.destination}")
                 dest = tp.destination
-                self.game_manager.switch_map(dest)
+
+                self.game_manager.switch_map(dest, tp.spawnx, tp.spawny)
                 return True
             return False
 
@@ -106,8 +107,7 @@ class Player(Entity):
                 self.position.y = ny
                     
         update_position(dis, dt)
-        print(f"Player position: ({self.position}), Map: {self.game_manager.current_map.spawn}")
-
+    
 
         super().update(dt)
 

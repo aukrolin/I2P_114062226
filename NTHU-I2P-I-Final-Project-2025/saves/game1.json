@@ -6,13 +6,11 @@
         {
           "x": 24,
           "y": 23,
-          "destination": "gym.tmx"
+          "destination": "gym.tmx",
+          "spawnx": 12,
+          "spawny": 14
         }
       ],
-      "player": {
-        "x": 19.234282538143948,
-        "y": 29.818980664016237
-      },
       "enemy_trainers": [
         {
           "x": 24.0,
@@ -43,30 +41,32 @@
         {
           "x": 11,
           "y": 14,
-          "destination": "map.tmx"
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
         },
         {
           "x": 12,
           "y": 14,
-          "destination": "map.tmx"
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
         },
         {
           "x": 13,
           "y": 14,
-          "destination": "map.tmx"
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
         }
       ],
-      "player": {
-        "x": 12.0,
-        "y": 14.0
-      },
       "enemy_trainers": []
     }
   ],
-  "current_map": "map.tmx",
+  "current_map": "gym.tmx",
   "player": {
-    "x": 19.234282538143948,
-    "y": 29.818980664016237
+    "x": 12.0,
+    "y": 13.744
   },
   "bag": {
     "monsters": [

@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from src.entities.player import Player
     from src.entities.enemy_trainer import EnemyTrainer
     from src.data.bag import Bag
+    from src.data.settings import Settings
 
 class GameManager:
     # Entities
@@ -30,14 +31,14 @@ class GameManager:
                  bag: Bag | None = None):
                      
         from src.data.bag import Bag
+        from src.data.settings import Settings
         # Game Properties
         self.maps = maps
         self.current_map_key = start_map
         self.player = player
         self.enemy_trainers = enemy_trainers
         self.bag = bag if bag is not None else Bag([], [])
-        
-        # Check If you should change scene
+        self.settings = Settings([], [])
         self.should_change_scene = False
         self.next_map = ""
         
@@ -81,12 +82,13 @@ class GameManager:
         return False
         
     def save(self, path: str) -> None:
+        """保存遊戲狀態"""
         try:
             with open(path, "w") as f:
                 json.dump(self.to_dict(), f, indent=2)
             Logger.info(f"Game saved to {path}")
         except Exception as e:
-            Logger.warning(f"Failed to save game: {e}")
+            Logger.error(f"Failed to save game: {e}")
              
     @classmethod
     def load(cls, path: str) -> "GameManager | None":
@@ -104,10 +106,14 @@ class GameManager:
             block = m.to_dict()
             block["enemy_trainers"] = [t.to_dict() for t in self.enemy_trainers.get(key, [])]
             spawn = self.player_spawns.get(key)
+            # print(spawn, key)
+            if key == self.current_map_key and self.player is not None:
+                spawn = self.player.position
             block["player"] = {
-                "x": spawn["x"] / GameSettings.TILE_SIZE,
-                "y": spawn["y"] / GameSettings.TILE_SIZE
+                "x": spawn.x / GameSettings.TILE_SIZE,
+                "y": spawn.y / GameSettings.TILE_SIZE
             }
+            print(f"Saving player spawn for map {key}: {spawn}")
             map_blocks.append(block)
         return {
             "map": map_blocks,
@@ -132,20 +138,23 @@ class GameManager:
             path = entry["path"]
             maps[path] = Map.from_dict(entry)
             sp = entry.get("player")
+            
             if sp:
                 player_spawns[path] = Position(
                     sp["x"] * GameSettings.TILE_SIZE,
                     sp["y"] * GameSettings.TILE_SIZE
                 )
+                print("Loaded player spawn:", player_spawns[path], "for map", path)
         current_map = data["current_map"]
         gm = cls(
             maps, current_map,
             None, # Player
             trainers,
-            bag=None
+            bag=None,
+            
         )
+        gm.player_spawns = player_spawns
         gm.current_map_key = current_map
-        
         Logger.info("Loading enemy trainers")
         for m in data["map"]:
             raw_data = m["enemy_trainers"]
@@ -158,5 +167,9 @@ class GameManager:
         Logger.info("Loading bag")
         from src.data.bag import Bag as _Bag
         gm.bag = Bag.from_dict(data.get("bag", {})) if data.get("bag") else _Bag([], [])
-
         return gm
+    
+    def pause_game(self) -> None:
+        self.player.paused = True
+    def resume_game(self) -> None:
+        self.player.paused = False

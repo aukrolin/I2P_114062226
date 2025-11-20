@@ -10,9 +10,9 @@
       "teleport": [
         { "x": 24, "y": 23, "destination": "gym.tmx" }
       ],
-      "player": {
-        "x": 16,
-        "y": 30
+      "spawn": {
+        "x": 24,
+        "y": 24
       }
     },
     {
@@ -24,16 +24,21 @@
       ],
       "roaming_mobs": [],
       "enemy_trainers": [],
-      "player": {
+      "spawn": {
         "x": 12,
-        "y": 12
+        "y": 13
       }
     }
   ],
   "current_map": "map.tmx",
   "player": {
     "x": 16,
-    "y": 30
+    "y": 30,
+    "current_map": "map.tmx",
+    "position": {
+      "x": 16,
+      "y": 30
+    }
   },
   "bag": {
     "monsters": [
@@ -48,6 +53,9 @@
       { "name": "Potion",      "count": 5,  "sprite_path": "ingame_ui/potion.png" },
       { "name": "Coins",       "count": 3,  "sprite_path": "ingame_ui/coin.png" },
       { "name": "Pokeball",    "count": 10, "sprite_path": "ingame_ui/ball.png" }
+    ]
+  }
+}
     ]
   }
 }

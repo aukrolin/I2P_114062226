@@ -16,6 +16,7 @@ class SceneManager:
     def register_scene(self, name: str, scene: Scene) -> None:
         self._scenes[name] = scene
         
+    # def fade ()
     def change_scene(self, scene_name: str) -> None:
         if scene_name in self._scenes:
             Logger.info(f"Changing scene to '{scene_name}'")

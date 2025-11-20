@@ -29,6 +29,8 @@ class MenuScene(Scene):
             lambda: scene_manager.change_scene("settings")
         )
         
+
+        
     @override
     def enter(self) -> None:
         sound_manager.play_bgm("RBY 101 Opening (Part 1).ogg")

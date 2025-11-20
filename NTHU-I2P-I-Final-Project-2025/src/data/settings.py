@@ -4,7 +4,7 @@ from src.utils import GameSettings
 from src.utils.definition import Monster, Item
 
 
-class Bag:
+class Settings:
     _monsters_data: list[Monster]
     _items_data: list[Item]
 
@@ -15,7 +15,10 @@ class Bag:
     def update(self, dt: float):
         pass
 
-
+    def draw(self, screen: pg.Surface):
+        RECT = pg.Rect(50, 50, GameSettings.SCREEN_WIDTH - 100, GameSettings.SCREEN_HEIGHT - 100)
+        pg.draw.rect(screen, (200, 200, 200), RECT)
+        pass
 
     def to_dict(self) -> dict[str, object]:
         return {
@@ -24,7 +27,7 @@ class Bag:
         }
 
     @classmethod
-    def from_dict(cls, data: dict[str, object]) -> "Bag":
+    def from_dict(cls, data: dict[str, object]) -> "Settings":
         monsters = data.get("monsters") or []
         items = data.get("items") or []
         bag = cls(monsters, items)

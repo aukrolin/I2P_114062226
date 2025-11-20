@@ -4,6 +4,7 @@ from src.utils import GameSettings
 from src.sprites import BackgroundSprite
 from src.scenes.scene import Scene
 from src.interface.components import Button
+from src.overlay.settings_overlay import SettingsOverlay
 from src.core.services import scene_manager, sound_manager, input_manager
 from typing import override
 
@@ -18,11 +19,14 @@ class SettingsScene(Scene):
         self.background = BackgroundSprite("backgrounds/background1.png")
 
         px, py = GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT * 3 // 4
-        self.play_button = Button(
+
+        self.overlay = SettingsOverlay()
+        self.overlay.close_button = Button(
             "UI/button_back.png", "UI/button_back_hover.png",
             px-50, py, 100, 100,
             lambda: scene_manager.change_scene("menu")
         )
+
         
     @override
     def enter(self) -> None:
@@ -38,9 +42,9 @@ class SettingsScene(Scene):
         if input_manager.key_pressed(pg.K_SPACE):
             scene_manager.change_scene("game")
             return
-        self.play_button.update(dt)
+        self.overlay.update(dt)
 
     @override
     def draw(self, screen: pg.Surface) -> None:
         self.background.draw(screen)
-        self.play_button.draw(screen)
+        self.overlay.draw(screen)   

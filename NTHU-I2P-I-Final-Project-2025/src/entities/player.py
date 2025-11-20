@@ -14,6 +14,7 @@ class Player(Entity):
 
 
     def __init__(self, x: float, y: float, game_manager: GameManager) -> None:
+        self.paused = False
         super().__init__(x, y, game_manager)
 
     @override
@@ -50,6 +51,10 @@ class Player(Entity):
         
         self.position = ...
         '''
+
+        if self.paused:
+            super().update(dt)
+            return  # paused, do nothing
 
         if input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP):
             dis.y -= 1

@@ -17,21 +17,108 @@
           "y": 29.0,
           "classification": "stationary",
           "facing": "DOWN",
-          "max_tiles": 2
+          "max_tiles": 2,
+          "dialogue": [
+            "Hey! I challenge you to a battle!",
+            "Prepare yourself!"
+          ],
+          "bag": {
+            "monsters": [
+              {
+                "name": "Squirtle",
+                "hp": 50,
+                "max_hp": 50,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite7.png"
+              },
+              {
+                "name": "Butterfree",
+                "hp": 60,
+                "max_hp": 60,
+                "level": 16,
+                "sprite_path": "menu_sprites/menusprite8.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         },
         {
           "x": 54.0,
           "y": 16.0,
           "classification": "stationary",
           "facing": "UP",
-          "max_tiles": 2
+          "max_tiles": 2,
+          "dialogue": [
+            "You look strong!",
+            "Let's see how you handle my team!"
+          ],
+          "bag": {
+            "monsters": [
+              {
+                "name": "Eevee",
+                "hp": 55,
+                "max_hp": 55,
+                "level": 14,
+                "sprite_path": "menu_sprites/menusprite9.png"
+              },
+              {
+                "name": "Jigglypuff",
+                "hp": 65,
+                "max_hp": 65,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite10.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         },
         {
           "x": 31.0,
           "y": 31.0,
           "classification": "stationary",
           "facing": "UP",
-          "max_tiles": 2
+          "max_tiles": 2,
+          "dialogue": [
+            "I've been waiting for a worthy opponent!",
+            "Show me what you've got!"
+          ],
+          "bag": {
+            "monsters": [
+              {
+                "name": "Pidgeotto",
+                "hp": 70,
+                "max_hp": 70,
+                "level": 18,
+                "sprite_path": "menu_sprites/menusprite11.png"
+              },
+              {
+                "name": "Rattata",
+                "hp": 45,
+                "max_hp": 45,
+                "level": 13,
+                "sprite_path": "menu_sprites/menusprite12.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         }
       ]
     },
@@ -65,8 +152,8 @@
   ],
   "current_map": "map.tmx",
   "player": {
-    "x": 47.304338366961744,
-    "y": 12.940854844199293
+    "x": 29.255847763108505,
+    "y": 27.288235498012178
   },
   "bag": {
     "monsters": [

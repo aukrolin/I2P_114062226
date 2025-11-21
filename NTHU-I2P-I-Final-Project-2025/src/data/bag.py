@@ -14,8 +14,14 @@ class Bag:
 
     def update(self, dt: float):
         pass
+    
+    def get_monsters(self) -> list[Monster]:
+        return self._monsters_data
+    def get_items(self) -> list[Item]:
+        return self._items_data
 
-
+    def __repr__(self):
+        return f"Bag(monsters={self._monsters_data}, items={self._items_data})"
 
     def to_dict(self) -> dict[str, object]:
         return {

@@ -28,6 +28,7 @@ class Slider:
         """計算滑塊把手的 x 座標"""
         ratio = (self.value - self.min_val) / (self.max_val - self.min_val)
         return int(self.rect.left + ratio * self.rect.width)
+    
     def _update_value(self, mouse_x: int):
         """更新滑塊值"""
         # 限制在滑塊範圍內
@@ -55,7 +56,6 @@ class Slider:
         
         # 如果正在拖動，持續更新值
         if self.dragging:
-
             self._update_value(input_manager.mouse_pos[0])    
 
 

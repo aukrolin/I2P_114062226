@@ -7,6 +7,7 @@ from src.core import GameManager
 class Overlay(ABC):
     """Overlay 基類"""
     def __init__(self):
+        self.rectcolor = (255, 200, 100)
         self.is_active = False
         self.close_button = None
         self.popup_width = GameSettings.SCREEN_WIDTH * 0.6
@@ -19,13 +20,12 @@ class Overlay(ABC):
 
         TS = GameSettings.TILE_SIZE
         popup_width = GameSettings.SCREEN_WIDTH * 0.6
-        popup_height = GameSettings.SCREEN_HEIGHT * 0.6
+        popup_height = GameSettings.SCREEN_HEIGHT * 0.75
         popup_x = (GameSettings.SCREEN_WIDTH - popup_width) // 2
-        popup_y = (GameSettings.SCREEN_HEIGHT - popup_height) // 2
         self.close_button = Button(
             "UI/button_x.png", 
             "UI/button_x_hover.png",
-            popup_x + TS, popup_y+popup_height-TS, TS, TS,
+            popup_x , popup_height , TS*1.5, TS*1.5,
             callback
         )
     def update_gm(self, game_manager):
@@ -44,7 +44,8 @@ class Overlay(ABC):
         pass
     def update(self, dt: float):
         """更新 Overlay 狀態"""
-        self.close_button.update(dt)
+
+        if self.close_button : self.close_button.update(dt)
         self.update_content(dt)
         pass
 
@@ -53,7 +54,7 @@ class Overlay(ABC):
         # 繪製背景框
 
         popup_rect = pg.Rect(self.popup_x, self.popup_y, self.popup_width, self.popup_height)
-        pg.draw.rect(screen, (255, 200, 100), popup_rect)
+        pg.draw.rect(screen, self.rectcolor, popup_rect)
         pg.draw.rect(screen, (0, 0, 0), popup_rect, 3)
         
         # 繪製具體內容

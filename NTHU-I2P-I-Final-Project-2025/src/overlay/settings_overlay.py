@@ -23,7 +23,7 @@ class SettingsOverlay(Overlay):
 
         self.menu_button = Button(
             "UI/button_back.png", "UI/button_back_hover.png",
-            px-50, py, 100, 100,
+            self.popup_x + 2 * GameSettings.TILE_SIZE, py, 1.5*GameSettings.TILE_SIZE, 1.5*GameSettings.TILE_SIZE,
             lambda: scene_manager.change_scene("menu")
         )
 

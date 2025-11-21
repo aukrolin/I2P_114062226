@@ -17,7 +17,7 @@ class BagOverlay(Overlay):
         # 繪製怪獸列表
         self.bag= get_game_manager().bag
         y_offset = 100
-        for monster in self.bag._monsters_data:
+        for monster in self.bag.get_monsters():
             # 繪製怪獸信息
             font = pg.font.Font(None, 24)
             text = font.render(f"{monster['name']} - HP: {monster['hp']}/{monster['max_hp'] }", True, (0, 0, 0))
@@ -27,7 +27,7 @@ class BagOverlay(Overlay):
             screen.blit(self.get_sprite(monster['sprite_path']), (100, y_offset))
             
             y_offset += 40
-        for item in self.bag._items_data:
+        for item in self.bag.get_items():
             font = pg.font.Font(None, 24)
             text = font.render(f"{item['name']} x{item['count']}", True, (0, 0, 0))
             screen.blit(text, (400, y_offset))

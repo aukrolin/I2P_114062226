@@ -16,6 +16,9 @@ class Player(Entity):
     def __init__(self, x: float, y: float, game_manager: GameManager) -> None:
         self.paused = False
         super().__init__(x, y, game_manager)
+        self.cur = None
+        self.prev = None
+
 
     @override
     def update(self, dt: float) -> None:
@@ -52,10 +55,11 @@ class Player(Entity):
         self.position = ...
         '''
         self.updated = False
+        
         if self.paused:
             super().update(dt)
             return  # paused, do nothing
-
+        # print('doing')
         if input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP):
             dis.y -= 1
             self.animation.switch("up")
@@ -108,12 +112,13 @@ class Player(Entity):
             else:
                 self.position.y = ny
 
-
-
         def bush_interaction():
-            if self.game_manager.current_map.check_bush(self.hitbox):
-                if self.updated:
+            if self.game_manager.current_map.check_bush(self.hitbox) :
+                self.cur = self.hitbox.centerx // GameSettings.TILE_SIZE, self.hitbox.centery // GameSettings.TILE_SIZE
+                if self.updated and (self.cur != self.prev or self.prev is None):
+                    self.prev = self.cur
                     self.game_manager.handle_bush_event()
+
                     # self.game_manager.current_map.in_bush = True
 
                 # self.animation.set_opacity(150)
@@ -121,6 +126,10 @@ class Player(Entity):
                 # print("in bush")
                 pass
                 # self.animation.set_opacity(255)
+            else :
+                # print('leved bush')
+                self.prev = None
+                pass
 
         update_position(dis, dt)
         bush_interaction()

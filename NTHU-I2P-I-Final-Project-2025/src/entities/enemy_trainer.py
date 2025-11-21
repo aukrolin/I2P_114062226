@@ -2,7 +2,7 @@ from __future__ import annotations
 import pygame
 from enum import Enum
 from dataclasses import dataclass
-from typing import override
+from typing import override, TYPE_CHECKING
 
 from .entity import Entity
 from src.sprites import Sprite
@@ -10,6 +10,8 @@ from src.entities.player import Player
 from src.core import GameManager
 from src.core.services import input_manager, scene_manager
 from src.utils import GameSettings, Direction, Position, PositionCamera
+
+from src.data.bag import Bag
 
 
 class EnemyTrainerClassification(Enum):
@@ -27,6 +29,8 @@ class EnemyTrainer(Entity):
     warning_sign: Sprite
     detected: bool
     LOS_direction: Direction
+    name: str
+    bag: "Bag"
 
     @override
     def __init__(
@@ -37,10 +41,14 @@ class EnemyTrainer(Entity):
         classification: EnemyTrainerClassification = EnemyTrainerClassification.STATIONARY,
         max_tiles: int | None = 2,
         facing: Direction | None = None,
+        name: str | None = None,
+        bag: "Bag | None" = None,
     ) -> None:
         super().__init__(x, y, game_manager)
         self.classification = classification
         self.max_tiles = max_tiles if max_tiles is not None else 0
+        self.name = name if name is not None else "..."
+        self.bag = bag if bag is not None else Bag([], [])
         if classification == EnemyTrainerClassification.STATIONARY:
             self._movement = IdleMovement()
             if facing is None:
@@ -57,7 +65,7 @@ class EnemyTrainer(Entity):
         self._movement.update(self, dt)
         self._has_LOS_to_player()
         if self.detected and input_manager.key_pressed(pygame.K_SPACE):
-            self.game_manager.handle_battle_event()
+            self.game_manager.handle_battle_event({"enemy_trainers": 1, "bag": self.bag, "name": self.name})
             # scene_manager.change_scene("battle")
         self.animation.update_pos(self.position)
 
@@ -146,6 +154,14 @@ class EnemyTrainer(Entity):
                 facing = facing_val
         if facing is None and classification == EnemyTrainerClassification.STATIONARY:
             facing = Direction.DOWN
+        
+        # Load name
+        name = data.get("name", "...")
+        
+        # Load bag
+        bag_data = data.get("bag")
+        bag = Bag.from_dict(bag_data) if bag_data else Bag([], [])
+        
         return cls(
             data["x"] * GameSettings.TILE_SIZE,
             data["y"] * GameSettings.TILE_SIZE,
@@ -153,6 +169,8 @@ class EnemyTrainer(Entity):
             classification,
             max_tiles,
             facing,
+            name,
+            bag,
         )
 
     @override
@@ -161,4 +179,6 @@ class EnemyTrainer(Entity):
         base["classification"] = self.classification.value
         base["facing"] = self.direction.name
         base["max_tiles"] = self.max_tiles
+        base["name"] = self.name
+        base["bag"] = self.bag.to_dict()
         return base

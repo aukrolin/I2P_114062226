@@ -34,7 +34,7 @@ class Map:
     def update(self, dt: float):
         return
     def query_bush_prob(self, player_pos: Position):
-        return {"pikachu": 30, "bulbasaur":70}  # Placeholder implementation
+        return {"pikachu": 30, "bulbasaur":70}, 50  # Placeholder implementation
 
     def draw(self, screen: pg.Surface, camera: PositionCamera):
         screen.blit(self._surface, camera.transform_position(Position(0, 0)))

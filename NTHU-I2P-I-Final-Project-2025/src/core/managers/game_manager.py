@@ -56,17 +56,22 @@ class GameManager:
         return self.maps[self.current_map_key].teleporters
     
 
-    def handle_battle_event(self) -> None:
+    def handle_battle_event(self, info: dict[str, any]) -> None:
         
-        self.should_change_scene = (True, "battle", {"enemy_trainers": 1})
+        self.should_change_scene = (True, "battle", info)
 
     def handle_bush_event(self) -> None:
         map = self.maps[self.current_map_key]
         player_pos = self.player.position
-        prob:dict[str, int] = map.query_bush_prob(player_pos) 
+        prob : dict[str, int]
+        prob_meet : int
+        prob,prob_meet = map.query_bush_prob(player_pos) 
         assert sum(prob.values()) == 100, "Bush encounter probabilities total 100%"
+        
 
         import random
+        if random.randint(1,100) > prob_meet:
+            return
         random_num = random.randint(1,100)
         s = 0
         p = None
@@ -77,7 +82,15 @@ class GameManager:
                 Logger.info(f"Encountered {pokemon} in bush!")
                 break
         if p is not None:
-            self.should_change_scene = (True, "battle", {"bush_pokemon": p})
+            self.should_change_scene = (True, "battle", {"bush_pokemon": {
+                "name": "Squirtle",
+                "hp": 50,
+                "max_hp": 50,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite7.png"
+              }
+              })
+
     def check_scene_change(self) -> tuple[str, dict[str, any]] | None:
         if self.should_change_scene[0]:
             scene_name = self.should_change_scene[1]

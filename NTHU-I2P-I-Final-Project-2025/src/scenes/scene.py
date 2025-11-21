@@ -16,3 +16,6 @@ class Scene:
 
     def draw(self, screen: pg.Surface) -> None:
         ...
+    def getinfo(self, info: dict[str, any]) -> None:
+        self.info = info 
+        pass

@@ -51,7 +51,7 @@ class Player(Entity):
         
         self.position = ...
         '''
-
+        self.updated = False
         if self.paused:
             super().update(dt)
             return  # paused, do nothing
@@ -92,6 +92,8 @@ class Player(Entity):
         def update_position(dis: Position, dt: float):
             nx = self.position.x + dis.x * self.speed * dt
             ny = self.position.y + dis.y * self.speed * dt
+            if dis.x or dis.y: 
+                self.updated = True
             GSTZ = GameSettings.TILE_SIZE
             
             if self.check_collision(pg.Rect(nx, self.position.y, GSTZ, GSTZ)):
@@ -107,12 +109,16 @@ class Player(Entity):
                 self.position.y = ny
 
 
+
         def bush_interaction():
             if self.game_manager.current_map.check_bush(self.hitbox):
+                if self.updated:
+                    self.game_manager.handle_bush_event()
+                    # self.game_manager.current_map.in_bush = True
+
                 # self.animation.set_opacity(150)
-                print("in bush")
-                pass
-            else:
+                # self.game_manager.current_map.in_bush = True    
+                # print("in bush")
                 pass
                 # self.animation.set_opacity(255)
 

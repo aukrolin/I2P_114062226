@@ -96,7 +96,10 @@ class GameScene(Scene):
         # Check if there is assigned next scene
         self.game_manager = get_game_manager()
         self.game_manager.try_switch_map()
-        
+        scene_change = self.game_manager.check_scene_change()
+        if scene_change:
+            scene_manager.change_scene(*scene_change)
+            return
         # Update player and other data
         if self.game_manager.player:
             self.game_manager.player.update(dt)

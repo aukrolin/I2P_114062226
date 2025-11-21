@@ -22,12 +22,14 @@ class BattleScene(Scene):
         self.overlay = SettingsOverlay(lambda: set_game_manager("saves/game1.json"))
 
         self.overlay.close_button = self.overlay.menu_button
-
         
+
+
 
     @override
     def enter(self) -> None:
         sound_manager.play_bgm("RBY 101 Opening (Part 1).ogg")
+        print(f"Entered Battle Scene, Battle with: {self.info}")  # Debug info
         pass
 
     @override

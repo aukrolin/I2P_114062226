@@ -22,7 +22,7 @@ class GameManager:
     maps: dict[str, Map]
     
     # Changing Scene properties
-    should_change_scene: bool
+    should_change_map: bool
     next_map: str
     
     def __init__(self, maps: dict[str, Map], start_map: str, 
@@ -39,9 +39,10 @@ class GameManager:
         self.enemy_trainers = enemy_trainers
         self.bag = bag if bag is not None else Bag([], [])
         self.settings = Settings([], [])
-        self.should_change_scene = False
+        self.should_change_map = False
         self.next_map = ""
-        
+        self.should_change_scene : tuple[bool, str, dict[str, any]] = (False, "", {})
+
     @property
     def current_map(self) -> Map:
         return self.maps[self.current_map_key]
@@ -54,18 +55,49 @@ class GameManager:
     def current_teleporter(self) -> list[Teleport]:
         return self.maps[self.current_map_key].teleporters
     
+
+    def handle_battle_event(self) -> None:
+        
+        self.should_change_scene = (True, "battle", {"enemy_trainers": 1})
+
+    def handle_bush_event(self) -> None:
+        map = self.maps[self.current_map_key]
+        player_pos = self.player.position
+        prob:dict[str, int] = map.query_bush_prob(player_pos) 
+        assert sum(prob.values()) == 100, "Bush encounter probabilities total 100%"
+
+        import random
+        random_num = random.randint(1,100)
+        s = 0
+        p = None
+        for pokemon, probability in prob.items():
+            s += probability
+            if random_num <= s:
+                p = pokemon
+                Logger.info(f"Encountered {pokemon} in bush!")
+                break
+        if p is not None:
+            self.should_change_scene = (True, "battle", {"bush_pokemon": p})
+    def check_scene_change(self) -> tuple[str, dict[str, any]] | None:
+        if self.should_change_scene[0]:
+            scene_name = self.should_change_scene[1]
+            infos = self.should_change_scene[2]
+            self.should_change_scene = (False, "", {})
+            return (scene_name, infos)
+        return None
+
     def switch_map(self, target: str, spawnx: int, spawny: int) -> None:
         if target not in self.maps:
             Logger.warning(f"Map '{target}' not loaded; cannot switch.")
             return
         
         self.next_map = (target,spawnx,spawny)
-        self.should_change_scene = True
+        self.should_change_map = True
             
     def try_switch_map(self) -> None:
-        if self.should_change_scene:
+        if self.should_change_map:
             self.current_map_key = self.next_map[0]
-            self.should_change_scene = False
+            self.should_change_map = False
             self.player.position.x = self.next_map[1] * GameSettings.TILE_SIZE
             self.player.position.y = self.next_map[2] * GameSettings.TILE_SIZE
             self.next_map = ""

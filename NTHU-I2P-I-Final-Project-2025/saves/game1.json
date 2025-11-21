@@ -63,10 +63,10 @@
       "enemy_trainers": []
     }
   ],
-  "current_map": "gym.tmx",
+  "current_map": "map.tmx",
   "player": {
-    "x": 12.0,
-    "y": 13.744
+    "x": 47.304338366961744,
+    "y": 12.940854844199293
   },
   "bag": {
     "monsters": [

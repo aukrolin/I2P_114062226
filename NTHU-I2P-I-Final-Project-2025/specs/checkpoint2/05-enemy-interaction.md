@@ -4,8 +4,8 @@ Score: 3 points
 
 ![Alt Text](./Checkpoint2_gif/Trainer.gif)
 
-- [ ] (0.25 point) If we stand in front of the NPC, a warning sign will appear.
-- [ ] (0.25 point) If we press some button when the warning sign appears, switch scene into a battle scene.
+- [x] (0.25 point) If we stand in front of the NPC, a warning sign will appear.
+- [x] (0.25 point) If we press some button when the warning sign appears, switch scene into a battle scene.
 - [ ] (2.5 points) Inside a battle scene, create a battle system
     - It's a turn based system
         - In the first turn, player will do action first, 

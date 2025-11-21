@@ -29,6 +29,7 @@ class Map:
         self._render_all_layers(self._surface)
         # Prebake the collision map
         self._collision_map = self._create_collision_map()
+        self._bush_map = self._create_bush_map()
 
     def update(self, dt: float):
         return
@@ -40,7 +41,16 @@ class Map:
         if GameSettings.DRAW_HITBOXES:
             for rect in self._collision_map:
                 pg.draw.rect(screen, (255, 0, 0), camera.transform_rect(rect), 1)
+            for rect in self._bush_map:
+                r = rect.copy()
+                r.left += 4
+                r.top += 4
+                pg.draw.rect(screen, (0, 0, 255), camera.transform_rect(r), 1)
         
+    def check_bush(self, rect: pg.Rect) -> bool:
+        
+        return any(r.collidepoint(rect.center) for r in self._bush_map)
+
     def check_collision(self, rect: pg.Rect) -> bool:
         '''
         [TODO HACKATHON 4]
@@ -75,6 +85,13 @@ class Map:
             if image is None:
                 continue
 
+            # Save tile 81 for inspection
+            # if gid == 81:
+            #     original_image = self.tmxdata.get_tile_image_by_gid(gid)
+            #     scaled_for_save = pg.transform.scale(original_image, (GameSettings.TILE_SIZE * 8, GameSettings.TILE_SIZE * 8))
+            #     pg.image.save(scaled_for_save, "tile_81.png")
+            #     print(f"Saved GID 81 tile at position ({x}, {y})")
+
             image = pg.transform.scale(image, (GameSettings.TILE_SIZE, GameSettings.TILE_SIZE))
             target.blit(image, (x * GameSettings.TILE_SIZE, y * GameSettings.TILE_SIZE))
     
@@ -97,6 +114,20 @@ class Map:
                             GameSettings.TILE_SIZE
                         ))
         return rects
+    def _create_bush_map(self) -> list[pg.Rect]:
+        rects = []
+        for layer in self.tmxdata.visible_layers:
+            if isinstance(layer, pytmx.TiledTileLayer) and "pokemonbush" in layer.name.lower():
+                for x, y, gid in layer:
+                    if gid != 0:
+                        rects.append(pg.Rect(
+                            x * GameSettings.TILE_SIZE,
+                            y * GameSettings.TILE_SIZE,
+                            GameSettings.TILE_SIZE,
+                            GameSettings.TILE_SIZE
+                        ))
+        return rects
+
 
     @classmethod
     def from_dict(cls, data: dict) -> "Map":

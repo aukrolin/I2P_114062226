@@ -105,8 +105,20 @@ class Player(Entity):
                     self.position.y = self._snap_to_grid(self.position.y)
             else:
                 self.position.y = ny
-                    
+
+
+        def bush_interaction():
+            if self.game_manager.current_map.check_bush(self.hitbox):
+                # self.animation.set_opacity(150)
+                print("in bush")
+                pass
+            else:
+                pass
+                # self.animation.set_opacity(255)
+
         update_position(dis, dt)
+        bush_interaction()
+        
     
 
         super().update(dt)

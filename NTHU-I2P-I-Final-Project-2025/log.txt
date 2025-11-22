@@ -21261,3 +21261,81 @@
 [03:40:14] [INFO] Changing scene to 'game'
 [03:40:14] [INFO] Entering game scene
 [03:40:14] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[20:59:07] [INFO] Initializing SceneManager
+[20:59:07] [INFO] Initializing Engine
+[20:59:07] [INFO] Loading maps
+[20:59:07] [INFO] Loading enemy trainers
+[20:59:07] [INFO] Loading image: character/ow1.png
+[20:59:07] [INFO] Loading image: exclamation.png
+[20:59:07] [INFO] Loading Player
+[20:59:07] [INFO] Loading bag
+[20:59:07] [INFO] Loading image: backgrounds/background1.png
+[20:59:07] [INFO] Loading image: UI/button_play.png
+[20:59:07] [INFO] Loading image: UI/button_play_hover.png
+[20:59:07] [INFO] Loading image: UI/button_setting.png
+[20:59:07] [INFO] Loading image: UI/button_setting_hover.png
+[20:59:07] [INFO] Loading image: UI/button_back.png
+[20:59:07] [INFO] Loading image: UI/button_back_hover.png
+[20:59:07] [INFO] Loading image: UI/button_save.png
+[20:59:07] [INFO] Loading image: UI/button_save_hover.png
+[20:59:07] [INFO] Loading image: UI/button_load.png
+[20:59:07] [INFO] Loading image: UI/button_load_hover.png
+[20:59:07] [INFO] Loading image: ingame_ui/options1.png
+[20:59:07] [INFO] Loading image: UI/button_x.png
+[20:59:07] [INFO] Loading image: UI/button_x_hover.png
+[20:59:07] [INFO] Loading image: UI/button_backpack.png
+[20:59:07] [INFO] Loading image: UI/button_backpack_hover.png
+[20:59:07] [INFO] Loading image: backgrounds/background2.png
+[20:59:07] [INFO] Changing scene to 'menu'
+[20:59:07] [INFO] Running the Game Loop ...
+[20:59:07] [INFO] Entering menu scene
+[20:59:07] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[20:59:08] [INFO] [+] Button clicked
+[20:59:08] [INFO] Changing scene to 'game'
+[20:59:08] [INFO] Entering game scene
+[20:59:08] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[20:59:14] [INFO] Encountered bulbasaur in bush!
+[20:59:14] [INFO] Changing scene to 'battle'
+[20:59:14] [INFO] Entering battle scene
+[20:59:14] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[20:59:18] [INFO] Changing scene to 'game'
+[20:59:18] [INFO] Entering game scene
+[20:59:18] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[20:59:31] [INFO] Changing scene to 'battle'
+[20:59:31] [INFO] Entering battle scene
+[20:59:31] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[20:59:32] [INFO] Changing scene to 'game'
+[20:59:32] [INFO] Entering game scene
+[20:59:32] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[21:00:10] [INFO] Changing scene to 'battle'
+[21:00:10] [INFO] Entering battle scene
+[21:00:10] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[21:00:12] [INFO] Changing scene to 'game'
+[21:00:12] [INFO] Entering game scene
+[21:00:12] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[21:00:14] [INFO] Encountered pikachu in bush!
+[21:00:14] [INFO] Changing scene to 'battle'
+[21:00:14] [INFO] Entering battle scene
+[21:00:14] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[21:00:16] [INFO] Changing scene to 'game'
+[21:00:16] [INFO] Entering game scene
+[21:00:16] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[21:00:24] [INFO] Encountered pikachu in bush!
+[21:00:24] [INFO] Changing scene to 'battle'
+[21:00:24] [INFO] Entering battle scene
+[21:00:24] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[21:00:25] [INFO] Changing scene to 'game'
+[21:00:25] [INFO] Entering game scene
+[21:00:25] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[21:00:39] [INFO] Changing scene to 'battle'
+[21:00:39] [INFO] Entering battle scene
+[21:00:39] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[21:00:44] [INFO] Changing scene to 'game'
+[21:00:44] [INFO] Entering game scene
+[21:00:44] [INFO] Loading sound: RBY 103 Pallet Town.ogg
+[21:00:44] [INFO] Changing scene to 'battle'
+[21:00:44] [INFO] Entering battle scene
+[21:00:44] [INFO] Loading sound: RBY 101 Opening (Part 1).ogg
+[21:00:44] [INFO] Changing scene to 'game'
+[21:00:44] [INFO] Entering game scene
+[21:00:44] [INFO] Loading sound: RBY 103 Pallet Town.ogg

@@ -17,5 +17,6 @@ class Settings:
     # Online
     IS_ONLINE: bool = False
     ONLINE_SERVER_URL: str = "http://localhost:8989"
+    MAX_MONSTERS_IN_BAG: int = 20    # Maximum number of monsters in player's bag
     
 GameSettings = Settings()

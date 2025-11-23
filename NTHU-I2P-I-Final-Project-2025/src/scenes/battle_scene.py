@@ -5,6 +5,7 @@ from src.sprites import BackgroundSprite
 from src.scenes.scene import Scene
 from src.interface.components import Button
 from src.overlay.battleDialog_overlay import BattleDialogOverlay
+from src.overlay.battleoverlay import BattleOverlay
 # from src.overlay.settings_overlay import SettingsOverlay
 from src.core.services import scene_manager, sound_manager, input_manager, set_game_manager, get_game_manager
 from typing import override
@@ -47,8 +48,9 @@ class BattleScene(Scene):
         self.state = DialogState.DIALOG  # 初始狀態設為對話 
         self.kind = None
         self.DialogOverlay : BattleDialogOverlay = BattleDialogOverlay(lambda: set_game_manager("saves/game1.json"))
+        self.BattleOverlay : BattleOverlay = BattleOverlay()
         self.options_state = OptionsState.BATTLE
-        self.components  = [self.background, self.DialogOverlay]
+        self.components  = [self.background, self.BattleOverlay, self.DialogOverlay]
 
     @override
     def enter(self) -> None:
@@ -59,6 +61,10 @@ class BattleScene(Scene):
         self.DialogOverlay.dialog_text = ""
         self.win = False
         self.lost = False
+        
+        # 設定 BattleOverlay 的戰鬥資訊
+        self.BattleOverlay.set_battle_info(self.info)
+        
         if "bush_pokemon" in self.info:
             self.kind = BattleState.WILD
             self.DialogOverlay.dialog_text = f"Wild {self.info['bush_pokemon']['name']} appeared!"
@@ -87,6 +93,12 @@ class BattleScene(Scene):
         pass
 
     def update_content(self, dt: float) -> None:
+        if self.win:
+            self.handle_win()
+            return
+        if self.lost:
+            self.handle_lost()
+            return
         self.DialogOverlay.state = self.state
         self.game_manager = get_game_manager() 
         Monsters = self.game_manager.bag.get_monsters()
@@ -149,11 +161,28 @@ class BattleScene(Scene):
                         self.DialogOverlay.dialog_textA = "You can only use items in wild battles!"
                         return
                     for i in items:
-                        print(i['name'])
+                        # print(i['name'])
                         if 'Pokeball' == i['name']:
                             if i['count'] > 0 :
                                 i['count'] -=1
+                                import math
+                                import random
                                 self.DialogOverlay.dialog_textA = f"You used a Pokeball! {i['count']} left."
+                                ballr = 1
+                                status = 1
+                                a = (3* Emonster['max_hp'] - 2 * Emonster['hp']) / (3 * Emonster['max_hp']) * Emonster['catch_rate'] * ballr * status
+                                G = 1048560 / (int(math.sqrt(math.sqrt(16711680 / a))))
+                                nums = [random.randint(0, 65535) for _ in range(4)]
+                                shake = sum(1 for num in nums if num < G)
+                                print(shake)
+                                if shake >= 4:
+                                    self.DialogOverlay.dialog_textA += f" Gotcha! {Emonster['name']} was caught!"
+                                    self.game_manager.bag.add_monster(Emonster)
+                                    # self.state = DialogState.DIALOG
+                                    self.win = True
+                                    return
+                                # Emonster
+                                # self.state = DialogState.DIALOG
                             else :
                                 self.DialogOverlay.dialog_textA = "No Pokeball left!"
                             break
@@ -238,12 +267,12 @@ class BattleScene(Scene):
     
     def handle_lost(self):
         # Handle lost scenario
-        print('lost')
+        # print('lost')
         # self.game_manager.handle_battle_result(win=False)
         scene_manager.change_scene("game")
 
     def handle_win(self):
         # Handle win scenario
-        print('win')
+        # print('win')
         # self.game_manager.handle_battle_result(win=True)
         scene_manager.change_scene("game")

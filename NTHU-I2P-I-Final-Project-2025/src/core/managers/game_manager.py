@@ -87,7 +87,8 @@ class GameManager:
                 "hp": 50,
                 "max_hp": 50,
                 "level": 15,
-                "sprite_path": "menu_sprites/menusprite7.png"
+                "sprite_path": "menu_sprites/menusprite7.png",
+                "catch_rate": 45
               }
               })
 

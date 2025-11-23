@@ -30,5 +30,6 @@ class Settings:
     def from_dict(cls, data: dict[str, object]) -> "Settings":
         monsters = data.get("monsters") or []
         items = data.get("items") or []
-        bag = cls(monsters, items)
+        computer_monsters = data.get("computer_mostrers") or []
+        bag = cls(monsters, items, computer_monsters)
         return bag

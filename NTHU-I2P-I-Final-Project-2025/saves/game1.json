@@ -18,10 +18,7 @@
           "classification": "stationary",
           "facing": "DOWN",
           "max_tiles": 2,
-          "dialogue": [
-            "Hey! I challenge you to a battle!",
-            "Prepare yourself!"
-          ],
+          "name": "Catch Bug young man",
           "bag": {
             "monsters": [
               {
@@ -54,10 +51,7 @@
           "classification": "stationary",
           "facing": "UP",
           "max_tiles": 2,
-          "dialogue": [
-            "You look strong!",
-            "Let's see how you handle my team!"
-          ],
+          "name": "short dress girl",
           "bag": {
             "monsters": [
               {
@@ -90,10 +84,7 @@
           "classification": "stationary",
           "facing": "UP",
           "max_tiles": 2,
-          "dialogue": [
-            "I've been waiting for a worthy opponent!",
-            "Show me what you've got!"
-          ],
+          "name": "gentleman",
           "bag": {
             "monsters": [
               {
@@ -152,8 +143,8 @@
   ],
   "current_map": "map.tmx",
   "player": {
-    "x": 29.255847763108505,
-    "y": 27.288235498012178
+    "x": 22.85498311499486,
+    "y": 28.0
   },
   "bag": {
     "monsters": [

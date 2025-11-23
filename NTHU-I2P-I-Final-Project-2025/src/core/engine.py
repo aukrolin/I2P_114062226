@@ -1,11 +1,11 @@
 import pygame as pg
 
 from src.utils import GameSettings, Logger
-from .services import scene_manager, input_manager
-
+from .services import scene_manager, input_manager, set_game_manager
 from src.scenes.menu_scene import MenuScene
 from src.scenes.game_scene import GameScene
 from src.scenes.setting_scene import SettingsScene
+from src.scenes.battle_scene import BattleScene
 
 class Engine:
 
@@ -23,10 +23,13 @@ class Engine:
         self.running = True
 
         pg.display.set_caption(GameSettings.TITLE)
+        set_game_manager("saves/start.json")
+
 
         scene_manager.register_scene("menu", MenuScene())
         scene_manager.register_scene("game", GameScene())
         scene_manager.register_scene("settings", SettingsScene())
+        scene_manager.register_scene("battle", BattleScene())
         '''
         [TODO HACKATHON 5]
         Register the setting scene here
@@ -56,3 +59,6 @@ class Engine:
         self.screen.fill((0, 0, 0))     # Make sure the display is cleared
         scene_manager.draw(self.screen) # Draw the current scene
         pg.display.flip()               # Render the display
+
+
+    

@@ -10,11 +10,13 @@ class Settings:
     DEBUG: bool = True          # Debug mode
     TILE_SIZE: int = 64         # Size of each tile in pixels
     DRAW_HITBOXES: bool = True  # Draw hitboxes for debugging
+    DRAW_LOS: bool = True  # Draw line of sight for debugging
     # Audio
     MAX_CHANNELS: int = 16
     AUDIO_VOLUME: float = 0.5   # Volume of audio
     # Online
     IS_ONLINE: bool = False
     ONLINE_SERVER_URL: str = "http://localhost:8989"
+    MAX_MONSTERS_IN_BAG: int = 20    # Maximum number of monsters in player's bag
     
 GameSettings = Settings()

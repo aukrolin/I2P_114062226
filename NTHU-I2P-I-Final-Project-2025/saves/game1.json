@@ -1,0 +1,212 @@
+{
+  "map": [
+    {
+      "path": "map.tmx",
+      "teleport": [
+        {
+          "x": 24,
+          "y": 23,
+          "destination": "gym.tmx",
+          "spawnx": 12,
+          "spawny": 14
+        }
+      ],
+      "enemy_trainers": [
+        {
+          "x": 24.0,
+          "y": 29.0,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "max_tiles": 2,
+          "name": "Catch Bug young man",
+          "bag": {
+            "monsters": [
+              {
+                "name": "Squirtle",
+                "hp": 50,
+                "max_hp": 50,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite7.png"
+              },
+              {
+                "name": "Butterfree",
+                "hp": 60,
+                "max_hp": 60,
+                "level": 16,
+                "sprite_path": "menu_sprites/menusprite8.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
+        },
+        {
+          "x": 54.0,
+          "y": 16.0,
+          "classification": "stationary",
+          "facing": "UP",
+          "max_tiles": 2,
+          "name": "short dress girl",
+          "bag": {
+            "monsters": [
+              {
+                "name": "Eevee",
+                "hp": 55,
+                "max_hp": 55,
+                "level": 14,
+                "sprite_path": "menu_sprites/menusprite9.png"
+              },
+              {
+                "name": "Jigglypuff",
+                "hp": 65,
+                "max_hp": 65,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite10.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
+        },
+        {
+          "x": 31.0,
+          "y": 31.0,
+          "classification": "stationary",
+          "facing": "UP",
+          "max_tiles": 2,
+          "name": "gentleman",
+          "bag": {
+            "monsters": [
+              {
+                "name": "Pidgeotto",
+                "hp": 70,
+                "max_hp": 70,
+                "level": 18,
+                "sprite_path": "menu_sprites/menusprite11.png"
+              },
+              {
+                "name": "Rattata",
+                "hp": 45,
+                "max_hp": 45,
+                "level": 13,
+                "sprite_path": "menu_sprites/menusprite12.png"
+              }
+            ],
+            "items": [
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "path": "gym.tmx",
+      "teleport": [
+        {
+          "x": 11,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        }
+      ],
+      "enemy_trainers": []
+    }
+  ],
+  "current_map": "map.tmx",
+  "player": {
+    "x": 22.85498311499486,
+    "y": 28.0
+  },
+  "bag": {
+    "monsters": [
+      {
+        "name": "Pikachu",
+        "hp": 85,
+        "max_hp": 100,
+        "level": 25,
+        "sprite_path": "menu_sprites/menusprite1.png"
+      },
+      {
+        "name": "Charizard",
+        "hp": 150,
+        "max_hp": 200,
+        "level": 36,
+        "sprite_path": "menu_sprites/menusprite2.png"
+      },
+      {
+        "name": "Blastoise",
+        "hp": 120,
+        "max_hp": 180,
+        "level": 32,
+        "sprite_path": "menu_sprites/menusprite3.png"
+      },
+      {
+        "name": "Venusaur",
+        "hp": 90,
+        "max_hp": 160,
+        "level": 30,
+        "sprite_path": "menu_sprites/menusprite4.png"
+      },
+      {
+        "name": "Gengar",
+        "hp": 110,
+        "max_hp": 140,
+        "level": 28,
+        "sprite_path": "menu_sprites/menusprite5.png"
+      },
+      {
+        "name": "Dragonite",
+        "hp": 180,
+        "max_hp": 220,
+        "level": 40,
+        "sprite_path": "menu_sprites/menusprite6.png"
+      }
+    ],
+    "items": [
+      {
+        "name": "Potion",
+        "count": 5,
+        "sprite_path": "ingame_ui/potion.png"
+      },
+      {
+        "name": "Coins",
+        "count": 3,
+        "sprite_path": "ingame_ui/coin.png"
+      },
+      {
+        "name": "Pokeball",
+        "count": 10,
+        "sprite_path": "ingame_ui/ball.png"
+      }
+    ]
+  }
+}

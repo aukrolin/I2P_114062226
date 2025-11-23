@@ -2,11 +2,11 @@
 
 Score: 1 point
 
-![Alt Text](./Checkpoint2_gifs/Bag.gif)
+![Alt Text](./Checkpoint2_gif/Bag.gif)
 
 Prequisite: [Overlay](01-overlay.md), [Setting-Overlay](04-setting-overlay.md)
 No points will be given if your prequisite is not full score!
 
-- [ ] (0.25 point) Create a new Overlay for Backpack inside the Game Scene
-- [ ] (0.5 point) Make sure it can be synchronized with the data from save and load
-- [ ] (0.25 point) Inside the Overlay, show list of monsters and items you own
+- [x] (0.25 point) Create a new Overlay for Backpack inside the Game Scene
+- [x] (0.5 point) Make sure it can be synchronized with the data from save and load
+- [x] (0.25 point) Inside the Overlay, show list of monsters and items you own

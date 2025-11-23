@@ -2,7 +2,7 @@ import pygame as pg
 
 from src.scenes.scene import Scene
 from src.utils import Logger
-
+from typing import Any, override
 class SceneManager:
     
     _scenes: dict[str, Scene]
@@ -16,7 +16,9 @@ class SceneManager:
     def register_scene(self, name: str, scene: Scene) -> None:
         self._scenes[name] = scene
         
-    def change_scene(self, scene_name: str) -> None:
+    # def fade ()
+    def change_scene(self, scene_name: str, infos:dict[str, Any] = {}) -> None:
+        self.infos = infos
         if scene_name in self._scenes:
             Logger.info(f"Changing scene to '{scene_name}'")
             self._next_scene = scene_name
@@ -45,10 +47,10 @@ class SceneManager:
             self._current_scene.exit()
         
         self._current_scene = self._scenes[self._next_scene]
-        
         # Enter new scene
         if self._current_scene:
             Logger.info(f"Entering {self._next_scene} scene")
+            self._current_scene.getinfo(self.infos)
             self._current_scene.enter()
             
         # Clear the transition request

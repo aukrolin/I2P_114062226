@@ -8,11 +8,11 @@
         { "x": 31, "y": 31, "classification": "stationary", "facing": "UP", "max_tiles": 2 }
       ],
       "teleport": [
-        { "x": 24, "y": 23, "destination": "gym.tmx" }
+        { "x": 24, "y": 23, "destination": "gym.tmx"}
       ],
       "player": {
-        "x": 16,
-        "y": 30
+        "x": 24,
+        "y": 23
       }
     },
     {
@@ -26,7 +26,7 @@
       "enemy_trainers": [],
       "player": {
         "x": 12,
-        "y": 12
+        "y": 14
       }
     }
   ],

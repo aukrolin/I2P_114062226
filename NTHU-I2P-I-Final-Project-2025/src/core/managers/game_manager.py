@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from src.entities.player import Player
     from src.entities.enemy_trainer import EnemyTrainer
     from src.data.bag import Bag
+    from src.data.settings import Settings
 
 class GameManager:
     # Entities
@@ -21,7 +22,7 @@ class GameManager:
     maps: dict[str, Map]
     
     # Changing Scene properties
-    should_change_scene: bool
+    should_change_map: bool
     next_map: str
     
     def __init__(self, maps: dict[str, Map], start_map: str, 
@@ -30,17 +31,18 @@ class GameManager:
                  bag: Bag | None = None):
                      
         from src.data.bag import Bag
+        from src.data.settings import Settings
         # Game Properties
         self.maps = maps
         self.current_map_key = start_map
         self.player = player
         self.enemy_trainers = enemy_trainers
         self.bag = bag if bag is not None else Bag([], [])
-        
-        # Check If you should change scene
-        self.should_change_scene = False
+        self.settings = Settings([], [])
+        self.should_change_map = False
         self.next_map = ""
-        
+        self.should_change_scene : tuple[bool, str, dict[str, any]] = (False, "", {})
+
     @property
     def current_map(self) -> Map:
         return self.maps[self.current_map_key]
@@ -53,22 +55,66 @@ class GameManager:
     def current_teleporter(self) -> list[Teleport]:
         return self.maps[self.current_map_key].teleporters
     
-    def switch_map(self, target: str) -> None:
+
+    def handle_battle_event(self, info: dict[str, any]) -> None:
+        
+        self.should_change_scene = (True, "battle", info)
+
+    def handle_bush_event(self) -> None:
+        map = self.maps[self.current_map_key]
+        player_pos = self.player.position
+        prob : dict[str, int]
+        prob_meet : int
+        prob,prob_meet = map.query_bush_prob(player_pos) 
+        assert sum(prob.values()) == 100, "Bush encounter probabilities total 100%"
+        
+
+        import random
+        if random.randint(1,100) > prob_meet:
+            return
+        random_num = random.randint(1,100)
+        s = 0
+        p = None
+        for pokemon, probability in prob.items():
+            s += probability
+            if random_num <= s:
+                p = pokemon
+                Logger.info(f"Encountered {pokemon} in bush!")
+                break
+        if p is not None:
+            self.should_change_scene = (True, "battle", {"bush_pokemon": {
+                "name": "Squirtle",
+                "hp": 50,
+                "max_hp": 50,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite7.png",
+                "catch_rate": 45
+              }
+              })
+
+    def check_scene_change(self) -> tuple[str, dict[str, any]] | None:
+        if self.should_change_scene[0]:
+            scene_name = self.should_change_scene[1]
+            infos = self.should_change_scene[2]
+            self.should_change_scene = (False, "", {})
+            return (scene_name, infos)
+        return None
+
+    def switch_map(self, target: str, spawnx: int, spawny: int) -> None:
         if target not in self.maps:
             Logger.warning(f"Map '{target}' not loaded; cannot switch.")
             return
         
-        self.next_map = target
-        self.should_change_scene = True
+        self.next_map = (target,spawnx,spawny)
+        self.should_change_map = True
             
     def try_switch_map(self) -> None:
-        if self.should_change_scene:
-            self.maps[self.current_map_key].spawn = self.player.position 
-            self.current_map_key = self.next_map
+        if self.should_change_map:
+            self.current_map_key = self.next_map[0]
+            self.should_change_map = False
+            self.player.position.x = self.next_map[1] * GameSettings.TILE_SIZE
+            self.player.position.y = self.next_map[2] * GameSettings.TILE_SIZE
             self.next_map = ""
-            self.should_change_scene = False
-            if self.player:
-                self.player.position = self.maps[self.current_map_key].spawn
             
     def check_collision(self, rect: pg.Rect) -> bool:
         if self.maps[self.current_map_key].check_collision(rect):
@@ -80,15 +126,16 @@ class GameManager:
         return False
         
     def save(self, path: str) -> None:
+        """保存遊戲狀態"""
         try:
             with open(path, "w") as f:
                 json.dump(self.to_dict(), f, indent=2)
             Logger.info(f"Game saved to {path}")
         except Exception as e:
-            Logger.warning(f"Failed to save game: {e}")
+            Logger.error(f"Failed to save game: {e}")
              
     @classmethod
-    def load(cls, path: str) -> "GameManager | None":
+    def load(cls, path: str) -> "GameManager | None":   
         if not os.path.exists(path):
             Logger.error(f"No file found: {path}, ignoring load function")
             return None
@@ -102,11 +149,6 @@ class GameManager:
         for key, m in self.maps.items():
             block = m.to_dict()
             block["enemy_trainers"] = [t.to_dict() for t in self.enemy_trainers.get(key, [])]
-            spawn = self.player_spawns.get(key)
-            block["player"] = {
-                "x": spawn["x"] / GameSettings.TILE_SIZE,
-                "y": spawn["y"] / GameSettings.TILE_SIZE
-            }
             map_blocks.append(block)
         return {
             "map": map_blocks,
@@ -123,28 +165,22 @@ class GameManager:
         from src.data.bag import Bag
         
         Logger.info("Loading maps")
-        maps_data = data["map"]
+        maps_data: list[dict[str, object]] = data["map"]
         maps: dict[str, Map] = {}
         player_spawns: dict[str, Position] = {}
         trainers: dict[str, list[EnemyTrainer]] = {}
         for entry in maps_data:
             path = entry["path"]
             maps[path] = Map.from_dict(entry)
-            sp = entry.get("player")
-            if sp:
-                player_spawns[path] = Position(
-                    sp["x"] * GameSettings.TILE_SIZE,
-                    sp["y"] * GameSettings.TILE_SIZE
-                )
         current_map = data["current_map"]
         gm = cls(
             maps, current_map,
-            None, # Player
+            None,
             trainers,
-            bag=None
+            bag=None,
         )
+        gm.player_spawns = player_spawns
         gm.current_map_key = current_map
-        
         Logger.info("Loading enemy trainers")
         for m in data["map"]:
             raw_data = m["enemy_trainers"]
@@ -157,5 +193,9 @@ class GameManager:
         Logger.info("Loading bag")
         from src.data.bag import Bag as _Bag
         gm.bag = Bag.from_dict(data.get("bag", {})) if data.get("bag") else _Bag([], [])
-
         return gm
+    
+    def pause_game(self) -> None:
+        self.player.paused = True
+    def resume_game(self) -> None:
+        self.player.paused = False

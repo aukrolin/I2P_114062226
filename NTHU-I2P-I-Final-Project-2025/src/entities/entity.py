@@ -12,6 +12,10 @@ class Entity:
     position: Position
     game_manager: GameManager
     
+
+
+    _movement_lock_timer: float = 0.0  # lock movement 
+
     def __init__(self, x: float, y: float, game_manager: GameManager) -> None:
         # Sprite is only for debug, need to change into animations
         self.animation = Animation(
@@ -23,6 +27,19 @@ class Entity:
         self.direction = Direction.DOWN
         self.animation.update_pos(self.position)
         self.game_manager = game_manager
+        self._movement_lock_timer = 0.0
+
+    @property
+    def movement_lock_timer(self) -> float:
+        return self._movement_lock_timer
+    
+    @movement_lock_timer.setter
+    def movement_lock_timer(self, value: float) -> None:
+        self._movement_lock_timer = max(value, 0.0)
+        
+    @movement_lock_timer.getter
+    def movement_lock_timer(self) -> float:
+        return self._movement_lock_timer
 
     def update(self, dt: float) -> None:
         self.animation.update_pos(self.position)

@@ -46,29 +46,35 @@ class Teleport:
     destination: str
     
     @overload
-    def __init__(self, x: int, y: int, destination: str) -> None: ...
+    def __init__(self, x: int, y: int, destination: str, spawnx: int, spawny: int) -> None: ...
     @overload
-    def __init__(self, pos: Position, destination: str) -> None: ...
+    def __init__(self, pos: Position, destination: str, spawnx: int, spawny: int) -> None: ...
 
     def __init__(self, *args, **kwargs):
         if isinstance(args[0], Position):
             self.pos = args[0]
             self.destination = args[1]
+            self.spawnx = args[2]
+            self.spawny = args[3]
         else:
-            x, y, dest = args
+            x, y, dest, spawnx, spawny = args
             self.pos = Position(x, y)
             self.destination = dest
+            self.spawnx = spawnx
+            self.spawny = spawny
     
     def to_dict(self):
         return {
             "x": self.pos.x // GameSettings.TILE_SIZE,
             "y": self.pos.y // GameSettings.TILE_SIZE,
-            "destination": self.destination
+            "destination": self.destination,
+            "spawnx": self.spawnx,
+            "spawny": self.spawny
         }
     
     @classmethod
     def from_dict(cls, data: dict):
-        return cls(data["x"] * GameSettings.TILE_SIZE, data["y"] * GameSettings.TILE_SIZE, data["destination"])
+        return cls(data["x"] * GameSettings.TILE_SIZE, data["y"] * GameSettings.TILE_SIZE, data["destination"], data['spawnx'], data['spawny'])
     
 class Monster(TypedDict):
     name: str

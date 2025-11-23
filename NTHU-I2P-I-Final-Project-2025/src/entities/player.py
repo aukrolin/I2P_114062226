@@ -11,11 +11,23 @@ class Player(Entity):
     speed: float = 4.0 * GameSettings.TILE_SIZE
     game_manager: GameManager
 
+
+
     def __init__(self, x: float, y: float, game_manager: GameManager) -> None:
+        self.paused = False
         super().__init__(x, y, game_manager)
+        self.cur = None
+        self.prev = None
+
 
     @override
     def update(self, dt: float) -> None:
+        # 更新移动锁定计时器
+        if self.movement_lock_timer > 0:
+            self.movement_lock_timer -= dt
+            super().update(dt)
+            return  # 锁定期间不允许移动
+        
         dis = Position(0, 0)
         '''
         [TODO HACKATHON 2]
@@ -42,7 +54,12 @@ class Player(Entity):
         
         self.position = ...
         '''
-
+        self.updated = False
+        
+        if self.paused:
+            super().update(dt)
+            return  # paused, do nothing
+        # print('doing')
         if input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP):
             dis.y -= 1
             self.animation.switch("up")
@@ -71,13 +88,16 @@ class Player(Entity):
             if tp:
                 Logger.info(f"Teleporting to {tp.destination}")
                 dest = tp.destination
-                self.game_manager.switch_map(dest)
+
+                self.game_manager.switch_map(dest, tp.spawnx, tp.spawny)
                 return True
             return False
 
         def update_position(dis: Position, dt: float):
             nx = self.position.x + dis.x * self.speed * dt
             ny = self.position.y + dis.y * self.speed * dt
+            if dis.x or dis.y: 
+                self.updated = True
             GSTZ = GameSettings.TILE_SIZE
             
             if self.check_collision(pg.Rect(nx, self.position.y, GSTZ, GSTZ)):
@@ -91,14 +111,43 @@ class Player(Entity):
                     self.position.y = self._snap_to_grid(self.position.y)
             else:
                 self.position.y = ny
-                    
-        update_position(dis, dt)
 
+        def bush_interaction():
+            if self.game_manager.current_map.check_bush(self.hitbox) :
+                self.cur = self.hitbox.centerx // GameSettings.TILE_SIZE, self.hitbox.centery // GameSettings.TILE_SIZE
+                if self.updated and (self.cur != self.prev or self.prev is None):
+                    self.prev = self.cur
+                    self.game_manager.handle_bush_event()
+
+                    # self.game_manager.current_map.in_bush = True
+
+                # self.animation.set_opacity(150)
+                # self.game_manager.current_map.in_bush = True    
+                # print("in bush")
+                pass
+                # self.animation.set_opacity(255)
+            else :
+                # print('leved bush')
+                self.prev = None
+                pass
+
+        update_position(dis, dt)
+        bush_interaction()
+        
+    
 
         super().update(dt)
 
     def check_collision(self, rect: pg.Rect) -> bool:
         return self.game_manager.check_collision(rect) | self.game_manager.current_map.check_collision(rect)
+    
+    def lock_movement(self, duration: float = 0.5) -> None:
+        """锁定玩家移动一段时间
+        
+        Args:
+            duration: 锁定持续时间（秒），默认0.5秒
+        """
+        self.movement_lock_timer = duration
 
     @override
     def draw(self, screen: pg.Surface, camera: PositionCamera) -> None:

@@ -68,8 +68,8 @@
           "name": "clerk",
           "bag": { 
             "selling_items": [
-              { "name": "Potion",      "count": 5,  "sprite_path": "ingame_ui/potion.png",  "price": 300 },
-              { "name": "Pokeball",    "count": 10, "sprite_path": "ingame_ui/ball.png",    "price": 200 }
+              { "name": "Potion",  "sprite_path": "ingame_ui/potion.png",  "price": 300 },
+              { "name": "Pokeball", "sprite_path": "ingame_ui/ball.png",    "price": 200 }
             ]
           } 
         }
@@ -92,7 +92,7 @@
     ],
     "items": [
       { "name": "Potion",      "count": 5,  "sprite_path": "ingame_ui/potion.png" },
-      { "name": "Coins",       "count": 3,  "sprite_path": "ingame_ui/coin.png" },
+      { "name": "Coins",       "count": 3000,  "sprite_path": "ingame_ui/coin.png" },
       { "name": "Pokeball",    "count": 10, "sprite_path": "ingame_ui/ball.png" }
     ]
   }

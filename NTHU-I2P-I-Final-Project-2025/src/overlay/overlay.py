@@ -42,12 +42,18 @@ class Overlay(ABC):
     def update_content(self, dt: float):
         """子類實現具體內容的更新"""
         pass
+    
+    def update_overlay(self, info: dict[str, any]):
+        """根據 info 更新 Overlay 狀態"""
+        pass
+    
     def update(self, dt: float):
         """更新 Overlay 狀態"""
 
         if self.close_button : self.close_button.update(dt)
         self.update_content(dt)
         pass
+    
 
     def draw(self, screen: pg.Surface):
         """繪製 overlay 框架"""

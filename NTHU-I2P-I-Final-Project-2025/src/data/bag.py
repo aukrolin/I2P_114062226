@@ -44,6 +44,26 @@ class Bag:
         else :
             self._monsters_data.append(monster)
 
+    def add_item(self, item: Item, count=1) -> None:
+        for inv_item in self._items_data:
+            if inv_item["name"] == item["name"]:
+                inv_item["count"] += count
+                return
+        item_copy = item.copy()
+        item_copy["count"] = count
+        self._items_data.append(item_copy)
+
+    def substract_item(self, item: Item, count=1) -> bool:
+        for inv_item in self._items_data:
+            if inv_item["name"] == item["name"]:
+                if inv_item["count"] >= count:
+                    inv_item["count"] -= count
+                    if inv_item["count"] == 0:
+                        self._items_data.remove(inv_item)
+                    return True
+        return False
+
+
     @classmethod
     def from_dict(cls, data: dict[str, object]) -> "Bag":
         monsters = data.get("monsters") or []

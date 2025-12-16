@@ -3,20 +3,20 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "assets/maps/Shop.tmx",
+    "activeFile": "assets/maps/gym.tmx",
     "expandedProjectPaths": [
-        "saves",
-        "assets/maps",
+        "assets",
         ".",
-        "assets"
+        "assets/maps",
+        "saves"
     ],
     "fileStates": {
         "assets/maps/Shop.tmx": {
             "scale": 2.667125,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 199.8406523878708,
-                "y": 119.7919107653372
+                "x": 200.02812016684632,
+                "y": 119.9793785443127
             }
         },
         "assets/maps/a.tmx": {
@@ -47,7 +47,7 @@
             "scale": 2.6196249999999996,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 200.0286300520113,
+                "x": 199.8377630386029,
                 "y": 119.86448442048007
             }
         },
@@ -55,7 +55,7 @@
             "scale": 0.9922821969696969,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 527.5716944219116,
+                "x": 528.0755833373098,
                 "y": 311.40334971608536
             }
         },
@@ -91,10 +91,10 @@
     "project": "untitled.tiled-project",
     "recentFiles": [
         "assets/maps/map.tmx",
-        "assets/maps/gym.tmx",
-        "assets/maps/tileset.tsx",
-        "assets/maps/tmp.tmx",
         "assets/maps/Shop.tmx",
+        "assets/maps/tmp.tmx",
+        "assets/maps/tileset.tsx",
+        "assets/maps/gym.tmx",
         "assets/maps/a.tmx",
         "assets/maps/gym aa.tmx",
         "assets/maps/gym copy.tmx",

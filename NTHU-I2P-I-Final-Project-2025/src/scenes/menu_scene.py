@@ -21,12 +21,12 @@ class MenuScene(Scene):
         self.play_button = Button(
             "UI/button_play.png", "UI/button_play_hover.png",
             px + 50, py, 100, 100,
-            lambda: scene_manager.change_scene("game")
+            lambda id: scene_manager.change_scene("game")
         )
         self.setting_button = Button(
             "UI/button_setting.png", "UI/button_setting_hover.png",
             px - 200, py, 100, 100,
-            lambda: scene_manager.change_scene("settings")
+            lambda id: scene_manager.change_scene("settings")
         )
         
 

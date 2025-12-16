@@ -54,19 +54,17 @@ class EnemyTrainer(Entity):
         self.bag = bag if bag is not None else Bag([], []) # Bag for every type of NPC including EnemyTrainer, clerks, etc.
         self.detected = False
         self.max_tiles = max_tiles if max_tiles is not None else 0
+        self.warning_sign = None  # type: ignore
+        self._movement = IdleMovement()
+        self._set_direction(facing)
 
         if classification == EnemyTrainerClassification.STATIONARY:
-            self._movement = IdleMovement()
             if facing is None:
                 raise ValueError("Idle EnemyTrainer requires a 'facing' Direction at instantiation")
-            self._set_direction(facing)
             self.warning_sign = Sprite("exclamation.png", (GameSettings.TILE_SIZE // 2, GameSettings.TILE_SIZE // 2))
             self.warning_sign.update_pos(Position(x + GameSettings.TILE_SIZE // 4, y - GameSettings.TILE_SIZE // 2))
-            
         elif classification == EnemyTrainerClassification.INTERACTABLE_NPC:
-            self._movement = IdleMovement()
-            self._set_direction(facing)
-            
+            pass
         else:
             raise ValueError("Invalid classification")
 
@@ -96,8 +94,13 @@ class EnemyTrainer(Entity):
         super().draw(screen, camera)
         if self.detected:
             if not self.warning_sign :
-                raise ValueError("Warning sign not initialized")
-            self.warning_sign.draw(screen, camera)
+                if self.classification == EnemyTrainerClassification.STATIONARY:
+                    raise ValueError("Warning sign not initialized")
+                else :
+                    pass
+                    # print("") 
+            else:
+                self.warning_sign.draw(screen, camera)
             
         if GameSettings.DRAW_LOS:
             if self.hasLOS:

@@ -69,9 +69,12 @@ class GameManager:
         def handle_clerk():
             Logger.info("Handling interaction with clerk NPC")
             self.need_overlay = "clerk_overlay"
+            self.NPCbag = info.get("bag", None)
         def handle_joey():
             Logger.info("Handling interaction with Joey NPC")
             self.need_overlay = "joey_overlay"
+
+
         if npc_name == "clerk":
             handle_clerk()
         elif npc_name == "joey":

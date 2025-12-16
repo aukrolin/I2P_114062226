@@ -9,6 +9,13 @@
           "destination": "gym.tmx",
           "spawnx": 12,
           "spawny": 14
+        },
+        {
+          "x": 55,
+          "y": 31,
+          "destination": "Shop.tmx",
+          "spawnx": 12,
+          "spawny": 14
         }
       ],
       "enemy_trainers": [
@@ -42,7 +49,9 @@
                 "count": 0,
                 "sprite_path": "ingame_ui/potion.png"
               }
-            ]
+            ],
+            "computer_mostrers": [],
+            "selling_items": []
           }
         },
         {
@@ -75,7 +84,9 @@
                 "count": 0,
                 "sprite_path": "ingame_ui/potion.png"
               }
-            ]
+            ],
+            "computer_mostrers": [],
+            "selling_items": []
           }
         },
         {
@@ -108,7 +119,9 @@
                 "count": 0,
                 "sprite_path": "ingame_ui/potion.png"
               }
-            ]
+            ],
+            "computer_mostrers": [],
+            "selling_items": []
           }
         }
       ]
@@ -139,12 +152,65 @@
         }
       ],
       "enemy_trainers": []
+    },
+    {
+      "path": "Shop.tmx",
+      "teleport": [
+        {
+          "x": 11,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        }
+      ],
+      "enemy_trainers": [
+        {
+          "x": 10.0,
+          "y": 7.0,
+          "classification": "interactable_npc",
+          "facing": "LEFT",
+          "max_tiles": 2,
+          "name": "clerk",
+          "bag": {
+            "monsters": [],
+            "items": [],
+            "computer_mostrers": [],
+            "selling_items": [
+              {
+                "name": "Potion",
+                "sprite_path": "ingame_ui/potion.png",
+                "price": 300
+              },
+              {
+                "name": "Pokeball",
+                "sprite_path": "ingame_ui/ball.png",
+                "price": 200
+              }
+            ]
+          }
+        }
+      ]
     }
   ],
-  "current_map": "map.tmx",
+  "current_map": "Shop.tmx",
   "player": {
-    "x": 22.85498311499486,
-    "y": 28.0
+    "x": 8.0,
+    "y": 7.610036220988963
   },
   "bag": {
     "monsters": [
@@ -199,7 +265,7 @@
       },
       {
         "name": "Coins",
-        "count": 3,
+        "count": 3000,
         "sprite_path": "ingame_ui/coin.png"
       },
       {
@@ -207,6 +273,8 @@
         "count": 10,
         "sprite_path": "ingame_ui/ball.png"
       }
-    ]
+    ],
+    "computer_mostrers": [],
+    "selling_items": []
   }
 }

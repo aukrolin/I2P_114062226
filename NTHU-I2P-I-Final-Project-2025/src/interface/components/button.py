@@ -12,13 +12,14 @@ class Button(UIComponent):
     img_button_default: Sprite
     img_button_hover: Sprite
     hitbox: pg.Rect
-    on_click: Callable[[], None] | None
+    on_click: Callable[[int], None] | None
 
     def __init__(
         self,
         img_path: str, img_hovered_path:str,
         x: int, y: int, width: int, height: int,
-        on_click: Callable[[], None] | None = None
+        on_click: Callable[[int], None] | None = None,
+        idx = 0
     ):
         self.img_button_default = Sprite(img_path, (width, height))
         self.hitbox = pg.Rect(x, y, width, height)
@@ -26,6 +27,7 @@ class Button(UIComponent):
         self.img_button = self.img_button_default
         self.img_button_hover = Sprite(img_hovered_path, (width, height))
         self.on_click = on_click
+        self.id = idx
         '''
         [TODO HACKATHON 1]
         Initialize the properties
@@ -48,7 +50,7 @@ class Button(UIComponent):
             self.img_button = self.img_button_hover
             if input_manager.mouse_pressed(1) and self.on_click is not None:
                 Logger.info(f"[+] Button clicked")
-                self.on_click()
+                self.on_click(self.id)
         else:    
             self.img_button = self.img_button_default
     @override
@@ -72,7 +74,7 @@ def main():
     clock = pg.time.Clock()
     
     bg_color = (0, 0, 0)
-    def on_button_click():
+    def on_button_click(id: int):
         nonlocal bg_color
         if bg_color == (0, 0, 0):
             bg_color = (255, 255, 255)

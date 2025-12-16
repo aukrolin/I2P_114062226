@@ -19,7 +19,7 @@ class SettingsScene(Scene):
         self.background = BackgroundSprite("backgrounds/background1.png")
 
 
-        self.overlay = SettingsOverlay(lambda: set_game_manager("saves/game1.json"))
+        self.overlay = SettingsOverlay(lambda id: set_game_manager("saves/game1.json"))
 
         self.overlay.close_button = self.overlay.menu_button
 

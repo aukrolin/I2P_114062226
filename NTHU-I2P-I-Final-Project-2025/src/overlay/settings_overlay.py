@@ -24,7 +24,7 @@ class SettingsOverlay(Overlay):
         self.menu_button = Button(
             "UI/button_back.png", "UI/button_back_hover.png",
             self.popup_x + 2 * GameSettings.TILE_SIZE, py, 1.5*GameSettings.TILE_SIZE, 1.5*GameSettings.TILE_SIZE,
-            lambda: scene_manager.change_scene("menu")
+            lambda id: scene_manager.change_scene("menu")
         )
 
         
@@ -35,7 +35,7 @@ class SettingsOverlay(Overlay):
                 "UI/button_save.png", "UI/button_save_hover.png",
                 self.popup_x + self.popup_width//4 - 75, self.popup_y + self.popup_height - 150,
                 150, 50,
-                lambda: game_manager.save(path="saves/game1.json")
+                lambda id: game_manager.save(path="saves/game1.json")
             )
 
             self.load_button = Button (

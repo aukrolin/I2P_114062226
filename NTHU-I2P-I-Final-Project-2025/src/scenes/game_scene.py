@@ -25,9 +25,9 @@ class GameScene(Scene):
         
         self.overlays : dict[str, Overlay] = {
             'bag': BagOverlay(),
-            'settings': SettingsOverlay(lambda: set_game_manager("saves/game1.json")),
-            'clerk': ClerkOverlay(),
-            'joey': JoeyOverlay(),
+            'settings': SettingsOverlay(lambda id: set_game_manager("saves/game1.json")),
+            'clerk_overlay': ClerkOverlay(),
+            'joey_overlay': JoeyOverlay(),
         }       
         self.game_manager: GameManager = get_game_manager()
         # Online Manager
@@ -49,12 +49,12 @@ class GameScene(Scene):
         self.bag_button = Button(
             "UI/button_backpack.png", "UI/button_backpack_hover.png",
             px+TS/2, py, TS, TS,
-            lambda: self.bag_overlay()
+            lambda id: self.bag_overlay()
         )
         self.settings_button = Button(
             "UI/button_setting.png", "UI/button_setting_hover.png",
             px-TS, py, TS, TS,
-            lambda: self.settings_overlay()
+            lambda id: self.settings_overlay()
         )
     
         
@@ -73,7 +73,7 @@ class GameScene(Scene):
     def overlay_open(self):
         self.show_overlay = True
         self.game_manager.pause_game()
-    def overlay_close(self):
+    def overlay_close(self, id: int = 0):
         self.show_overlay = False
         self.overlay = None
         self.game_manager.resume_game()
@@ -115,11 +115,13 @@ class GameScene(Scene):
         if self.game_manager.need_overlay:
             self.overlay_open()
             self.overlay = self.game_manager.need_overlay
-            Logger.info(f'Open {self.overlay} overlay')
+            self.overlays[self.overlay].update_overlay({"bag": self.game_manager.NPCbag})          
+            # Logger.info(f'Open {self.overlay} overlay')   
         
 
         if self.show_overlay and self.overlay:
             self.overlays[self.overlay].update(dt)
+            self.game_manager.need_overlay = None
         
          # Update online manager
 

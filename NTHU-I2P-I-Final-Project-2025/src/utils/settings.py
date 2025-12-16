@@ -15,7 +15,7 @@ class Settings:
     MAX_CHANNELS: int = 16
     AUDIO_VOLUME: float = 0.5   # Volume of audio
     # Online
-    IS_ONLINE: bool = False
+    IS_ONLINE: bool = True
     ONLINE_SERVER_URL: str = "http://localhost:8989"
     MAX_MONSTERS_IN_BAG: int = 20    # Maximum number of monsters in player's bag
     

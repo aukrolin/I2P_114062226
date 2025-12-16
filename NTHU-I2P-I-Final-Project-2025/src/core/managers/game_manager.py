@@ -43,6 +43,8 @@ class GameManager:
         self.next_map = ""
         self.should_change_scene : tuple[bool, str, dict[str, any]] = (False, "", {})
         self.need_overlay : str | None = None
+        self.registered = False
+
     @property
     def current_map(self) -> Map:
         return self.maps[self.current_map_key]

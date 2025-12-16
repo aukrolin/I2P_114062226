@@ -2,7 +2,6 @@ import requests
 import threading
 import time
 from src.utils import Logger, GameSettings
-
 POLL_INTERVAL = 0.02
 
 class OnlineManager:
@@ -45,7 +44,10 @@ class OnlineManager:
             resp.raise_for_status()
             data = resp.json()
             if resp.status_code == 200:
+                from src.core.services import append_ids
+
                 self.player_id = data["id"]
+                append_ids(self.player_id)
                 Logger.info(f"OnlineManager registered with id={self.player_id}")
             else:
                 Logger.error("Registration failed:", data)
@@ -57,9 +59,11 @@ class OnlineManager:
         if self.player_id == -1:
             # Try to register again
             return False
-        
+        from src.core.services import get_game_manager
+        player = get_game_manager().player
         url = f"{self.base}/players"
-        body = {"id": self.player_id, "x": x, "y": y, "map": map_name}
+        body = {"id": self.player_id, "x": x, "y": y, "map": map_name,"direction":player.direction.name}
+        # print(body)
         try:
             resp = requests.post(url, json=body, timeout=5)
             if resp.status_code == 200:

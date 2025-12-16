@@ -2,7 +2,7 @@ from __future__ import annotations
 import pygame as pg
 from .entity import Entity
 from src.core.services import input_manager
-from src.utils import Position, PositionCamera, GameSettings, Logger
+from src.utils import Position, PositionCamera,Direction, GameSettings, Logger
 from src.core import GameManager
 from math import hypot
 from typing import override
@@ -63,15 +63,19 @@ class Player(Entity):
         if input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP):
             dis.y -= 1
             self.animation.switch("up")
+            self.direction = Direction.UP
         if input_manager.key_down(pg.K_s) or input_manager.key_down(pg.K_DOWN):
             dis.y += 1
             self.animation.switch("down")
+            self.direction = Direction.DOWN
         if input_manager.key_down(pg.K_a) or input_manager.key_down(pg.K_LEFT):
             dis.x -= 1
             self.animation.switch("left")
+            self.direction = Direction.LEFT
         if input_manager.key_down(pg.K_d) or input_manager.key_down(pg.K_RIGHT):
             dis.x += 1
             self.animation.switch("right")
+            self.direction = Direction.RIGHT
         if dis.x == 0 and dis.y == 0:
             self.animation.stop()
         else :

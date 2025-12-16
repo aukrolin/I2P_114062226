@@ -4,25 +4,24 @@ import time
 
 from src.scenes.scene import Scene
 from src.core import GameManager, OnlineManager
-from src.core.services import scene_manager, get_game_manager, set_game_manager
+from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager
 from src.interface.components import Button
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
-from src.sprites import Sprite
+from src.sprites import Sprite, Animation
 from src.overlay import BagOverlay, SettingsOverlay, Overlay, ClerkOverlay, JoeyOverlay
 # from src
 from typing import override
 
 class GameScene(Scene):
     online_manager: OnlineManager | None
-    sprite_online: Sprite
+    sprite_online: Sprite | Animation
 
 
     def __init__(self):
         super().__init__()
         self.show_overlay = False  # 控制是否显示 overlay
 
-        
         self.overlays : dict[str, Overlay] = {
             'bag': BagOverlay(),
             'settings': SettingsOverlay(lambda id: set_game_manager("saves/game1.json")),
@@ -31,11 +30,7 @@ class GameScene(Scene):
         }       
         self.game_manager: GameManager = get_game_manager()
         # Online Manager
-        if GameSettings.IS_ONLINE:
-            self.online_manager = OnlineManager()
-        else:
-            self.online_manager = None
-        self.sprite_online = Sprite("ingame_ui/options1.png", (GameSettings.TILE_SIZE, GameSettings.TILE_SIZE))
+        self.online_manager = get_online_manager()
 
 
 
@@ -86,7 +81,11 @@ class GameScene(Scene):
     def enter(self) -> None:
         sound_manager.play_bgm("RBY 103 Pallet Town.ogg")
         if self.online_manager:
-            self.online_manager.enter()
+            if not self.game_manager.registered:
+                self.online_manager.enter()
+            else :
+                self.online_manager.start()
+            self.game_manager.registered = True
         
     @override
     def exit(self) -> None:
@@ -177,5 +176,16 @@ class GameScene(Scene):
                 if player["map"] == self.game_manager.current_map.path_name:
                     cam = self.game_manager.player.camera
                     pos = cam.transform_position_as_position(Position(player["x"], player["y"]))
+                    # import random
+                    # print(player)
+                    # continue
+                    A = player["Animation"] 
+                    self.sprite_online = Animation(
+                        A[0], ["down", "left", "right", "up"], 4,
+                        (GameSettings.TILE_SIZE, GameSettings.TILE_SIZE)
+                    )
+                    self.sprite_online.switch(A[1])
+                    
                     self.sprite_online.update_pos(pos)
+                    
                     self.sprite_online.draw(screen)

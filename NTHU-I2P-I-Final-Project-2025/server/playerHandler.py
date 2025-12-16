@@ -14,13 +14,16 @@ class Player:
     y: float
     map: str
     last_update: float
+    sprite: str
+    direction: str
 
-    def update(self, x: float, y: float, map: str) -> None:
+    def update(self, x: float, y: float, map: str, direction: str) -> None:
         if x != self.x or y != self.y or map != self.map:
             self.last_update = time.monotonic()
         self.x = x
         self.y = y
         self.map = map
+        self.direction = direction 
 
     def is_inactive(self) -> bool:
         now = time.monotonic()
@@ -72,16 +75,31 @@ class PlayerHandler:
         with self._lock:
             pid = self._next_id
             self._next_id += 1
-            self.players[pid] = Player(pid, 0.0, 0.0, "", time.monotonic())
+            li = [ 
+                "character/ow1.png",
+                "character/ow2.png",
+                "character/ow3.png",
+                "character/ow4.png",
+                "character/ow5.png",
+                "character/ow6.png",
+                "character/ow7.png",
+                "character/ow8.png",
+                "character/ow9.png",
+                "character/ow10.png",
+
+            ]
+            import random 
+
+            self.players[pid] = Player(pid, 0.0, 0.0, "", time.monotonic(),random.choice(li), "down")
             return pid
 
-    def update(self, pid: int, x: float, y: float, map_name: str) -> bool:
+    def update(self, pid: int, x: float, y: float, map_name: str, direction: str) -> bool:
         with self._lock:
             p = self.players.get(pid)
             if not p:
                 return False
             else:
-                p.update(float(x), float(y), str(map_name))
+                p.update(float(x), float(y), str(map_name), str(direction))
                 return True
 
     def list_players(self) -> dict:
@@ -92,6 +110,8 @@ class PlayerHandler:
                     "id": p.id,
                     "x": p.x,
                     "y": p.y,
-                    "map": p.map
+                    "map": p.map,
+                    "Animation" : [p.sprite, p.direction.lower()] # [0] : picture, [1]: direction
                 }
+                print(player_list[p.id])
             return player_list

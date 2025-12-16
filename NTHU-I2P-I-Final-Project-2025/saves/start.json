@@ -41,7 +41,8 @@
         }
       ],
       "teleport": [
-        { "x": 24, "y": 23, "destination": "gym.tmx" , "spawnx": 12, "spawny":14}
+        { "x": 24, "y": 23, "destination": "gym.tmx" , "spawnx": 12, "spawny":14},
+        {"x" : 55, "y":31, "destination": "Shop.tmx",  "spawnx" : 12, "spawny":14}
       ]
     },
     {
@@ -53,12 +54,32 @@
       ],
       "roaming_mobs": [],
       "enemy_trainers": []
+    },
+    {
+      "path": "Shop.tmx",
+      "teleport": [        
+        { "x": 11, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31},
+        { "x": 12, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31},
+        { "x": 13, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31}
+      ],
+      "roaming_mobs": [],
+      "enemy_trainers": [
+        { "x": 10, "y": 7, "classification": "interactable_npc", "facing": "LEFT", "max_tiles": 2 ,
+          "name": "clerk",
+          "bag": { 
+            "selling_items": [
+              { "name": "Potion",      "count": 5,  "sprite_path": "ingame_ui/potion.png",  "price": 300 },
+              { "name": "Pokeball",    "count": 10, "sprite_path": "ingame_ui/ball.png",    "price": 200 }
+            ]
+          } 
+        }
+      ]
     }
   ],
   "current_map": "map.tmx",
   "player": {
-    "x": 16,
-    "y": 30
+    "x": 54,
+    "y": 31
   },
   "bag": {
     "monsters": [

@@ -9,7 +9,7 @@ from src.interface.components import Button
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
 from src.sprites import Sprite
-from src.overlay import BagOverlay, SettingsOverlay, Overlay
+from src.overlay import BagOverlay, SettingsOverlay, Overlay, ClerkOverlay, JoeyOverlay
 # from src
 from typing import override
 
@@ -25,7 +25,9 @@ class GameScene(Scene):
         
         self.overlays : dict[str, Overlay] = {
             'bag': BagOverlay(),
-            'settings': SettingsOverlay(lambda: set_game_manager("saves/game1.json"))
+            'settings': SettingsOverlay(lambda: set_game_manager("saves/game1.json")),
+            'clerk': ClerkOverlay(),
+            'joey': JoeyOverlay(),
         }       
         self.game_manager: GameManager = get_game_manager()
         # Online Manager
@@ -109,6 +111,12 @@ class GameScene(Scene):
         # Update others
         self.bag_button.update(dt)
         self.settings_button.update(dt)
+
+        if self.game_manager.need_overlay:
+            self.overlay_open()
+            self.overlay = self.game_manager.need_overlay
+            Logger.info(f'Open {self.overlay} overlay')
+        
 
         if self.show_overlay and self.overlay:
             self.overlays[self.overlay].update(dt)

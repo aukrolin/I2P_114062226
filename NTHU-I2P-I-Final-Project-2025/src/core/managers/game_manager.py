@@ -42,7 +42,7 @@ class GameManager:
         self.should_change_map = False
         self.next_map = ""
         self.should_change_scene : tuple[bool, str, dict[str, any]] = (False, "", {})
-
+        self.need_overlay : str | None = None
     @property
     def current_map(self) -> Map:
         return self.maps[self.current_map_key]
@@ -59,6 +59,31 @@ class GameManager:
     def handle_battle_event(self, info: dict[str, any]) -> None:
         
         self.should_change_scene = (True, "battle", info)
+
+    def handle_NPC_event(self, info: dict[str, any]) -> None:
+        if info.get("npc_name") is None:
+            Logger.error("NPC interaction event missing 'npc_name' info")
+            return
+        npc_name = info["npc_name"]
+
+        def handle_clerk():
+            Logger.info("Handling interaction with clerk NPC")
+            self.need_overlay = "clerk_overlay"
+        def handle_joey():
+            Logger.info("Handling interaction with Joey NPC")
+            self.need_overlay = "joey_overlay"
+        if npc_name == "clerk":
+            handle_clerk()
+        elif npc_name == "joey":
+            handle_joey()
+        else:
+            Logger.warning(f"Unhandled NPC interaction with '{npc_name}'")
+            return
+
+
+
+        # self.should_change_scene = (True, "npc_interaction", info)
+
 
     def handle_bush_event(self) -> None:
         map = self.maps[self.current_map_key]
@@ -99,6 +124,7 @@ class GameManager:
             self.should_change_scene = (False, "", {})
             return (scene_name, infos)
         return None
+
 
     def switch_map(self, target: str, spawnx: int, spawny: int) -> None:
         if target not in self.maps:

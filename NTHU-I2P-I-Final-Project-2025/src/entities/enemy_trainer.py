@@ -16,6 +16,7 @@ from src.data.bag import Bag
 
 class EnemyTrainerClassification(Enum):
     STATIONARY = "stationary"
+    INTERACTABLE_NPC = "interactable_npc"
 
 @dataclass
 class IdleMovement:
@@ -31,7 +32,7 @@ class EnemyTrainer(Entity):
     LOS_direction: Direction
     name: str
     bag: "Bag"
-
+    
     @override
     def __init__(
         self,
@@ -45,27 +46,48 @@ class EnemyTrainer(Entity):
         bag: "Bag | None" = None,
     ) -> None:
         super().__init__(x, y, game_manager)
+        haslos = [EnemyTrainerClassification.STATIONARY, EnemyTrainerClassification.INTERACTABLE_NPC]
+        
         self.classification = classification
-        self.max_tiles = max_tiles if max_tiles is not None else 0
+        self.hasLOS = self.classification in haslos
         self.name = name if name is not None else "..."
-        self.bag = bag if bag is not None else Bag([], [])
+        self.bag = bag if bag is not None else Bag([], []) # Bag for every type of NPC including EnemyTrainer, clerks, etc.
+        self.detected = False
+        self.max_tiles = max_tiles if max_tiles is not None else 0
+
         if classification == EnemyTrainerClassification.STATIONARY:
             self._movement = IdleMovement()
             if facing is None:
                 raise ValueError("Idle EnemyTrainer requires a 'facing' Direction at instantiation")
             self._set_direction(facing)
+            self.warning_sign = Sprite("exclamation.png", (GameSettings.TILE_SIZE // 2, GameSettings.TILE_SIZE // 2))
+            self.warning_sign.update_pos(Position(x + GameSettings.TILE_SIZE // 4, y - GameSettings.TILE_SIZE // 2))
+            
+        elif classification == EnemyTrainerClassification.INTERACTABLE_NPC:
+            self._movement = IdleMovement()
+            self._set_direction(facing)
+            
         else:
             raise ValueError("Invalid classification")
-        self.warning_sign = Sprite("exclamation.png", (GameSettings.TILE_SIZE // 2, GameSettings.TILE_SIZE // 2))
-        self.warning_sign.update_pos(Position(x + GameSettings.TILE_SIZE // 4, y - GameSettings.TILE_SIZE // 2))
-        self.detected = False
+
 
     @override
     def update(self, dt: float) -> None:
+        
+        
+        
         self._movement.update(self, dt)
-        self._has_LOS_to_player()
+        if self.hasLOS: 
+            self._handle_LOS()
+        
         if self.detected and input_manager.key_pressed(pygame.K_SPACE):
-            self.game_manager.handle_battle_event({"enemy_trainers": 1, "bag": self.bag, "name": self.name})
+            if self.classification == EnemyTrainerClassification.STATIONARY:
+                self.game_manager.handle_battle_event({"enemy_trainers": 1, "bag": self.bag, "name": self.name})
+                print(f"Initiating battle with EnemyTrainer: {self.name}")
+            elif self.classification == EnemyTrainerClassification.INTERACTABLE_NPC:
+                self.game_manager.handle_NPC_event({"npc_name": self.name, "bag": self.bag})
+                print(f"Interacting with NPC: {self.name}")
+            return
             # scene_manager.change_scene("battle")
         self.animation.update_pos(self.position)
 
@@ -73,11 +95,15 @@ class EnemyTrainer(Entity):
     def draw(self, screen: pygame.Surface, camera: PositionCamera) -> None:
         super().draw(screen, camera)
         if self.detected:
+            if not self.warning_sign :
+                raise ValueError("Warning sign not initialized")
             self.warning_sign.draw(screen, camera)
+            
         if GameSettings.DRAW_LOS:
-            LOS_rect = self._get_LOS_rect()
-            if LOS_rect is not None:
-                pygame.draw.rect(screen, (255, 255, 0), camera.transform_rect(LOS_rect), 1)
+            if self.hasLOS:
+                LOS_rect = self._get_LOS_rect()
+                if LOS_rect is not None:
+                    pygame.draw.rect(screen, (255, 255, 0), camera.transform_rect(LOS_rect), 1)
 
     def _set_direction(self, direction: Direction) -> None:
         self.direction = direction
@@ -95,6 +121,7 @@ class EnemyTrainer(Entity):
         '''
         TODO: Create hitbox to detect line of sight of the enemies towards the player
         '''
+
         if self.LOS_direction == Direction.UP:
             left = self.position.x
             top = self.position.y - GameSettings.TILE_SIZE * self.max_tiles
@@ -121,7 +148,7 @@ class EnemyTrainer(Entity):
         return LOSrect
 
 
-    def _has_LOS_to_player(self) -> None:
+    def _handle_LOS(self) -> None:
         player: Player | None = self.game_manager.player
         if player is None:
             self.detected = False
@@ -162,6 +189,7 @@ class EnemyTrainer(Entity):
         bag_data = data.get("bag")
         bag = Bag.from_dict(bag_data) if bag_data else Bag([], [])
         
+
         return cls(
             data["x"] * GameSettings.TILE_SIZE,
             data["y"] * GameSettings.TILE_SIZE,

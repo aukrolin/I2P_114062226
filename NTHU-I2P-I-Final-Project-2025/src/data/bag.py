@@ -8,11 +8,12 @@ class Bag:
     _monsters_data: list[Monster]
     _items_data: list[Item]
 
-    def __init__(self, monsters_data: list[Monster] | None = None, items_data: list[Item] | None = None, computer_monsters_data: list[Monster] | None = None):
+    def __init__(self, monsters_data: list[Monster] | None = None, items_data: list[Item] | None = None, computer_monsters_data: list[Monster] | None = None, selling_items: list[Item] | None = None):
         self._monsters_data = monsters_data if monsters_data else []
         self._items_data = items_data if items_data else []
         self.monsters_len = len(self._monsters_data)
         self.computer_monsters_data = computer_monsters_data if computer_monsters_data else []
+        self.selling_items = selling_items if selling_items else []
     def update(self, dt: float):
         pass
     
@@ -20,15 +21,18 @@ class Bag:
         return self._monsters_data
     def get_items(self) -> list[Item]:
         return self._items_data
+    def get_selling_items(self) -> list[Item]:
+        return self.selling_items
 
     def __repr__(self):
-        return f"Bag(monsters={self._monsters_data}, items={self._items_data})"
+        return f"Bag(monsters={self._monsters_data}, items={self._items_data}, computer_monsters={self.computer_monsters_data}, selling_items={self.selling_items})"
 
     def to_dict(self) -> dict[str, object]:
         return {
             "monsters": list(self._monsters_data),
             "items": list(self._items_data),
-            "computer_mostrers": list(self.computer_monsters_data) 
+            "computer_mostrers": list(self.computer_monsters_data),
+            "selling_items": list(self.selling_items),
         }
 
     def add_monster(self, monster: Monster) -> None:
@@ -45,5 +49,6 @@ class Bag:
         monsters = data.get("monsters") or []
         items = data.get("items") or []
         computer_monsters = data.get("computer_mostrers") or []
-        bag = cls(monsters, items, computer_monsters)
+        selling_items = data.get("selling_items") or []
+        bag = cls(monsters, items, computer_monsters, selling_items)
         return bag

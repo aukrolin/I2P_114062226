@@ -5,7 +5,7 @@ import time
 from src.scenes.scene import Scene
 from src.core import GameManager, OnlineManager
 from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager, input_manager
-from src.interface.components import Button
+from src.interface.components import Button, Minimap
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
 from src.sprites import Sprite, Animation
@@ -53,6 +53,9 @@ class GameScene(Scene):
             px-TS, py, TS, TS,
             lambda id: self.settings_overlay()
         )
+        
+        # Initialize minimap
+        self.minimap = Minimap()
     
         
 
@@ -112,6 +115,7 @@ class GameScene(Scene):
         # Update others
         self.bag_button.update(dt)
         self.settings_button.update(dt)
+        self.minimap.update(dt)  # Update minimap timer
 
         if self.game_manager.need_overlay:
             self.overlay_open()
@@ -262,3 +266,24 @@ class GameScene(Scene):
                     self.sprite_online.update_pos(pos)
                     
                     self.sprite_online.draw(screen)
+        
+        # Draw minimap (always on top)
+        if self.game_manager.player and not self.show_overlay: #only draw when no overlay like bag/settings/large map   
+            # Prepare NPC data
+            npc_data = []
+            for enemy in self.game_manager.current_enemy_trainers:
+                npc_data.append({
+                    'x': enemy.position.x,
+                    'y': enemy.position.y
+                })
+            
+            # Draw minimap with all elements
+            self.minimap.draw(
+                screen=screen,
+                player_pos=self.game_manager.player.position,
+                collision_map=self.game_manager.current_map._collision_map,
+                other_players=self.list_online_players,
+                npcs=npc_data,
+                teleporters=self.game_manager.current_map.teleporters,
+                current_map_name=self.game_manager.current_map.path_name
+            )

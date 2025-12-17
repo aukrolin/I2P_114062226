@@ -15,9 +15,11 @@ def get_game_manager() -> GameManager:
     return _game_manager
 
 def get_online_manager():
-    return OnlineManager()
-    # game_manager = get_game_manager()
-    # return game_manager.online_manager
+    global _online_manager
+    if _online_manager is None:
+        _online_manager = OnlineManager()
+        _online_manager.enter()  # Initialize and register
+    return _online_manager
 
 def append_ids(id):
     global ids

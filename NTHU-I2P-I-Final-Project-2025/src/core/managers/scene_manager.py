@@ -52,6 +52,7 @@ class SceneManager:
             Logger.info(f"Entering {self._next_scene} scene")
             self._current_scene.getinfo(self.infos)
             self._current_scene.enter()
+            print(self._current_scene.info)
             
         # Clear the transition request
         self._next_scene = None

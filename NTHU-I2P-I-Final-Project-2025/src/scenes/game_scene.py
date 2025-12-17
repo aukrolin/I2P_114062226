@@ -4,7 +4,7 @@ import time
 
 from src.scenes.scene import Scene
 from src.core import GameManager, OnlineManager
-from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager
+from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager, input_manager
 from src.interface.components import Button
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
@@ -32,7 +32,9 @@ class GameScene(Scene):
         # Online Manager
         self.online_manager = get_online_manager()
 
-
+        self.list_online_players : list[dict] = []
+        self.battle_check_timer = 0.0  # Timer for checking pending battles
+        self.battle_check_interval = 1.0  # Check every 1 second
 
         for overlay in self.overlays.values():
             overlay.set_close_callback(self.overlay_close)
@@ -122,8 +124,35 @@ class GameScene(Scene):
             self.overlays[self.overlay].update(dt)
             self.game_manager.need_overlay = None
         
+        # Check for pending battles periodically
+        self.battle_check_timer += dt
+        if self.battle_check_timer >= self.battle_check_interval:
+            self.battle_check_timer = 0.0
+            pending_battle = self.online_manager.check_pending_battle()
+            print(f"[BATTLE CHECK] Checking pending battle for player_id={self.online_manager.player_id}: {pending_battle}")
+            if pending_battle.get('has_battle'):
+                battle_id = pending_battle.get('battle_id')
+                opponent_id = pending_battle.get('opponent_id')
+                Logger.info(f"Auto-joining battle {battle_id} with opponent {opponent_id}")
+                
+                # Prepare battle info with existing battle_id
+                battle_info = {
+                    "online_battle": {
+                        "opponent_id": opponent_id,
+                        "battle_id": battle_id,  # Use existing battle
+                        "is_joiner": True  # Mark as joining player
+                    }
+                }
+                
+                # Change to battle scene
+                
+                scene_manager.change_scene("battle", battle_info)
+                return
+        
          # Update online manager
 
+        self.list_online_players = self.online_manager.get_list_players()
+        self.game_manager.update_online_players(self.list_online_players)
 
         if self.game_manager.player is not None and self.online_manager is not None:
             _ = self.online_manager.update(
@@ -131,6 +160,45 @@ class GameScene(Scene):
                 self.game_manager.player.position.y,
                 self.game_manager.current_map.path_name
             )
+            
+            # Check for collision with online players FIRST (higher priority than NPC)
+            if input_manager.key_pressed(pg.K_k):
+                player_rect = self.game_manager.player.animation.rect
+                
+                # Check online players first
+                for idx, online_player_rect in enumerate(self.game_manager.players_collision_map):
+                    if player_rect.colliderect(online_player_rect):
+                        # Found collision with online player - PREVENT NPC battle
+                        opponent = self.list_online_players[idx]
+                        opponent_id = opponent.get("id")
+                        
+                        if opponent_id:
+                            Logger.info(f"Triggering online battle with player {opponent_id}")
+                            
+                            # Prepare battle info (server will fetch monsters/items)
+                            battle_info = {
+                                "online_battle": {
+                                    "opponent_id": opponent_id
+                                }
+                            }
+                            
+                            # Change to battle scene immediately
+                            scene_manager.change_scene("battle", battle_info)
+                            return  # IMPORTANT: Return to prevent NPC battle trigger
+                        
+                        if opponent_id:
+                            Logger.info(f"Triggering online battle with player {opponent_id}")
+                            
+                            # Prepare battle info (server will fetch monsters/items)
+                            battle_info = {
+                                "online_battle": {
+                                    "opponent_id": opponent_id
+                                }
+                            }
+                            
+                            # Change to battle scene
+                            scene_manager.change_scene("battle", battle_info)
+                            return
         
     @override
     def draw(self, screen: pg.Surface):        
@@ -152,6 +220,11 @@ class GameScene(Scene):
             self.game_manager.current_map.draw(screen, camera)
         for enemy in self.game_manager.current_enemy_trainers:
             enemy.draw(screen, camera)
+        for player in self.game_manager.players_collision_map:
+            r = player.copy()
+            r.left += 4
+            r.top += 4
+            pg.draw.rect(screen, (255, 0, 0), camera.transform_rect(r), 1)
         if self.show_overlay:
             # 创建半透明黑色遮罩
             overlay_surface = pg.Surface((GameSettings.SCREEN_WIDTH, GameSettings.SCREEN_HEIGHT))
@@ -171,8 +244,8 @@ class GameScene(Scene):
 
 
         if self.online_manager and self.game_manager.player:
-            list_online = self.online_manager.get_list_players()
-            for player in list_online:
+            # list_online = self.online_manager.get_list_players()
+            for player in self.list_online_players:
                 if player["map"] == self.game_manager.current_map.path_name:
                     cam = self.game_manager.player.camera
                     pos = cam.transform_position_as_position(Position(player["x"], player["y"]))

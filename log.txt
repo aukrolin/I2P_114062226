@@ -1,0 +1,3 @@
+[18:32:48] [INFO] Initializing SceneManager
+[18:32:48] [INFO] Initializing Engine
+[18:32:48] [ERROR] No file found: saves/start.json, ignoring load function

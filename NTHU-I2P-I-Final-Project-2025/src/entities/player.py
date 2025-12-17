@@ -134,10 +134,17 @@ class Player(Entity):
                 # print('leved bush')
                 self.prev = None
                 pass
-
+        def player_interaction():
+            if self.game_manager.check_players_collision(self.hitbox) :
+                # self.game_manager.handle_player_event()
+                if input_manager.key_pressed(pg.K_k) : 
+                    self.game_manager.handle_player_interaction(pg.K_k)
+                pass
+        
         update_position(dis, dt)
         bush_interaction()
         
+        player_interaction()
     
 
         super().update(dt)
@@ -146,11 +153,6 @@ class Player(Entity):
         return self.game_manager.check_collision(rect) | self.game_manager.current_map.check_collision(rect)
     
     def lock_movement(self, duration: float = 0.5) -> None:
-        """锁定玩家移动一段时间
-        
-        Args:
-            duration: 锁定持续时间（秒），默认0.5秒
-        """
         self.movement_lock_timer = duration
 
     @override

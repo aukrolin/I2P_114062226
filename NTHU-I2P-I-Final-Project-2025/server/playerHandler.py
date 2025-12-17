@@ -16,14 +16,26 @@ class Player:
     last_update: float
     sprite: str
     direction: str
+    monsters: list = None  # Player's monsters
+    items: list = None     # Player's items
 
-    def update(self, x: float, y: float, map: str, direction: str) -> None:
+    def __post_init__(self):
+        if self.monsters is None:
+            self.monsters = []
+        if self.items is None:
+            self.items = []
+
+    def update(self, x: float, y: float, map: str, direction: str, monsters: list = None, items: list = None) -> None:
         if x != self.x or y != self.y or map != self.map:
             self.last_update = time.monotonic()
         self.x = x
         self.y = y
         self.map = map
-        self.direction = direction 
+        self.direction = direction
+        if monsters is not None:
+            self.monsters = monsters
+        if items is not None:
+            self.items = items 
 
     def is_inactive(self) -> bool:
         now = time.monotonic()
@@ -93,14 +105,25 @@ class PlayerHandler:
             self.players[pid] = Player(pid, 0.0, 0.0, "", time.monotonic(),random.choice(li), "down")
             return pid
 
-    def update(self, pid: int, x: float, y: float, map_name: str, direction: str) -> bool:
+    def update(self, pid: int, x: float, y: float, map_name: str, direction: str, monsters: list = None, items: list = None) -> bool:
         with self._lock:
             p = self.players.get(pid)
             if not p:
                 return False
             else:
-                p.update(float(x), float(y), str(map_name), str(direction))
+                p.update(float(x), float(y), str(map_name), str(direction), monsters, items)
                 return True
+    
+    def get_player_data(self, pid: int) -> Optional[dict]:
+        """Get player's monsters and items data"""
+        with self._lock:
+            p = self.players.get(pid)
+            if not p:
+                return None
+            return {
+                "monsters": copy.deepcopy(p.monsters),
+                "items": copy.deepcopy(p.items)
+            }
 
     def list_players(self) -> dict:
         with self._lock:

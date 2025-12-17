@@ -19,6 +19,19 @@ class Bag:
     
     def get_monsters(self) -> list[Monster]:
         return self._monsters_data
+    
+    @property
+    def monsters(self) -> list[Monster]:
+        """Property to access monsters directly"""
+        return self._monsters_data
+    
+    @monsters.setter
+    def monsters(self, value: list[Monster]) -> None:
+        """Property setter to update monsters directly"""
+        self._monsters_data = value
+        self.monsters_len = len(self._monsters_data)
+        print(f"[Bag] Monsters updated: {len(self._monsters_data)} monsters")
+    
     def get_items(self) -> list[Item]:
         return self._items_data
     def get_selling_items(self) -> list[Item]:

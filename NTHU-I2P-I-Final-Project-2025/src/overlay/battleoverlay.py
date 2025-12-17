@@ -53,11 +53,16 @@ class BattleOverlay(Overlay):
     def set_battle_info(self, battle_info):
         """設定戰鬥資訊"""
         self.battle_info = battle_info
+        # Force reload sprites every time
+        self.player_sprite = None
+        self.enemy_sprite = None
         self.load_sprites()
+        print("Battle info set and sprites reloaded")
     
     def load_sprites(self):
         """載入寶可夢精靈圖"""
         if not self.battle_info or not self.game_manager:
+            print("[BattleOverlay] Cannot load sprites: missing battle_info or game_manager")
             return
         
         # 載入玩家寶可夢圖片
@@ -70,17 +75,22 @@ class BattleOverlay(Overlay):
                 self.player_sprite = pg.transform.scale(self.player_sprite, 
                     (int(self.player_sprite.get_width() * 3), 
                      int(self.player_sprite.get_height() * 3)))
-            except:
+                print(f"[BattleOverlay] Loaded player sprite: {player_monster['name']}")
+            except Exception as e:
+                print(f"[BattleOverlay] Failed to load player sprite: {e}")
                 self.player_sprite = None
         
         # 載入敵人寶可夢圖片
         if 'bush_pokemon' in self.battle_info:
             enemy_monster = self.battle_info['bush_pokemon']
+            print(f"[BattleOverlay] Loading bush pokemon: {enemy_monster.get('name', 'Unknown')}")
         elif 'bag' in self.battle_info:
             enemy_monsters = self.battle_info['bag'].get_monsters()
             enemy_monster = enemy_monsters[0] if enemy_monsters else None
+            print(f"[BattleOverlay] Loading enemy from bag: {enemy_monster.get('name', 'Unknown') if enemy_monster else 'None'}")
         else:
             enemy_monster = None
+            print(f"[BattleOverlay] No enemy monster found in battle_info")
         
         if enemy_monster:
             try:
@@ -89,7 +99,9 @@ class BattleOverlay(Overlay):
                 self.enemy_sprite = pg.transform.scale(self.enemy_sprite,
                     (int(self.enemy_sprite.get_width() * 3),
                      int(self.enemy_sprite.get_height() * 3)))
-            except:
+                print(f"[BattleOverlay] Loaded enemy sprite: {enemy_monster['name']}")
+            except Exception as e:
+                print(f"[BattleOverlay] Failed to load enemy sprite: {e}")
                 self.enemy_sprite = None
 
     def draw_hp_bar(self, screen, x, y, width, height, current_hp, max_hp):
@@ -172,11 +184,16 @@ class BattleOverlay(Overlay):
             enemy_monster = self.battle_info['bush_pokemon']
         elif 'bag' in self.battle_info:
             enemy_monsters = self.battle_info['bag'].get_monsters()
-            enemy_monster = enemy_monsters[0] if enemy_monsters else None # 'to implement' ---
+            if not enemy_monsters or len(enemy_monsters) == 0:
+                print("[BattleOverlay] Warning: No enemy monsters in bag")
+                return
+            enemy_monster = enemy_monsters[0]
         else:
-            enemy_monster = None
+            print("[BattleOverlay] Warning: No valid enemy data in battle_info")
+            return
         
         if not enemy_monster:
+            print("[BattleOverlay] Warning: enemy_monster is None")
             return
         
         # 繪製敵人精靈圖

@@ -98,7 +98,6 @@ class EnemyTrainer(Entity):
                     raise ValueError("Warning sign not initialized")
                 else :
                     pass
-                    # print("") 
             else:
                 self.warning_sign.draw(screen, camera)
             

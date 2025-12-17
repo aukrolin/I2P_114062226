@@ -55,14 +55,146 @@ class OnlineManager:
             Logger.warning(f"OnlineManager registration error: {e}")
         return
 
+    def create_battle(self, opponent_id: int, my_monsters: list, my_items: list) -> dict:
+        """Create a battle with another player (send my data, server fetches opponent data)"""
+        try:
+            url = f"{self.base}/battle/create"
+            body = {
+                "player1_id": self.player_id,
+                "player2_id": opponent_id,
+                "player1_data": {
+                    "monsters": my_monsters,
+                    "items": my_items
+                }
+            }
+            Logger.info(f"Creating battle: player1={self.player_id}, player2={opponent_id}")
+            resp = requests.post(url, json=body, timeout=5)
+            if resp.status_code == 200:
+                data = resp.json()
+                Logger.info(f"Battle created successfully: {data.get('battle_id')}")
+                return data
+            else:
+                Logger.error(f"Battle creation failed: {resp.status_code}, response: {resp.text}")
+                return {"success": False}
+        except Exception as e:
+            Logger.error(f"Battle creation error: {e}")
+            return {"success": False}
+    
+    def submit_battle_action(self, battle_id: str, action_type: str, data: dict = None) -> bool:
+        """Submit battle action"""
+        try:
+            url = f"{self.base}/battle/action"
+            body = {
+                "battle_id": battle_id,
+                "player_id": self.player_id,
+                "action_type": action_type,
+                "data": data or {}
+            }
+            resp = requests.post(url, json=body, timeout=5)
+            if resp.status_code == 200:
+                Logger.info(f"Action submitted: {action_type}")
+                return True
+            else:
+                Logger.warning(f"Action submit failed: {resp.status_code}")
+                return False
+        except Exception as e:
+            Logger.warning(f"Action submit error: {e}")
+            return False
+    
+    def get_battle_status(self, battle_id: str) -> dict:
+        """Get battle status"""
+        if not battle_id:
+            Logger.warning("get_battle_status called with empty battle_id")
+            return {}
+        
+        try:
+            url = f"{self.base}/battle/status?battle_id={battle_id}&player_id={self.player_id}"
+            Logger.info(f"Getting battle status - battle_id: {battle_id}, player_id: {self.player_id}")
+            resp = requests.get(url, timeout=5)
+            if resp.status_code == 200:
+                return resp.json()
+            else:
+                Logger.warning(f"Get battle status failed: {resp.status_code}, response: {resp.text}, URL: {url}")
+                return {}
+        except Exception as e:
+            Logger.warning(f"Get battle status error: {e}")
+            return {}
+    
+    def check_pending_battle(self) -> dict:
+        """Check if there's a pending battle for this player"""
+        if self.player_id == -1:
+            return {}
+        
+        try:
+            url = f"{self.base}/battle/check?player_id={self.player_id}"
+            resp = requests.get(url, timeout=5)
+            if resp.status_code == 200:
+                data = resp.json()
+                if data.get('has_battle'):
+                    Logger.info(f"Pending battle found: {data.get('battle_id')}")
+                    return data
+                return {}
+            else:
+                Logger.warning(f"Check pending battle failed: {resp.status_code}, response: {resp.text}")
+                return {}
+        except Exception as e:
+            Logger.warning(f"Check pending battle error: {e}")
+            return {}
+    
+    def end_battle(self, battle_id: str) -> bool:
+        """Mark battle as finished"""
+        try:
+            url = f"{self.base}/battle/end"
+            body = {"battle_id": battle_id}
+            resp = requests.post(url, json=body, timeout=5)
+            if resp.status_code == 200:
+                Logger.info("Battle marked as finished")
+                return True
+            else:
+                Logger.warning(f"End battle failed: {resp.status_code}")
+                return False
+        except Exception as e:
+            Logger.warning(f"End battle error: {e}")
+            return False
+    
+    def delete_battle(self, battle_id: str) -> bool:
+        """Permanently delete a battle"""
+        try:
+            url = f"{self.base}/battle/delete"
+            body = {"battle_id": battle_id}
+            resp = requests.post(url, json=body, timeout=5)
+            if resp.status_code == 200:
+                Logger.info("Battle deleted")
+                return True
+            else:
+                Logger.warning(f"Delete battle failed: {resp.status_code}")
+                return False
+        except Exception as e:
+            Logger.warning(f"Delete battle error: {e}")
+            return False
+
     def update(self, x: float, y: float, map_name: str) -> bool:
         if self.player_id == -1:
             # Try to register again
             return False
         from src.core.services import get_game_manager
-        player = get_game_manager().player
+        game_manager = get_game_manager()
+        player = game_manager.player
+        
+        # Include monsters and items data in update
+        monsters = game_manager.bag.get_monsters()
+        items = game_manager.bag.get_items()
+        
         url = f"{self.base}/players"
-        body = {"id": self.player_id, "x": x, "y": y, "map": map_name,"direction":player.direction.name}
+        body = {
+            "id": self.player_id, 
+            "x": x, 
+            "y": y, 
+            "map": map_name,
+            "direction": player.direction.name,
+            "monsters": monsters,
+            "items": items
+        }
         # print(body)
         try:
             resp = requests.post(url, json=body, timeout=5)

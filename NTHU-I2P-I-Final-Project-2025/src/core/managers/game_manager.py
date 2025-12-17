@@ -44,6 +44,8 @@ class GameManager:
         self.should_change_scene : tuple[bool, str, dict[str, any]] = (False, "", {})
         self.need_overlay : str | None = None
         self.registered = False
+        self.online_player : list[dict] = []
+        self.players_collision_map : list[pg.Rect] = []
 
     @property
     def current_map(self) -> Map:
@@ -89,6 +91,14 @@ class GameManager:
 
         # self.should_change_scene = (True, "npc_interaction", info)
 
+    def handle_player_interaction(self, key: int) -> None:
+        Logger.info("Handling interaction with other player")
+        # self.need_overlay = "player_interaction_overlay"
+        self.interaction_key = key
+        if self.interaction_key == pg.K_k:
+            self.handle_battle_event({"Online": 1, "bag": self.bag, "name": "Online Player"})
+            
+            # self.need_overlay = "player_interaction_overlay"
 
     def handle_bush_event(self) -> None:
         map = self.maps[self.current_map_key]
@@ -153,9 +163,33 @@ class GameManager:
         for entity in self.enemy_trainers[self.current_map_key]:
             if rect.colliderect(entity.animation.rect):
                 return True
-        
+
+
         return False
+
+    def check_players_collision(self, rect: pg.Rect) -> None:
+        for player in self.players_collision_map:
+            if rect.colliderect(player):
+                return True
         
+    
+    def update_online_players(self, players: list[dict]) -> None:
+        self.online_player = players
+        rects = []
+        for player in players:
+            x = player["x"]
+            y = player["y"]
+            rects.append(pg.Rect(
+                    x,
+                    y,
+                    GameSettings.TILE_SIZE,
+                    GameSettings.TILE_SIZE
+                ))
+        self.players_collision_map = rects
+        
+
+
+
     def save(self, path: str) -> None:
         """保存遊戲狀態"""
         try:

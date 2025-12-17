@@ -21,6 +21,7 @@
             "monsters": [
               { "name": "Eevee", "hp": 55, "max_hp": 55, "level": 14, "sprite_path": "menu_sprites/menusprite9.png" },
               { "name": "Jigglypuff", "hp": 65, "max_hp": 65, "level": 15, "sprite_path": "menu_sprites/menusprite10.png" }
+              
             ],
             "items": [
               { "name": "Potion", "count": 0, "sprite_path": "ingame_ui/potion.png" }
@@ -33,6 +34,7 @@
             "monsters": [
               { "name": "Pidgeotto", "hp": 70, "max_hp": 70, "level": 18, "sprite_path": "menu_sprites/menusprite11.png" },
               { "name": "Rattata", "hp": 45, "max_hp": 45, "level": 13, "sprite_path": "menu_sprites/menusprite12.png" }
+              
             ],
             "items": [
               { "name": "Potion", "count": 0, "sprite_path": "ingame_ui/potion.png" }

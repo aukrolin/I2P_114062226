@@ -63,6 +63,11 @@ class BattleScene(Scene):
         self.END_BATTLE_DELAY = 2.0  # Wait 2 seconds before exiting
         self.should_delete_battle = False
         self.submitting_action = False  # Prevent duplicate submissions
+            
+        # Dialog pagination
+        self.dialog_messages = []  # Store all messages
+        self.dialog_page_index = 0  # Current page index
+        self.waiting_for_next_page = False  # Flag to wait for space key
 
     @override
     def enter(self) -> None:
@@ -82,7 +87,6 @@ class BattleScene(Scene):
             self.kind = BattleState.WILD
             self.DialogOverlay.dialog_text = f"Wild {self.info['bush_pokemon']['name']} appeared!"
         elif "enemy_trainers" in self.info:
-            print(1)
             Emonsters = self.info['bag'].get_monsters()
             Emonster = Emonsters[0]
             if Emonster['hp'] <= 0:
@@ -92,10 +96,15 @@ class BattleScene(Scene):
             
             self.kind = BattleState.NPC
             self.DialogOverlay.dialog_text = f"{self.info['name']} wants to battle!"
-                # self.DialogOverlay.dialog_text = f"{self.info['name']}'s {Emonster['name']} has no HP left!"
-            # print(self.DialogOverlay.dialog_text)
         elif "online_battle" in self.info:
-            print(2)
+            def get_opponent_monster():
+                if self.online_manager.player_id == battle_status.get('player1_id') : return battle_status.get('player2_monsters', [])
+                else : return battle_status.get('player1_monsters', [])
+                
+
+
+
+
             self.kind = BattleState.ONLINE_BATTLE
             opponent_id = self.info['online_battle']['opponent_id']
             self.game_manager = get_game_manager()
@@ -103,39 +112,33 @@ class BattleScene(Scene):
             # Check if joining existing battle or creating new one
             if self.info['online_battle'].get('is_joiner'):
                 # P2: Join existing battle
-                self.battle_id = self.info['online_battle']['battle_id']
+                self.battle_id = self.info['online_battle']['battle_id'] #to indentify which battle to join
                 self.waiting_for_opponent = False
                 self.action_submitted = False
                 self.last_turn_count = 0  # Start from 0, matches server initial turn_count
                 self.state = DialogState.DIALOG  # Start with dialog like offline battles
+                
                 self.DialogOverlay.dialog_text = f"Joined online battle!"
                 Logger.info(f"Joined battle: {self.battle_id}")
                 
                 # Fetch initial battle status to get opponent's monsters
-                battle_status = self.online_manager.get_battle_status(self.battle_id)
+                battle_status = self.online_manager.get_battle_status(self.battle_id) #get battle status from server
                 print(f"[DEBUG P2] Initial battle_status: {battle_status}")
                 if battle_status:
                     # Set up BattleOverlay with online battle data
-                    my_id = self.online_manager.player_id
-                    player1_id = battle_status.get('player1_id')
-                    
-                    if my_id == player1_id:
-                        opponent_monsters = battle_status.get('player2_monsters', [])
-                    else:
-                        opponent_monsters = battle_status.get('player1_monsters', [])
+                    opponent_monsters = get_opponent_monster()
                     
                     print(f"[DEBUG P2] Opponent monsters: {opponent_monsters}")
                     
                     # Create fake info for BattleOverlay
                     from src.data.bag import Bag
-                    fake_bag = Bag()
-                    fake_bag.monsters = opponent_monsters
-                    
+                    op_bag = Bag()
+                    op_bag.monsters = opponent_monsters
                     # Remove bush_pokemon to avoid confusion
                     if 'bush_pokemon' in self.info:
                         del self.info['bush_pokemon']
                     
-                    self.info['bag'] = fake_bag
+                    self.info['bag'] = op_bag
                     self.info['name'] = f"Player {opponent_id}"
                     print(f"[DEBUG P2] Setting BattleOverlay with opponent data: {opponent_monsters[0]['name'] if opponent_monsters else 'None'}")
                     self.BattleOverlay.set_battle_info(self.info)
@@ -190,43 +193,28 @@ class BattleScene(Scene):
 
     def update_content(self, dt: float) -> None:
             
-        # Handle delayed battle end (for online battles)
-        if self.battle_ended:
-            self.end_battle_timer += dt
-            if self.end_battle_timer >= self.END_BATTLE_DELAY:
-                if self.win:
-                    self.handle_win()
-                else:
-                    self.handle_lost()
-            return
-        
-        # Immediate exit for offline battles
+        # Immediate exit for offline battles only
         if (self.win or self.lost) and self.kind != BattleState.ONLINE_BATTLE:
             if self.win:
                 self.handle_win()
             else:
                 self.handle_lost()
             return
+        
+        # For online battles, battle_ended flag is set but we wait for dialog pagination to finish
+        # The actual exit happens in dialog pagination logic
         self.DialogOverlay.state = self.state
         self.game_manager = get_game_manager() 
         Monsters = self.game_manager.bag.get_monsters()
         items = self.game_manager.bag.get_items()
         Monster = None
-        # print(Monsters)
         Monster = Monsters[0]
-        # for i in Monsters:
-            # if i["hp"] > 0:
-                # Monster = i
-                # break
+
         if self.kind  == BattleState.WILD:
             Emonster = self.info['bush_pokemon']
         elif self.kind == BattleState.NPC:
             Emonsters = self.info['bag'].get_monsters()
             Emonster = Emonsters[0]
-            # for i in Emonsters:
-                # if i["hp"] > 0:
-                    # Emonster = i
-                    # break
         elif self.kind == BattleState.ONLINE_BATTLE:
             # Online battle doesn't use Emonster variable
             Emonster = None
@@ -264,10 +252,7 @@ class BattleScene(Scene):
                 elif input_manager.key_pressed(pg.K_DOWN) or input_manager.key_pressed(pg.K_s):
                     self.options_state = OptionsState.RUNAWAY
                 elif input_manager.key_pressed(pg.K_k) or input_manager.key_pressed(pg.K_SPACE):
-                    # Online battles can use items, wild battles can catch pokemon
-                    if self.kind == BattleState.NPC:
-                        self.DialogOverlay.dialog_textA = "You can only use items in wild or online battles!"
-                        return
+
                     
                     # For wild battles: Pokeball catching logic
                     if self.kind == BattleState.WILD:
@@ -300,20 +285,17 @@ class BattleScene(Scene):
                         return
                     
                     # For online battles: Use healing/buff items
-                    elif self.kind == BattleState.ONLINE_BATTLE:
+                    else:
                         # Find usable items (healing, buffs)
                         usable_items = [item for item in items if item['count'] > 0 and 
-                                       ('Heal' in item['name'] or 'Strength' in item['name'] or 'Defense' in item['name'])]
+                                       ('Potion' in item['name'] or 'Strength' in item['name'] or 'Defense' in item['name'])]
                         
                         if not usable_items:
                             self.DialogOverlay.dialog_textA = "No usable items!"
                             return
                         
-                        # Use first available item (simplified)
-                        item_to_use = usable_items[0]
                         self.state = DialogState.BATTLE
                         self.DialogOverlay.dialog_text = None
-                        # Will be handled in BATTLE state
                         return
             elif self.options_state == OptionsState.NAN:
                 if input_manager.key_pressed(pg.K_UP) or input_manager.key_pressed(pg.K_w):
@@ -339,6 +321,32 @@ class BattleScene(Scene):
             ]
             return
         if self.state == DialogState.BATTLE:
+            # Handle dialog pagination first (for online battles)
+            if self.kind == BattleState.ONLINE_BATTLE and self.waiting_for_next_page:
+                if input_manager.key_pressed(pg.K_SPACE):
+                    self.dialog_page_index += 1
+                    if self.dialog_page_index < len(self.dialog_messages):
+                        # Show next message
+                        self.DialogOverlay.dialog_text = [self.dialog_messages[self.dialog_page_index]]
+                    else:
+                        # All messages shown
+                        self.waiting_for_next_page = False
+                        self.dialog_page_index = 0
+                        # If battle ended, exit now
+                        if self.battle_ended:
+                            if self.win:
+                                self.handle_win()
+                            else:
+                                self.handle_lost()
+                            return
+                        # If battle continues, return to OPTIONS
+                        else:
+                            self.state = DialogState.OPTIONS
+                            self.options_state = OptionsState.BATTLE
+                            self.submitting_action = False
+                            self.DialogOverlay.dialog_text = None
+                return  # Don't process other logic while waiting for pagination
+            
             # Handle online battle first (has its own logic)
             if self.kind == BattleState.ONLINE_BATTLE:
                 # Online battle: Stage 1 & 3 (submit action + poll results)
@@ -357,7 +365,7 @@ class BattleScene(Scene):
                     elif self.options_state == OptionsState.BAG:
                         # Find first usable item
                         usable_items = [item for item in items if item['count'] > 0 and 
-                                       ('Heal' in item['name'] or 'Strength' in item['name'] or 'Defense' in item['name'])]
+                                       ('Potion' in item['name'] or 'Strength' in item['name'] or 'Defense' in item['name'])]
                         if usable_items:
                             action_type = "use_item"
                             action_data = {"item_name": usable_items[0]['name']}
@@ -387,39 +395,74 @@ class BattleScene(Scene):
                         self.state = DialogState.OPTIONS
                 elif self.submitting_action and not self.action_submitted:
                     # Still submitting, show waiting message
+                    # Debuging branch - should be very brief , maybe use if the internet is slow
                     self.DialogOverlay.dialog_text = ["Submitting action..."]
                 else:
                     # Stage 3: Poll battle status
                     battle_status = self.online_manager.get_battle_status(self.battle_id)
-                    if not battle_status:
-                        self.DialogOverlay.dialog_text = ["Battle ended by opponent"]
+                    if not battle_status: #ERROR HANDLING
                         # If we can't get status, battle was deleted - exit gracefully
+                        # Use pagination system for exit message
+                        self.dialog_messages = ["Battle ended by opponent"]
+                        self.dialog_page_index = 0
+                        self.waiting_for_next_page = True
+                        self.DialogOverlay.dialog_text = [self.dialog_messages[0]]
                         self.battle_ended = True
-                        self.end_battle_timer = 0.0
                         self.lost = True
                         return
                     
                     # Check if battle is already marked as FINISHED
                     if battle_status.get('status') == 'finished':
                         print("[BATTLE] Battle already finished, checking results...")
-                        # Process final state
+                        # Process final state - UPDATE POKEMON STATUS FIRST
                         my_id = self.online_manager.player_id
+                        player1_id = battle_status.get('player1_id')
+                        player2_id = battle_status.get('player2_id')
+                        
+                        # Update final pokemon status before showing result
+                        if player1_id and player2_id:
+                            if my_id == player1_id:
+                                updated_monsters = battle_status.get('player1_monsters', [])
+                                opponent_monsters = battle_status.get('player2_monsters', [])
+                            else:
+                                updated_monsters = battle_status.get('player2_monsters', [])
+                                opponent_monsters = battle_status.get('player1_monsters', [])
+                            
+                            # Sync final state with game manager
+                            if updated_monsters:
+                                self.game_manager.bag.monsters = updated_monsters
+                                print(f"[BATTLE] Final state: My monsters updated: {updated_monsters[0]['name']} HP={updated_monsters[0]['hp']}")
+                            
+                            # Update BattleOverlay with final opponent state
+                            if opponent_monsters:
+                                from src.data.bag import Bag
+                                fake_bag = Bag()
+                                fake_bag.monsters = opponent_monsters
+                                self.info['bag'] = fake_bag
+                                if 'bush_pokemon' in self.info:
+                                    del self.info['bush_pokemon']
+                                self.BattleOverlay.set_battle_info(self.info)
+                                print(f"[BATTLE] Final state: Opponent monsters: {opponent_monsters[0]['name']} HP={opponent_monsters[0]['hp']}")
+                        
                         winner_id = battle_status.get('winner')
                         
                         if winner_id:
                             if winner_id == my_id:
-                                self.DialogOverlay.dialog_text = ["You won!"]
+                                self.dialog_messages = ["You won!"]
                                 self.win = True
                             else:
-                                self.DialogOverlay.dialog_text = ["You lost!"]
+                                self.dialog_messages = ["You lost!"]
                                 self.lost = True
                         else:
                             # No winner means draw or error
-                            self.DialogOverlay.dialog_text = ["Battle ended"]
+                            self.dialog_messages = ["Battle ended"]
                             self.lost = True
                         
+                        self.dialog_page_index = 0
+                        self.waiting_for_next_page = True
+                        self.DialogOverlay.dialog_text = [self.dialog_messages[0]] if self.dialog_messages else ["Battle ended"]
                         self.battle_ended = True
-                        self.end_battle_timer = 0.0
+                        # Will exit after dialog pagination finishes (not timer-based)
                         # Delete battle after we've seen the result
                         self.online_manager.delete_battle(self.battle_id)
                         return
@@ -430,10 +473,10 @@ class BattleScene(Scene):
                     # Only process if turn count increased AND we actually have a turn result
                     # (turn_count > 0 means at least one turn has been processed)
                     if current_turn > self.last_turn_count and current_turn > 0:
-                        self.last_turn_count = current_turn
-                        self.action_submitted = False
-                        self.waiting_for_opponent = False
-                        self.submitting_action = False  # Reset submission lock
+                        self.last_turn_count = current_turn #update local turn count
+                        self.action_submitted = False 
+                        self.waiting_for_opponent = False 
+                        self.submitting_action = False  #ready for next action
                         
                         # Update local monsters from server with safety checks
                         try:
@@ -460,8 +503,8 @@ class BattleScene(Scene):
                             
                             # Sync with game manager
                             self.game_manager.bag.monsters = updated_monsters
-                            print(f"[DEBUG] Turn {current_turn}: My monsters updated: {updated_monsters[0]['name']} HP={updated_monsters[0]['hp']}")
-                            print(f"[DEBUG] Turn {current_turn}: Opponent monsters: {opponent_monsters[0]['name']} HP={opponent_monsters[0]['hp']}")
+                            #print(f"[DEBUG] Turn {current_turn}: My monsters updated: {updated_monsters[0]['name']} HP={updated_monsters[0]['hp']}")
+                            #print(f"[DEBUG] Turn {current_turn}: Opponent monsters: {opponent_monsters[0]['name']} HP={opponent_monsters[0]['hp']}")
                             
                             # Update BattleOverlay with new opponent monsters
                             from src.data.bag import Bag
@@ -474,7 +517,7 @@ class BattleScene(Scene):
                             if 'bush_pokemon' in self.info:
                                 del self.info['bush_pokemon']
                             
-                            print(f"[DEBUG] Updating BattleOverlay with opponent data: {opponent_monsters[0]['name']}")
+                            #print(f"[DEBUG] Updating BattleOverlay with opponent data: {opponent_monsters[0]['name']}")
                             # Force refresh of BattleOverlay
                             self.BattleOverlay.set_battle_info(self.info)
                         except Exception as e:
@@ -483,11 +526,11 @@ class BattleScene(Scene):
                             self.DialogOverlay.dialog_text = [f"Error: {str(e)}"]
                             return
                         
-                        # Display turn results
+                        # Display turn results with pagination
                         turn_result = battle_status.get('last_turn_result', {})
-                        self.DialogOverlay.dialog_text = []
+                        self.dialog_messages = []
                         if 'messages' in turn_result:
-                            self.DialogOverlay.dialog_text.extend(turn_result['messages'])
+                            self.dialog_messages.extend(turn_result['messages'])
                         
                         # Check win/loss conditions
                         if not updated_monsters or not opponent_monsters:
@@ -502,11 +545,11 @@ class BattleScene(Scene):
                         # Check win/loss conditions
                         battle_end = False
                         if opponent_monster['hp'] <= 0:
-                            self.DialogOverlay.dialog_text.append("You won!")
+                            self.dialog_messages.append("You won!")
                             self.win = True
                             battle_end = True
                         elif my_monster['hp'] <= 0:
-                            self.DialogOverlay.dialog_text.append("You lost!")
+                            self.dialog_messages.append("You lost!")
                             self.lost = True
                             battle_end = True
                         
@@ -514,18 +557,20 @@ class BattleScene(Scene):
                         elif battle_status.get('winner'):
                             winner_id = battle_status['winner']
                             if winner_id == my_id:
-                                self.DialogOverlay.dialog_text.append("Opponent timed out! You won!")
+                                self.dialog_messages.append("Opponent timed out! You won!")
                                 self.win = True
                             else:
-                                self.DialogOverlay.dialog_text.append("You timed out! You lost!")
+                                self.dialog_messages.append("You timed out! You lost!")
                                 self.lost = True
                             battle_end = True
                         
                         # Trigger delayed exit if battle ended
                         if battle_end:
+                            self.dialog_page_index = 0
+                            self.waiting_for_next_page = True
+                            self.DialogOverlay.dialog_text = [self.dialog_messages[0]] if self.dialog_messages else ["Battle ended"]
                             self.battle_ended = True
-                            self.end_battle_timer = 0.0
-                            print(f"[BATTLE] Battle ended, will exit in {self.END_BATTLE_DELAY}s")
+                            print(f"[BATTLE] Battle ended, will exit after dialog finishes")
                             # Mark battle as finished on server
                             self.online_manager.end_battle(self.battle_id)
                             # Schedule deletion after delay
@@ -534,13 +579,14 @@ class BattleScene(Scene):
                         else:
                             # Battle continues - go back to OPTIONS to choose next action
                             print(f"[BATTLE] Turn {current_turn} complete, returning to OPTIONS")
-                            self.state = DialogState.OPTIONS
-                            self.options_state = OptionsState.BATTLE
-                            self.submitting_action = False  # Ready for next action
-                            # DialogOverlay.dialog_text already set with turn results
                             # Add instruction
-                            if self.DialogOverlay.dialog_text:
-                                self.DialogOverlay.dialog_text.append("Choose your next action!")
+                            if self.dialog_messages:
+                                self.dialog_messages.append("Choose your next action!")
+                            # Set up pagination
+                            self.dialog_page_index = 0
+                            self.waiting_for_next_page = True
+                            self.DialogOverlay.dialog_text = [self.dialog_messages[0]] if self.dialog_messages else ["Choose your action!"]
+                            # Don't change state yet, wait for user to read messages
                     else:
                         # Still waiting for new turn
                         if self.waiting_for_opponent:

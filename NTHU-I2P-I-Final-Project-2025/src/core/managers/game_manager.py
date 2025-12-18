@@ -128,7 +128,33 @@ class GameManager:
                 "max_hp": 50,
                 "level": 15,
                 "sprite_path": "menu_sprites/menusprite7.png",
-                "catch_rate": 45
+                "element": ["Electric", None],
+                "base_hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                    {
+                        "name": "Water Gun",
+                        "power": 40,
+                        "type": "Water",
+                        "category": "special"
+                    },
+                    {
+                        "name": "Tackle",
+                        "power": 40,
+                        "type": "Normal",
+                        "category": "physical"
+                    }
+                ],
+                "catch_rate": 45,
+                "can_evolve": True,
+                "evolution_item": "Water Stone",
+                "evolution_target": "Blastoise"
               }
               })
 

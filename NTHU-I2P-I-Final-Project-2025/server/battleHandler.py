@@ -5,6 +5,12 @@ import copy
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Literal
 from enum import Enum
+import sys
+import os
+
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.utils.battle_calculator import calculate_damage, use_item_in_battle
 
 BATTLE_TIMEOUT = 30.0  # 30 seconds timeout
 
@@ -156,13 +162,25 @@ class BattleHandler:
         
         messages = []
         
-        # Randomly decide who attacks first (will be speed-based in future)
-        p1_first = random.choice([True, False])
+        # Determine action order: switch actions go first, then speed-based
         actions = [(1, battle.player1_action, p1_monster, p2_monster),
                    (2, battle.player2_action, p2_monster, p1_monster)]
         
-        if not p1_first:
-            actions.reverse()
+        # Sort: switch actions first, then random order for attacks/items
+        def action_priority(action_tuple):
+            player_num, action, _, _ = action_tuple
+            if action.action_type == "switch":
+                return 0  # Switch has highest priority
+            else:
+                return 1  # Attack/item second priority
+        
+        actions.sort(key=action_priority)
+        
+        # If both are same priority (both attack or both switch), randomize
+        if action_priority(actions[0]) == action_priority(actions[1]):
+            p1_first = random.choice([True, False])
+            if not p1_first:
+                actions.reverse()
         
         # Process actions in order
         for idx, (player_num, action, attacker, defender) in enumerate(actions):
@@ -179,19 +197,72 @@ class BattleHandler:
                 messages.append(f"{attacker['name']} cannot attack (fainted)!")
                 continue
             
+            # Flag to skip defender death check (for switch actions)
+            skip_damage_check = False
+            
             # Process action
             if action.action_type == "attack":
-                damage = self._calculate_damage(attacker, defender)
-                old_hp = defender["hp"]
-                defender["hp"] = max(0, defender["hp"] - damage)
-                messages.append(f"{attacker['name']} attacked {defender['name']} for {damage} damage! ({old_hp} -> {defender['hp']} HP)")
-                print(f"[SERVER] {attacker['name']} dealt {damage} damage. {defender['name']}: {old_hp} -> {defender['hp']} HP")
+                # Get move from action data
+                move_index = action.data.get("move_index", 0)
+                moves = attacker.get("moves", [])
+                
+                if moves and 0 <= move_index < len(moves):
+                    move = moves[move_index]
+                    damage, attack_messages = self._calculate_damage(attacker, defender, move)
+                    messages.extend(attack_messages)
+                    
+                    old_hp = defender["hp"]
+                    defender["hp"] = max(0, defender["hp"] - damage)
+                    messages.append(f"{defender['name']}: {old_hp} -> {defender['hp']} HP")
+                    print(f"[SERVER] {attacker['name']} used {move['name']}, dealt {damage} damage. {defender['name']}: {old_hp} -> {defender['hp']} HP")
+                else:
+                    # Fallback: basic attack
+                    damage = max(1, attacker.get("level", 10))
+                    old_hp = defender["hp"]
+                    defender["hp"] = max(0, defender["hp"] - damage)
+                    messages.append(f"{attacker['name']} attacked for {damage} damage!")
+                    messages.append(f"{defender['name']}: {old_hp} -> {defender['hp']} HP")
+                    print(f"[SERVER] {attacker['name']} basic attack: {damage} damage")
+                    
             elif action.action_type == "use_item":
                 item_name = action.data.get("item_name")
                 self._use_item(battle, player_num, item_name, attacker, messages)
+                # Items don't damage opponent, skip damage check
+                skip_damage_check = True
+                
+            elif action.action_type == "switch":
+                # Handle pokemon switching
+                new_index = action.data.get("pokemon_index")
+                monsters = battle.player1_monsters if player_num == 1 else battle.player2_monsters
+                
+                print(f"[SERVER] Player {player_num} switch action: new_index={new_index}, monsters count={len(monsters)}")
+                
+                if new_index is not None and 0 <= new_index < len(monsters):
+                    new_monster = monsters[new_index]
+                    print(f"[SERVER] Target monster: {new_monster['name']} HP={new_monster['hp']}")
+                    
+                    if new_monster["hp"] > 0:
+                        # Update current monster index
+                        old_index = battle.player1_current_monster if player_num == 1 else battle.player2_current_monster
+                        if player_num == 1:
+                            battle.player1_current_monster = new_index
+                        else:
+                            battle.player2_current_monster = new_index
+                        messages.append(f"Player {player_num} switched to {new_monster['name']}!")
+                        print(f"[SERVER] Player {player_num} switched from index {old_index} to {new_index} ({new_monster['name']})")
+                        # Switch doesn't cause damage, skip damage check
+                        skip_damage_check = True
+                    else:
+                        messages.append(f"Cannot switch to fainted {new_monster['name']}!")
+                        print(f"[SERVER] Switch failed: target pokemon fainted")
+                        skip_damage_check = True  # Also skip for failed switch
+                else:
+                    messages.append(f"Invalid pokemon switch!")
+                    print(f"[SERVER] Invalid switch: index {new_index} out of range (0-{len(monsters)-1})")
+                    skip_damage_check = True  # Also skip for invalid switch
             
-            # Check if defender fainted
-            if defender["hp"] <= 0:
+            # Check if defender fainted (skip for switch/item actions)
+            if not skip_damage_check and defender["hp"] <= 0:
                 messages.append(f"{defender['name']} fainted!")
                 
                 # Check which player lost their monster
@@ -230,40 +301,47 @@ class BattleHandler:
         battle.status = BattleStatus.WAITING_ACTIONS
         battle.last_update = time.monotonic()
         battle.last_result = {"messages": messages}
+        
+        print(f"[SERVER] Turn {battle.turn} complete. P1 current monster: index {battle.player1_current_monster}, P2 current monster: index {battle.player2_current_monster}")
+        print(f"[SERVER] Turn result messages: {messages}")
     
-    def _calculate_damage(self, attacker: dict, defender: dict) -> int:
-        """Calculate damage (simplified)"""
-        base_damage = attacker.get("level", 10)
-        attack = attacker.get("attack", attacker.get("level", 10))
-        defense = defender.get("defense", 0)
-        damage = base_damage + (attack - defense) // 2
-        return max(1, damage)
+    def _calculate_damage(self, attacker: dict, defender: dict, move: dict) -> tuple[int, list[str]]:
+        """Calculate damage using battle_calculator with type effectiveness"""
+        try:
+            damage, messages = calculate_damage(attacker, defender, move)
+            return damage, messages
+        except Exception as e:
+            print(f"[SERVER ERROR] calculate_damage failed: {e}")
+            # Fallback to simple calculation
+            base_damage = attacker.get("level", 10)
+            damage = max(1, base_damage)
+            return damage, [f"{attacker['name']} attacked {defender['name']}!"]
     
     def _use_item(self, battle: Battle, player_num: int, item_name: str, 
                   monster: dict, messages: list):
-        """Use an item"""
+        """Use an item using battle_calculator"""
         items = battle.player1_items if player_num == 1 else battle.player2_items
         
         for item in items:
             if item["name"] == item_name and item["count"] > 0:
-                item["count"] -= 1
-                
-                if "Heal" in item_name:
-                    heal = item.get("heal_amount", 20)
-                    old_hp = monster["hp"]
-                    monster["hp"] = min(monster["hp"] + heal, monster["max_hp"])
-                    actual_heal = monster["hp"] - old_hp
-                    messages.append(f"Used {item_name}! {monster['name']} restored {actual_heal} HP!")
+                try:
+                    # Use battle_calculator's item system
+                    item_messages = use_item_in_battle(monster, item)
+                    messages.extend(item_messages)
                     
-                elif "Strength" in item_name:
-                    boost = item.get("amount", 5)
-                    monster["attack"] = monster.get("attack", monster["level"]) + boost
-                    messages.append(f"Used {item_name}! {monster['name']}'s attack rose!")
-                    
-                elif "Defense" in item_name:
-                    boost = item.get("amount", 5)
-                    monster["defense"] = monster.get("defense", 0) + boost
-                    messages.append(f"Used {item_name}! {monster['name']}'s defense rose!")
+                    # Decrease item count
+                    item["count"] -= 1
+                    print(f"[SERVER] Used {item_name}, remaining: {item['count']}")
+                except Exception as e:
+                    print(f"[SERVER ERROR] use_item_in_battle failed: {e}")
+                    # Fallback: simple heal
+                    if item.get("effect") == "heal":
+                        heal = item.get("value", 20)
+                        old_hp = monster["hp"]
+                        monster["hp"] = min(monster["hp"] + heal, monster["max_hp"])
+                        actual_heal = monster["hp"] - old_hp
+                        messages.append(f"Used {item_name}! {monster['name']} restored {actual_heal} HP!")
+                        item["count"] -= 1
                 
                 break
     

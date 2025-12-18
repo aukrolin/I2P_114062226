@@ -30,13 +30,13 @@ class BattleOverlay(Overlay):
         # UI 框架位置
         # 敵人資訊框（右上）
         self.enemy_box_width = 300
-        self.enemy_box_height = 80
+        self.enemy_box_height = 90  # 增加高度以容納屬性顯示
         self.enemy_box_x = GameSettings.SCREEN_WIDTH - self.enemy_box_width - 50
         self.enemy_box_y = 50
         
         # 玩家資訊框（左下）
         self.player_box_width = 300
-        self.player_box_height = 80
+        self.player_box_height = 95  # 增加高度以容納屬性和HP數值
         self.player_box_x = 50
         self.player_box_y = GameSettings.SCREEN_HEIGHT - 300
         
@@ -141,9 +141,34 @@ class BattleOverlay(Overlay):
         screen.blit(name_text, (x + 10, y + 10))
         screen.blit(level_text, (x + width - 60, y + 10))
         
+        # 屬性顯示（在名稱下方）
+        element_types = pokemon_data.get('element', (None, None))
+        # Debug: 檢查 element 數據
+        if is_enemy:
+            print(f"[BattleOverlay] Enemy {pokemon_data.get('name', 'Unknown')} element: {element_types}")
+        
+        # 確保 element_types 是可迭代的
+        if not isinstance(element_types, (list, tuple)):
+            element_types = (element_types,) if element_types else (None, None)
+        
+        type_text = "/".join([t for t in element_types if t is not None])
+        if type_text:
+            # 屬性顏色對應
+            type_colors = {
+                'Normal': (168, 167, 122), 'Fire': (238, 129, 48), 'Water': (99, 144, 240),
+                'Electric': (247, 208, 44), 'Grass': (122, 199, 76), 'Ice': (150, 217, 214),
+                'Fighting': (194, 46, 40), 'Poison': (163, 62, 161), 'Ground': (226, 191, 101),
+                'Flying': (169, 143, 243), 'Psychic': (249, 85, 135), 'Bug': (166, 185, 26),
+                'Rock': (182, 161, 54), 'Ghost': (115, 87, 151), 'Dragon': (111, 53, 252),
+                'Dark': (112, 87, 70), 'Steel': (183, 183, 206), 'Fairy': (214, 133, 173)
+            }
+            type_color = type_colors.get(element_types[0], self.black) if element_types[0] else self.black
+            type_render = self.font_small.render(type_text, True, type_color)
+            screen.blit(type_render, (x + 10, y + 32))
+        
         # HP 條
         hp_bar_x = x + 10
-        hp_bar_y = y + 45
+        hp_bar_y = y + 50
         hp_bar_width = width - 20
         hp_bar_height = 12
         self.draw_hp_bar(screen, hp_bar_x, hp_bar_y, hp_bar_width, hp_bar_height,
@@ -155,7 +180,7 @@ class BattleOverlay(Overlay):
                 f"{pokemon_data['hp']}/{pokemon_data['max_hp']}", 
                 True, self.black
             )
-            screen.blit(hp_text, (x + 10, y + 62))
+            screen.blit(hp_text, (x + 10, y + 67))
 
     @override
     def update(self, dt: float):

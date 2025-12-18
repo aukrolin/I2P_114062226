@@ -3,77 +3,395 @@
     {
       "path": "map.tmx",
       "enemy_trainers": [
-        { "x": 24, "y": 29, "classification": "stationary", "facing": "DOWN", "max_tiles": 2 ,
+        {
+          "x": 24,
+          "y": 29,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "max_tiles": 2,
           "name": "Catch Bug young man",
-          "bag": { 
+          "bag": {
             "monsters": [
-              { "name": "Squirtle", "hp": 50, "max_hp": 50, "level": 15, "sprite_path": "menu_sprites/menusprite7.png" },
-              { "name": "Butterfree", "hp": 60, "max_hp": 60, "level": 16, "sprite_path": "menu_sprites/menusprite8.png" }
+              {
+                "name": "Squirtle",
+                "hp": 50,
+                "max_hp": 50,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite7.png",
+                "element": [
+                  "Water",
+                  null
+                ],
+                "base_hp": 44,
+                "attack": 48,
+                "defense": 65,
+                "sp_attack": 50,
+                "sp_defense": 64,
+                "speed": 43,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Water Gun",
+                    "power": 40,
+                    "type": "Water",
+                    "category": "special"
+                  },
+                  {
+                    "name": "Tackle",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  }
+                ],
+                "can_evolve": true,
+                "evolution_item": "Water Stone",
+                "evolution_target": "Blastoise"
+              },
+              {
+                "name": "Butterfree",
+                "hp": 60,
+                "max_hp": 60,
+                "level": 16,
+                "sprite_path": "menu_sprites/menusprite8.png",
+                "element": [
+                  "Bug",
+                  "Flying"
+                ],
+                "base_hp": 60,
+                "attack": 45,
+                "defense": 50,
+                "sp_attack": 90,
+                "sp_defense": 80,
+                "speed": 70,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Gust",
+                    "power": 40,
+                    "type": "Flying",
+                    "category": "special"
+                  },
+                  {
+                    "name": "Tackle",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  }
+                ],
+                "can_evolve": false
+              }
             ],
             "items": [
-              { "name": "Potion", "count": 0, "sprite_path": "ingame_ui/potion.png" }
-            ] 
-          } 
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         },
-        { "x": 54, "y": 16, "classification": "stationary", "facing": "UP", "max_tiles": 2 ,
+        {
+          "x": 54,
+          "y": 16,
+          "classification": "stationary",
+          "facing": "UP",
+          "max_tiles": 2,
           "name": "short dress girl",
-          "bag": { 
+          "bag": {
             "monsters": [
-              { "name": "Eevee", "hp": 55, "max_hp": 55, "level": 14, "sprite_path": "menu_sprites/menusprite9.png" },
-              { "name": "Jigglypuff", "hp": 65, "max_hp": 65, "level": 15, "sprite_path": "menu_sprites/menusprite10.png" }
-              
+              {
+                "name": "Eevee",
+                "hp": 55,
+                "max_hp": 55,
+                "level": 14,
+                "sprite_path": "menu_sprites/menusprite9.png",
+                "element": [
+                  "Normal",
+                  null
+                ],
+                "base_hp": 55,
+                "attack": 55,
+                "defense": 50,
+                "sp_attack": 45,
+                "sp_defense": 65,
+                "speed": 55,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Tackle",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  },
+                  {
+                    "name": "Quick Attack",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  }
+                ],
+                "can_evolve": false
+              },
+              {
+                "name": "Jigglypuff",
+                "hp": 65,
+                "max_hp": 65,
+                "level": 15,
+                "sprite_path": "menu_sprites/menusprite10.png",
+                "element": [
+                  "Normal",
+                  "Fairy"
+                ],
+                "base_hp": 115,
+                "attack": 45,
+                "defense": 20,
+                "sp_attack": 45,
+                "sp_defense": 25,
+                "speed": 20,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Pound",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  },
+                  {
+                    "name": "Sing",
+                    "power": 0,
+                    "type": "Normal",
+                    "category": "status"
+                  }
+                ],
+                "can_evolve": false
+              }
             ],
             "items": [
-              { "name": "Potion", "count": 0, "sprite_path": "ingame_ui/potion.png" }
-            ] 
-          } 
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         },
-        { "x": 31, "y": 31, "classification": "stationary", "facing": "UP", "max_tiles": 2 ,
+        {
+          "x": 31,
+          "y": 31,
+          "classification": "stationary",
+          "facing": "UP",
+          "max_tiles": 2,
           "name": "gentleman",
-          "bag": { 
+          "bag": {
             "monsters": [
-              { "name": "Pidgeotto", "hp": 70, "max_hp": 70, "level": 18, "sprite_path": "menu_sprites/menusprite11.png" },
-              { "name": "Rattata", "hp": 45, "max_hp": 45, "level": 13, "sprite_path": "menu_sprites/menusprite12.png" }
-              
+              {
+                "name": "Pidgeotto",
+                "hp": 70,
+                "max_hp": 70,
+                "level": 18,
+                "sprite_path": "menu_sprites/menusprite11.png",
+                "element": [
+                  "Normal",
+                  "Flying"
+                ],
+                "base_hp": 63,
+                "attack": 60,
+                "defense": 55,
+                "sp_attack": 50,
+                "sp_defense": 50,
+                "speed": 71,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Wing Attack",
+                    "power": 60,
+                    "type": "Flying",
+                    "category": "physical"
+                  },
+                  {
+                    "name": "Quick Attack",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  }
+                ],
+                "can_evolve": false
+              },
+              {
+                "name": "Rattata",
+                "hp": 45,
+                "max_hp": 45,
+                "level": 13,
+                "sprite_path": "menu_sprites/menusprite12.png",
+                "element": [
+                  "Normal",
+                  null
+                ],
+                "base_hp": 30,
+                "attack": 56,
+                "defense": 35,
+                "sp_attack": 25,
+                "sp_defense": 35,
+                "speed": 72,
+                "attack_boost": 0,
+                "defense_boost": 0,
+                "moves": [
+                  {
+                    "name": "Tackle",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  },
+                  {
+                    "name": "Quick Attack",
+                    "power": 40,
+                    "type": "Normal",
+                    "category": "physical"
+                  }
+                ],
+                "can_evolve": false
+              }
             ],
             "items": [
-              { "name": "Potion", "count": 0, "sprite_path": "ingame_ui/potion.png" }
-            ] 
-          } 
+              {
+                "name": "Potion",
+                "count": 0,
+                "sprite_path": "ingame_ui/potion.png"
+              }
+            ]
+          }
         }
       ],
       "teleport": [
-        { "x": 24, "y": 23, "destination": "gym.tmx" , "spawnx": 12, "spawny":14},
-        {"x" : 55, "y":31, "destination": "Shop.tmx",  "spawnx" : 12, "spawny":14}
+        {
+          "x": 24,
+          "y": 23,
+          "destination": "gym.tmx",
+          "spawnx": 12,
+          "spawny": 14
+        },
+        {
+          "x": 55,
+          "y": 31,
+          "destination": "Shop.tmx",
+          "spawnx": 12,
+          "spawny": 14
+        }
       ]
     },
     {
       "path": "gym.tmx",
       "teleport": [
-        { "x": 11, "y": 14, "destination": "map.tmx" , "spawnx": 24, "spawny":23},
-        { "x": 12, "y": 14, "destination": "map.tmx" , "spawnx": 24, "spawny":23},
-        { "x": 13, "y": 14, "destination": "map.tmx" , "spawnx": 24, "spawny":23}
+        {
+          "x": 11,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 24,
+          "spawny": 23
+        }
       ],
       "roaming_mobs": [],
       "enemy_trainers": []
     },
     {
       "path": "Shop.tmx",
-      "teleport": [        
-        { "x": 11, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31},
-        { "x": 12, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31},
-        { "x": 13, "y": 14, "destination": "map.tmx" ,"spawnx" : 55, "spawny":31}
+      "teleport": [
+        {
+          "x": 11,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        },
+        {
+          "x": 12,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        },
+        {
+          "x": 13,
+          "y": 14,
+          "destination": "map.tmx",
+          "spawnx": 55,
+          "spawny": 31
+        }
       ],
       "roaming_mobs": [],
       "enemy_trainers": [
-        { "x": 10, "y": 7, "classification": "interactable_npc", "facing": "LEFT", "max_tiles": 2 ,
+        {
+          "x": 10,
+          "y": 7,
+          "classification": "interactable_npc",
+          "facing": "LEFT",
+          "max_tiles": 2,
           "name": "clerk",
-          "bag": { 
+          "bag": {
             "selling_items": [
-              { "name": "Potion",  "sprite_path": "ingame_ui/potion.png",  "price": 300 },
-              { "name": "Pokeball", "sprite_path": "ingame_ui/ball.png",    "price": 200 }
+              {
+                "name": "Potion",
+                "sprite_path": "ingame_ui/potion.png",
+                "price": 300,
+                "effect": "heal",
+                "value": 20
+              },
+              {
+                "name": "Pokeball",
+                "sprite_path": "ingame_ui/ball.png",
+                "price": 200
+              },
+              {
+                "name": "Heal Potion",
+                "sprite_path": "ingame_ui/potion.png",
+                "price": 200,
+                "effect": "heal",
+                "value": 50
+              },
+              {
+                "name": "Strength Potion",
+                "sprite_path": "ingame_ui/potion.png",
+                "price": 300,
+                "effect": "attack_boost",
+                "value": 20
+              },
+              {
+                "name": "Defense Potion",
+                "sprite_path": "ingame_ui/potion.png",
+                "price": 300,
+                "effect": "defense_boost",
+                "value": 15
+              },
+              {
+                "name": "Water Stone",
+                "sprite_path": "ingame_ui/ball.png",
+                "price": 2100,
+                "effect": "evolution",
+                "target": [
+                  "Squirtle"
+                ]
+              }
             ]
-          } 
+          }
         }
       ]
     }
@@ -85,17 +403,227 @@
   },
   "bag": {
     "monsters": [
-      { "name": "Pikachu",   "hp": 85,  "max_hp": 100, "level": 25, "sprite_path": "menu_sprites/menusprite1.png" },
-      { "name": "Charizard", "hp": 150, "max_hp": 200, "level": 36, "sprite_path": "menu_sprites/menusprite2.png" },
-      { "name": "Blastoise", "hp": 120, "max_hp": 180, "level": 32, "sprite_path": "menu_sprites/menusprite3.png" },
-      { "name": "Venusaur",  "hp": 90,  "max_hp": 160, "level": 30, "sprite_path": "menu_sprites/menusprite4.png" },
-      { "name": "Gengar",    "hp": 110, "max_hp": 140, "level": 28, "sprite_path": "menu_sprites/menusprite5.png" },
-      { "name": "Dragonite", "hp": 180, "max_hp": 220, "level": 40, "sprite_path": "menu_sprites/menusprite6.png" }
+      {
+        "name": "Pikachu",
+        "hp": 85,
+        "max_hp": 100,
+        "level": 25,
+        "sprite_path": "menu_sprites/menusprite1.png",
+        "element": [
+          "Electric",
+          null
+        ],
+        "base_hp": 35,
+        "attack": 55,
+        "defense": 40,
+        "sp_attack": 50,
+        "sp_defense": 50,
+        "speed": 90,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Thunder Shock",
+            "power": 40,
+            "type": "Electric",
+            "category": "special"
+          },
+          {
+            "name": "Quick Attack",
+            "power": 40,
+            "type": "Normal",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Charizard",
+        "hp": 150,
+        "max_hp": 200,
+        "level": 36,
+        "sprite_path": "menu_sprites/menusprite2.png",
+        "element": [
+          "Fire",
+          "Flying"
+        ],
+        "base_hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "sp_attack": 109,
+        "sp_defense": 85,
+        "speed": 100,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Flamethrower",
+            "power": 90,
+            "type": "Fire",
+            "category": "special"
+          },
+          {
+            "name": "Wing Attack",
+            "power": 60,
+            "type": "Flying",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Blastoise",
+        "hp": 120,
+        "max_hp": 180,
+        "level": 32,
+        "sprite_path": "menu_sprites/menusprite3.png",
+        "element": [
+          "Water",
+          null
+        ],
+        "base_hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "sp_attack": 85,
+        "sp_defense": 105,
+        "speed": 78,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Water Gun",
+            "power": 40,
+            "type": "Water",
+            "category": "special"
+          },
+          {
+            "name": "Bite",
+            "power": 60,
+            "type": "Normal",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Venusaur",
+        "hp": 90,
+        "max_hp": 160,
+        "level": 30,
+        "sprite_path": "menu_sprites/menusprite4.png",
+        "element": [
+          "Grass",
+          "Poison"
+        ],
+        "base_hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 80,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Vine Whip",
+            "power": 45,
+            "type": "Grass",
+            "category": "physical"
+          },
+          {
+            "name": "Razor Leaf",
+            "power": 55,
+            "type": "Grass",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Gengar",
+        "hp": 110,
+        "max_hp": 140,
+        "level": 28,
+        "sprite_path": "menu_sprites/menusprite5.png",
+        "element": [
+          "Ghost",
+          "Poison"
+        ],
+        "base_hp": 60,
+        "attack": 65,
+        "defense": 60,
+        "sp_attack": 130,
+        "sp_defense": 75,
+        "speed": 110,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Shadow Ball",
+            "power": 80,
+            "type": "Ghost",
+            "category": "special"
+          },
+          {
+            "name": "Lick",
+            "power": 30,
+            "type": "Ghost",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Dragonite",
+        "hp": 180,
+        "max_hp": 220,
+        "level": 40,
+        "sprite_path": "menu_sprites/menusprite6.png",
+        "element": [
+          "Dragon",
+          "Flying"
+        ],
+        "base_hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 80,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Dragon Claw",
+            "power": 80,
+            "type": "Dragon",
+            "category": "physical"
+          },
+          {
+            "name": "Wing Attack",
+            "power": 60,
+            "type": "Flying",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      }
     ],
     "items": [
-      { "name": "Potion",      "count": 5,  "sprite_path": "ingame_ui/potion.png" },
-      { "name": "Coins",       "count": 3000,  "sprite_path": "ingame_ui/coin.png" },
-      { "name": "Pokeball",    "count": 10, "sprite_path": "ingame_ui/ball.png" }
+      {
+        "name": "Potion",
+        "count": 5,
+        "sprite_path": "ingame_ui/potion.png"
+      },
+      {
+        "name": "Coins",
+        "count": 3000,
+        "sprite_path": "ingame_ui/coin.png"
+      },
+      {
+        "name": "Pokeball",
+        "count": 10,
+        "sprite_path": "ingame_ui/ball.png"
+      }
     ]
   }
 }

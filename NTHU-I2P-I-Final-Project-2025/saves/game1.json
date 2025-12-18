@@ -619,7 +619,9 @@
       {
         "name": "Potion",
         "count": 5,
-        "sprite_path": "ingame_ui/potion.png"
+        "sprite_path": "ingame_ui/potion.png",
+        "effect": "heal",
+        "value": 20
       },
       {
         "name": "Coins",

@@ -99,3 +99,108 @@
     ]
   }
 }
+
+
+
+      {
+        "name": "Venusaur",
+        "hp": 90,
+        "max_hp": 160,
+        "level": 30,
+        "sprite_path": "menu_sprites/menusprite4.png",
+        "element": [
+          "Grass",
+          "Poison"
+        ],
+        "base_hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 80,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Vine Whip",
+            "power": 45,
+            "type": "Grass",
+            "category": "physical"
+          },
+          {
+            "name": "Razor Leaf",
+            "power": 55,
+            "type": "Grass",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Gengar",
+        "hp": 110,
+        "max_hp": 140,
+        "level": 28,
+        "sprite_path": "menu_sprites/menusprite5.png",
+        "element": [
+          "Ghost",
+          "Poison"
+        ],
+        "base_hp": 60,
+        "attack": 65,
+        "defense": 60,
+        "sp_attack": 130,
+        "sp_defense": 75,
+        "speed": 110,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Shadow Ball",
+            "power": 80,
+            "type": "Ghost",
+            "category": "special"
+          },
+          {
+            "name": "Lick",
+            "power": 30,
+            "type": "Ghost",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      },
+      {
+        "name": "Dragonite",
+        "hp": 180,
+        "max_hp": 220,
+        "level": 40,
+        "sprite_path": "menu_sprites/menusprite6.png",
+        "element": [
+          "Dragon",
+          "Flying"
+        ],
+        "base_hp": 91,
+        "attack": 134,
+        "defense": 95,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 80,
+        "attack_boost": 0,
+        "defense_boost": 0,
+        "moves": [
+          {
+            "name": "Dragon Claw",
+            "power": 80,
+            "type": "Dragon",
+            "category": "physical"
+          },
+          {
+            "name": "Wing Attack",
+            "power": 60,
+            "type": "Flying",
+            "category": "physical"
+          }
+        ],
+        "can_evolve": false
+      }

@@ -18,7 +18,7 @@ class Player(Entity):
         super().__init__(x, y, game_manager)
         self.cur = None
         self.prev = None
-
+        self.dx,self.dy = 0,0
 
     @override
     def update(self, dt: float) -> None:
@@ -28,7 +28,8 @@ class Player(Entity):
             super().update(dt)
             return  # 锁定期间不允许移动
         
-        dis = Position(0, 0)
+        dis = Position(self.dx,self.dy)
+        self.dx,self.dy = 0,0
         '''
         [TODO HACKATHON 2]
         Calculate the distance change, and then normalize the distance
@@ -166,6 +167,24 @@ class Player(Entity):
     @property
     def hitbox(self) -> pg.Rect:
         return super().hitbox
+
+    def automove(self,dx,dy):
+        self.dx += dx
+        self.dy += dy
+        if abs(dx) > abs(dy) :
+            if dx > 0:
+                self.animation.switch("right")
+                self.direction = Direction.RIGHT
+            else:
+                self.animation.switch("left")
+                self.direction = Direction.LEFT
+        else :
+            if dy > 0:
+                self.animation.switch("down")
+                self.direction = Direction.DOWN
+            else:
+                self.animation.switch("up")
+                self.direction = Direction.UP    
 
     @property
     @override

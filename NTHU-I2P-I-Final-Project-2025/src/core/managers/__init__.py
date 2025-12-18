@@ -4,3 +4,4 @@ from .resource_manager import ResourceManager
 from .sound_manager import SoundManager
 from .game_manager import GameManager
 from .online_manager import OnlineManager
+from .navigation_manager import NavigationManager

@@ -3,9 +3,11 @@ Navigation Manager for automatic player movement.
 Handles path following, speed control, and navigation state.
 """
 
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, TYPE_CHECKING
 from src.utils import GameSettings, Position, Logger
-from src.entities import Player
+# from src.core.managers.game_manager import GameManager
+if TYPE_CHECKING:
+    from src.entities import Player
 
 
 class NavigationManager:
@@ -28,6 +30,11 @@ class NavigationManager:
         # Arrival detection
         self.arrival_distance = GameSettings.NAV_ARRIVAL_DISTANCE
         
+        # Stuck detection
+        self.stuck_counter = 0
+        self.stuck_threshold = 60  # 1 second at 60fps
+        self.last_distance = float('inf')
+        
         Logger.info("NavigationManager initialized")
     
     def start_navigation(self, path: List[Tuple[int, int]], target_name: str = "destination"):
@@ -48,6 +55,7 @@ class NavigationManager:
         self.target_name = target_name
         
         Logger.info(f"Navigation started to '{target_name}' ({len(path)} waypoints, speed={self.speed_multiplier}x)")
+        Logger.info(f"waypoints: {self.path}")
         return True
     
     def cancel(self):
@@ -59,6 +67,10 @@ class NavigationManager:
         self.path = []
         self.current_index = 0
         self.target_name = ""
+        self.speed_index = 1
+        self.speed_multiplier = self.speed_options[self.speed_index]
+        self.stuck_counter = 0
+        self.last_distance = float('inf')
     
     def toggle_speed(self):
         """
@@ -85,7 +97,7 @@ class NavigationManager:
         else:
             Logger.warning(f"Invalid speed multiplier: {multiplier}")
     
-    def update(self, player: Player, dt: float) -> bool:
+    def update(self, player: "Player", dt: float) -> bool:
         """
         更新導航狀態，自動移動玩家
         
@@ -108,14 +120,25 @@ class NavigationManager:
         # Get current target waypoint
         target_x, target_y = self.path[self.current_index]
         
-        # Calculate distance to target
-        dx = target_x - player.position.x
-        dy = target_y - player.position.y
-        distance = (dx * dx + dy * dy) ** 0.5
+        import math
         
-        # Check if reached current waypoint
-        if distance < self.arrival_distance:
+
+
+        
+        target_pixel_x = target_x * GameSettings.TILE_SIZE
+        target_pixel_y = target_y * GameSettings.TILE_SIZE
+        precise_dx = target_pixel_x - player.position.x
+        precise_dy = target_pixel_y - player.position.y
+        precise_distance = math.hypot(precise_dx, precise_dy)
+        
+        # Check if reached current waypoint (within 5 pixels of tile center)
+        if precise_distance < GameSettings.NAV_ARRIVAL_DISTANCE:
+            Logger.info(f"Reached waypoint {self.current_index} (precise_distance={precise_distance:.1f}px)")
+            player.position.x = target_pixel_x
+            player.position.y = target_pixel_y
             self.current_index += 1
+            self.stuck_counter = 0
+            self.last_distance = float('inf')
             
             # Check if this was the last waypoint
             if self.current_index >= len(self.path):
@@ -126,24 +149,27 @@ class NavigationManager:
             # Move to next waypoint
             return True
         
-        # Move player towards target
-        # Determine primary direction (prioritize larger delta)
-        if abs(dx) > abs(dy):
-            # Move horizontally
-            if dx > 0:
-                # Move right
-                player.try_move('right', self.speed_multiplier)
-            else:
-                # Move left
-                player.try_move('left', self.speed_multiplier)
+        # Stuck detection
+        if precise_distance >= self.last_distance - 0.1:  # Not making progress
+            self.stuck_counter += 1
         else:
-            # Move vertically
-            if dy > 0:
-                # Move down
-                player.try_move('down', self.speed_multiplier)
-            else:
-                # Move up
-                player.try_move('up', self.speed_multiplier)
+            self.stuck_counter = 0  # Reset counter if making progress
+        
+        self.last_distance = precise_distance
+        
+        # Move player towards tile center
+        if precise_distance > 0:
+            # Normalize direction
+            direction_x = precise_dx / precise_distance
+            direction_y = precise_dy / precise_distance
+            
+            # Clean up floating point errors (< 0.001 treated as 0)
+            if abs(direction_x) < 0.001:
+                direction_x = 0.0
+            if abs(direction_y) < 0.001:
+                direction_y = 0.0
+            
+            player.automove(direction_x * self.speed_multiplier, direction_y * self.speed_multiplier)
         
         return True
     

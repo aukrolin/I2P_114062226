@@ -21,6 +21,38 @@ def manhattan_distance(pos1: Tuple[int, int], pos2: Tuple[int, int]) -> int:
         Manhattan distance
     """
     return abs(pos1[0] - pos2[0]) + abs(pos1[1] - pos2[1])
+def pixel_to_tile(pixel_x: int, pixel_y: int) -> Tuple[int, int]:
+    """
+    Convert pixel coordinates to tile coordinates.
+    
+    Args:
+        pixel_x: X coordinate in pixels
+        pixel_y: Y coordinate in pixels
+        
+    Returns:
+        (tile_x, tile_y) tuple
+    """
+    return (pixel_x // GameSettings.TILE_SIZE, pixel_y // GameSettings.TILE_SIZE)
+def tile_to_pixel(tile_x: int, tile_y: int, center: bool = False) -> Tuple[int, int]:
+    """
+    Convert tile coordinates to pixel coordinates.
+    
+    Args:
+        tile_x: X coordinate in tiles
+        tile_y: Y coordinate in tiles
+        center: If True, return center of tile. If False, return top-left corner.
+        
+    Returns:
+        (pixel_x, pixel_y) tuple
+    """
+    pixel_x = tile_x * GameSettings.TILE_SIZE
+    pixel_y = tile_y * GameSettings.TILE_SIZE
+    
+    if center:
+        pixel_x += GameSettings.TILE_SIZE // 2
+        pixel_y += GameSettings.TILE_SIZE // 2
+    
+    return (pixel_x, pixel_y)
 def euclidean_distance(pos1: Tuple[int, int], pos2: Tuple[int, int]) -> float:
     """
     Calculate Euclidean distance between two positions.
@@ -44,7 +76,7 @@ class PathfindingGrid:
     Precomputes walkable/non-walkable tiles from collision map.
     """
     
-    def __init__(self, map_width_tiles: int, map_height_tiles: int, collision_map: list[pg.Rect]):
+    def __init__(self, map_width_tiles: int, map_height_tiles: int, collision_map: list[pg.Rect],):
         """
         Initialize pathfinding grid.
         
@@ -58,7 +90,7 @@ class PathfindingGrid:
         
         # Initialize all tiles as walkable
         self.grid = [[True] * map_width_tiles for _ in range(map_height_tiles)]
-        
+        # collision_map.extend()
         # Mark collision tiles as non-walkable
         for rect in collision_map:
             # Convert pixel coordinates to tile coordinates
@@ -91,7 +123,7 @@ class PathfindingGrid:
             return self.grid[tile_y][tile_x]
         return False
     
-    def get_neighbors(self, tile_x: int, tile_y: int, allow_diagonal: bool = True) -> List[Tuple[int, int]]:
+    def get_neighbors(self, tile_x: int, tile_y: int, allow_diagonal: bool = False) -> List[Tuple[int, int]]:
         """
         Get walkable neighboring tiles.
         

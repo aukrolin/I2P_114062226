@@ -28,6 +28,6 @@ class Settings:
     NAV_SPEED_OPTIONS = [0.5, 1.0, 2.0, 4.0]  # 速度選項
     NAV_DEFAULT_SPEED = 1.0          # 預設速度
     NAV_PATH_COLOR = (255, 255, 0)   # 路徑顏色（黃色）
-    NAV_ARRIVAL_DISTANCE = 5         # 到達判定距離（像素）
+    NAV_ARRIVAL_DISTANCE = 3        # 到達判定距離（像素）
 
 GameSettings = Settings()

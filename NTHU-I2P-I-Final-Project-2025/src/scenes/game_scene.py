@@ -4,12 +4,12 @@ import time
 
 from src.scenes.scene import Scene
 from src.core import GameManager, OnlineManager
-from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager, input_manager
-from src.interface.components import Button, Minimap
+from src.core.services import scene_manager, get_game_manager, set_game_manager, get_online_manager, get_navigation_manager, input_manager
+from src.interface.components import Button, Minimap, MapButton
 from src.utils import Logger, PositionCamera, GameSettings, Position
 from src.core.services import sound_manager
 from src.sprites import Sprite, Animation
-from src.overlay import BagOverlay, SettingsOverlay, Overlay, ClerkOverlay, JoeyOverlay
+from src.overlay import BagOverlay, SettingsOverlay, Overlay, ClerkOverlay, JoeyOverlay, FullMapOverlay
 # from src
 from typing import override
 
@@ -27,6 +27,7 @@ class GameScene(Scene):
             'settings': SettingsOverlay(lambda id: set_game_manager("saves/game1.json")),
             'clerk_overlay': ClerkOverlay(),
             'joey_overlay': JoeyOverlay(),
+            'fullmap': FullMapOverlay(),
         }       
         self.game_manager: GameManager = get_game_manager()
         # Online Manager
@@ -53,9 +54,16 @@ class GameScene(Scene):
             px-TS, py, TS, TS,
             lambda id: self.settings_overlay()
         )
+        self.map_button = MapButton(
+            px-TS*2.5, py, TS, TS,
+            lambda id: self.map_overlay()
+        )
         
         # Initialize minimap
         self.minimap = Minimap()
+        
+        # Initialize navigation manager
+        self.navigation_manager = get_navigation_manager()
     
         
 
@@ -68,6 +76,13 @@ class GameScene(Scene):
         self.overlay_open()
         self.overlay = 'settings'
         Logger.info('Open settings overlay')
+    def map_overlay(self):
+        self.overlay_open()
+        self.overlay = 'fullmap'
+        # Generate map when opening
+        if isinstance(self.overlays['fullmap'], FullMapOverlay):
+            self.overlays['fullmap'].open()
+        Logger.info('Open full map overlay')
 
 
     def overlay_open(self):
@@ -115,8 +130,68 @@ class GameScene(Scene):
         # Update others
         self.bag_button.update(dt)
         self.settings_button.update(dt)
+        self.map_button.update(dt)
         self.minimap.update(dt)  # Update minimap timer
-
+        
+        # Update navigation (auto-move player)
+        if self.navigation_manager.active and self.game_manager.player:
+            self.navigation_manager.update(self.game_manager.player, dt)
+        
+        # Navigation controls (only when active)
+        if self.navigation_manager.active:
+            # ESC to cancel navigation
+            if input_manager.key_pressed(pg.K_ESCAPE):
+                self.navigation_manager.cancel()
+            # N key to toggle speed
+            elif input_manager.key_pressed(pg.K_n):
+                speed = self.navigation_manager.toggle_speed()
+                Logger.info(f"Navigation speed: {speed}x")
+            # Manual movement cancels navigation
+            elif (input_manager.key_down(pg.K_w) or input_manager.key_down(pg.K_UP) or
+                  input_manager.key_down(pg.K_s) or input_manager.key_down(pg.K_DOWN) or
+                  input_manager.key_down(pg.K_a) or input_manager.key_down(pg.K_LEFT) or
+                  input_manager.key_down(pg.K_d) or input_manager.key_down(pg.K_RIGHT)):
+                Logger.info("Navigation cancelled by manual movement")
+                self.navigation_manager.cancel()        
+        # TEMPORARY: Test navigation with M key (navigate to first teleporter)
+        if input_manager.key_pressed(pg.K_m) and self.game_manager.player:
+            teleporters = self.game_manager.current_map.teleporters
+            if teleporters:
+                from src.utils.pathfinding import PathfindingGrid, a_star, pixel_to_tile, tile_to_pixel
+                
+                # Get player position
+                player_tile = pixel_to_tile(
+                    int(self.game_manager.player.position.x),
+                    int(self.game_manager.player.position.y)
+                )
+                
+                # Get first teleporter position
+                target_tp = teleporters[0]
+                target_tile = pixel_to_tile(
+                    int(target_tp.pos.x),
+                    int(target_tp.pos.y)
+                )
+                
+                Logger.info(f"Testing navigation: {player_tile} -> {target_tile}")
+                
+                # Build pathfinding grid
+                map_width_tiles = self.game_manager.current_map.tmxdata.width
+                map_height_tiles = self.game_manager.current_map.tmxdata.height
+                collision_map = self.game_manager.current_map._collision_map
+                
+                grid = PathfindingGrid(map_width_tiles, map_height_tiles, collision_map)
+                
+                # Find path
+                tile_path = a_star(grid, player_tile, target_tile)
+                # print(tile_path)
+                if tile_path:
+                    # Convert to pixel coordinates (center of tiles)
+                    
+                    # Start navigation
+                    self.navigation_manager.start_navigation(tile_path, "Test Teleporter")
+                    Logger.info(f"Navigation started with {len(tile_path)} waypoints")
+                else:
+                    Logger.warning("No path found to teleporter!")
         if self.game_manager.need_overlay:
             self.overlay_open()
             self.overlay = self.game_manager.need_overlay
@@ -240,8 +315,8 @@ class GameScene(Scene):
 
 
         self.bag_button.draw(screen)
-
         self.settings_button.draw(screen)
+        self.map_button.draw(screen)
         
          # Draw online players
 
@@ -287,3 +362,17 @@ class GameScene(Scene):
                 teleporters=self.game_manager.current_map.teleporters,
                 current_map_name=self.game_manager.current_map.path_name
             )
+            
+            # Draw navigation path on minimap if active
+            if self.navigation_manager.active:
+                remaining_path = self.navigation_manager.get_remaining_path()
+                if remaining_path:
+                    # print(remaining_path)
+                    # Convert to tile coordinates
+                    from src.utils.pathfinding import pixel_to_tile
+                    tile_path = [pixel_to_tile(x, y) for x, y in remaining_path]
+                    self.minimap.draw_navigation_path(
+                        screen, 
+                        self.game_manager.player.position, 
+                        tile_path
+                    )
